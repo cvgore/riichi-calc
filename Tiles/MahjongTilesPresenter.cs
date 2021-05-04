@@ -13,58 +13,75 @@ namespace RiichiCalc.Tiles
         private const uint ManzuMin = (uint)MahjongTile.Manzu1;
         private const uint ManzuMax = (uint)MahjongTile.Manzu9;
 
-        private const uint TerminalMax = (uint) MahjongTile.DragonWhite;
+        private const uint TerminalMax = (uint)MahjongTile.DragonWhite;
 
         private const uint SuitMaxTiles = 9;
 
         public static string GetWindName(this MahjongTile tile)
         {
-            switch (tile)
+            return tile switch
             {
-                case MahjongTile.WindEast:
-                    return "East";
-                case MahjongTile.WindSouth:
-                    return "South";
-                case MahjongTile.WindWest:
-                    return "West";
-                case MahjongTile.WindNorth:
-                    return "North";
-            }
-
-            throw new TileNotWindException(tile);
+                MahjongTile.WindEast => "East",
+                MahjongTile.WindSouth => "South",
+                MahjongTile.WindWest => "West",
+                MahjongTile.WindNorth => "North",
+                _ => throw new TileNotWindException(tile)
+            };
         }
 
         public static string GetDragonName(this MahjongTile tile)
         {
-            switch (tile)
+            return tile switch
             {
-                case MahjongTile.DragonRed:
-                    return "Red";
-                case MahjongTile.DragonGreen:
-                    return "Green";
-                case MahjongTile.DragonWhite:
-                    return "White";
-            }
-
-            throw new TileNotDragonException(tile);
+                MahjongTile.DragonRed => "Red",
+                MahjongTile.DragonGreen => "Green",
+                MahjongTile.DragonWhite => "White",
+                _ => throw new TileNotDragonException(tile)
+            };
         }
 
         public static string GetSuitName(this MahjongTile tile)
         {
-            switch ((uint)tile)
+            if (tile.IsPinzu())
             {
-                case <= PinzuMax:
-                    return "Pinzu";
-                case <= SouzuMax:
-                    return "Souzu";
-                case <= ManzuMax:
-                    return "Manzu";
+                return "Pinzu";
+            }
+
+            if (tile.IsManzu())
+            {
+                return "Manzu";
+            }
+
+            if (tile.IsSouzu())
+            {
+                return "Souzu";
             }
 
             throw new TileNotSuitException(tile);
         }
 
-        public static string ToString(this MahjongTile tile)
+        public static bool IsPinzu(this MahjongTile tile)
+        {
+            var id = (uint)tile;
+
+            return id is <= PinzuMax and >= PinzuMin;
+        }
+
+        public static bool IsSouzu(this MahjongTile tile)
+        {
+            var id = (uint)tile;
+
+            return id is <= SouzuMax and >= SouzuMin;
+        }
+
+        public static bool IsManzu(this MahjongTile tile)
+        {
+            var id = (uint)tile;
+
+            return id is <= ManzuMax and >= ManzuMin;
+        }
+
+        public static string ToPrettyString(this MahjongTile tile)
         {
             switch (tile)
             {
@@ -80,90 +97,53 @@ namespace RiichiCalc.Tiles
                     return $"Dragon: {tile.GetDragonName()}";
             }
 
-            var id = (uint) tile;
-            var idx = (id - TerminalMax) % SuitMaxTiles;
+            var id = (uint)tile;
+            var idx = (id - TerminalMax - 1) % SuitMaxTiles;
 
             return $"{tile.GetSuitName()}: {idx + 1}";
         }
 
         public static string ToTileSymbol(this MahjongTile tile)
         {
-            switch (tile)
+            return tile switch
             {
-                case MahjongTile.WindEast:
-                    return "1";
-                case MahjongTile.WindSouth:
-                    return "2";
-                case MahjongTile.WindWest:
-                    return "3";
-                case MahjongTile.WindNorth:
-                    return "4";
-                case MahjongTile.DragonRed:
-                    return "7";
-                case MahjongTile.DragonGreen:
-                    return "6";
-                case MahjongTile.DragonWhite:
-                    return "5";
-                case MahjongTile.Pinzu1:
-                    return "z";
-                case MahjongTile.Pinzu2:
-                    return "x";
-                case MahjongTile.Pinzu3:
-                    return "c";
-                case MahjongTile.Pinzu4:
-                    return "v";
-                case MahjongTile.Pinzu5:
-                    return "b";
-                case MahjongTile.Pinzu6:
-                    return "n";
-                case MahjongTile.Pinzu7:
-                    return "m";
-                case MahjongTile.Pinzu8:
-                    return ",";
-                case MahjongTile.Pinzu9:
-                    return ".";
-                case MahjongTile.Souzu1:
-                    return "a";
-                case MahjongTile.Souzu2:
-                    return "s";
-                case MahjongTile.Souzu3:
-                    return "d";
-                case MahjongTile.Souzu4:
-                    return "f";
-                case MahjongTile.Souzu5:
-                    return "g";
-                case MahjongTile.Souzu6:
-                    return "h";
-                case MahjongTile.Souzu7:
-                    return "j";
-                case MahjongTile.Souzu8:
-                    return "k";
-                case MahjongTile.Souzu9:
-                    return "l";
-                case MahjongTile.Manzu1:
-                    return "q";
-                case MahjongTile.Manzu2:
-                    return "w";
-                case MahjongTile.Manzu3:
-                    return "e";
-                case MahjongTile.Manzu4:
-                    return "r";
-                case MahjongTile.Manzu5:
-                    return "t";
-                case MahjongTile.Manzu6:
-                    return "y";
-                case MahjongTile.Manzu7:
-                    return "u";
-                case MahjongTile.Manzu8:
-                    return "i";
-                case MahjongTile.Manzu9:
-                    return "o";
-            }
-
-            // Odd if happens
-            throw new InvalidTileException(tile);
+                MahjongTile.WindEast => "1",
+                MahjongTile.WindSouth => "2",
+                MahjongTile.WindWest => "3",
+                MahjongTile.WindNorth => "4",
+                MahjongTile.DragonRed => "7",
+                MahjongTile.DragonGreen => "6",
+                MahjongTile.DragonWhite => "5",
+                MahjongTile.Pinzu1 => "z",
+                MahjongTile.Pinzu2 => "x",
+                MahjongTile.Pinzu3 => "c",
+                MahjongTile.Pinzu4 => "v",
+                MahjongTile.Pinzu5 => "b",
+                MahjongTile.Pinzu6 => "n",
+                MahjongTile.Pinzu7 => "m",
+                MahjongTile.Pinzu8 => ",",
+                MahjongTile.Pinzu9 => ".",
+                MahjongTile.Souzu1 => "a",
+                MahjongTile.Souzu2 => "s",
+                MahjongTile.Souzu3 => "d",
+                MahjongTile.Souzu4 => "f",
+                MahjongTile.Souzu5 => "g",
+                MahjongTile.Souzu6 => "h",
+                MahjongTile.Souzu7 => "j",
+                MahjongTile.Souzu8 => "k",
+                MahjongTile.Souzu9 => "l",
+                MahjongTile.Manzu1 => "q",
+                MahjongTile.Manzu2 => "w",
+                MahjongTile.Manzu3 => "e",
+                MahjongTile.Manzu4 => "r",
+                MahjongTile.Manzu5 => "t",
+                MahjongTile.Manzu6 => "y",
+                MahjongTile.Manzu7 => "u",
+                MahjongTile.Manzu8 => "i",
+                MahjongTile.Manzu9 => "o",
+                // Odd if happens
+                _ => throw new InvalidTileException(tile)
+            };
         }
-
-        public static string ToRawString(this MahjongTile tile) => Enum.GetName(tile)!;
     }
 }

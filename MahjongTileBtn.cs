@@ -27,9 +27,10 @@ namespace RiichiCalc
             set
             {
                 _tile = value;
-                Refresh();
+                PostUpdateTile();
             }
         }
+
 
         private static void InitFont()
         {
@@ -56,8 +57,7 @@ namespace RiichiCalc
 
             InitializeComponent();
 
-            Tile = MahjongTile.WindSouth;
-            _counter++;
+            Make(MahjongTile.WindSouth);
         }
 
         public MahjongTileBtn(MahjongTile tile)
@@ -67,10 +67,40 @@ namespace RiichiCalc
                 InitFont();
             }
 
-            Tile = tile;
-            _counter++;
-
             InitializeComponent();
+
+            Make(tile);
+        }
+
+        private void Make(MahjongTile tile)
+        {
+            Tile = tile;
+            tileBtn.Font = new Font(_fontCollection!.Families[0], 32f);
+
+            _counter++;
+        }
+
+        private void PostUpdateTile()
+        {
+            tileBtn.Text = Tile.ToTileSymbol();
+            tileTip.SetToolTip(tileBtn, Tile.ToPrettyString());
+
+            tileBtn.ForeColor = Tile switch
+            {
+                MahjongTile.WindSouth => Color.Blue,
+                MahjongTile.WindEast => Color.Blue,
+                MahjongTile.WindWest => Color.Blue,
+                MahjongTile.WindNorth => Color.Blue,
+                MahjongTile.DragonWhite => Color.White,
+                MahjongTile.DragonGreen => Color.Green,
+                MahjongTile.DragonRed => Color.DarkRed,
+                var tile when tile.IsPinzu() => Color.MediumVioletRed,
+                var tile when tile.IsManzu() => Color.DarkBlue,
+                var tile when tile.IsSouzu() => Color.DarkGreen,
+                _ => DefaultForeColor
+            };
+
+            Refresh();
         }
 
         public new static void Dispose()

@@ -32,8 +32,7 @@ namespace RiichiCalc
         /// </summary>
         private void InitializeComponent()
         {
-            this.tilesPane = new System.Windows.Forms.Panel();
-            this.tilesPane.SuspendLayout();
+            this.tilesPane = new System.Windows.Forms.FlowLayoutPanel();
             this.SuspendLayout();
             // 
             // tilesPane
@@ -43,28 +42,26 @@ namespace RiichiCalc
             this.tilesPane.Dock = System.Windows.Forms.DockStyle.Top;
             this.tilesPane.Location = new System.Drawing.Point(0, 0);
             this.tilesPane.Name = "tilesPane";
-            this.tilesPane.Padding = new System.Windows.Forms.Padding(16);
-            this.tilesPane.Size = new System.Drawing.Size(784, 56);
-            this.tilesPane.TabIndex = 1;
+            this.tilesPane.Padding = new System.Windows.Forms.Padding(6);
+            this.tilesPane.Size = new System.Drawing.Size(984, 12);
+            this.tilesPane.TabIndex = 2;
             // 
             // MainWnd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 461);
+            this.ClientSize = new System.Drawing.Size(984, 461);
             this.Controls.Add(this.tilesPane);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(800, 500);
             this.Name = "MainWnd";
             this.Text = "RiichiCalc";
-
-            this.tilesPane.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion
-        private System.Windows.Forms.Panel tilesPane;
+        private System.Windows.Forms.FlowLayoutPanel tilesPane;
     }
 }
 

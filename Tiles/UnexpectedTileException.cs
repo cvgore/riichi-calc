@@ -17,7 +17,7 @@ namespace RiichiCalc.Tiles
 
         public override string ToString()
         {
-            return $"{GetType().Name}: unexpected tile {_tile.ToRawString()}";
+            return $"{GetType().Name}: unexpected tile {_tile}";
         }
     }
 }

@@ -31,7 +31,9 @@ namespace RiichiCalc
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tileBtn = new System.Windows.Forms.Button();
+            this.tileTip = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // tileBtn
@@ -41,20 +43,24 @@ namespace RiichiCalc
             this.tileBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tileBtn.Location = new System.Drawing.Point(0, 0);
             this.tileBtn.Name = "tileBtn";
-            this.tileBtn.Size = new System.Drawing.Size(50, 80);
+            this.tileBtn.Size = new System.Drawing.Size(40, 60);
             this.tileBtn.TabIndex = 0;
-            this.tileBtn.Text = Tile.ToTileSymbol();
-            this.tileBtn.Font = new Font(_fontCollection.Families[0], 16f);
             this.tileBtn.UseCompatibleTextRendering = true;
             this.tileBtn.UseVisualStyleBackColor = true;
+            // 
+            // tileTip
+            // 
+            this.tileTip.AutomaticDelay = 250;
+            this.tileTip.IsBalloon = true;
+            this.tileTip.ShowAlways = true;
             // 
             // MahjongTileBtn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tileBtn);
-            this.Name = "MahjongTile";
-            this.Size = new System.Drawing.Size(50, 80);
+            this.Name = "MahjongTileBtn";
+            this.Size = new System.Drawing.Size(40, 60);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -63,5 +69,6 @@ namespace RiichiCalc
         #endregion
 
         private System.Windows.Forms.Button tileBtn;
+        private System.Windows.Forms.ToolTip tileTip;
     }
 }
