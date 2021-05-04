@@ -1,0 +1,11 @@
+This project uses 3rd party components:
+==============
+
+GL-MahjongTile: multibyte coded symbol font
+
+(C)2009-2021 Gutenberg Labo (http://gutenberg.osdn.jp/), All rights reserved.
+
+- GL-MahjongTile license
+  These fonts are free softwares.
+  Unlimited permission is granted to use, copy, and distribute it, with or without modification, either commercially and noncommercially.
+  THESE FONTS ARE PROVIDED "AS IS" WITHOUT WARRANTY.
