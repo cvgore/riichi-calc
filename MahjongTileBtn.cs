@@ -13,13 +13,23 @@ using RiichiCalc.Tiles;
 
 namespace RiichiCalc
 {
-    public partial class TileBtn : UserControl
+    public partial class MahjongTileBtn : UserControl
     {
         private static PrivateFontCollection? _fontCollection;
         private static IntPtr _fontPtr;
-        private static uint _counter = 0;
+        private static int _counter = 0;
 
-        private readonly MahjongTile _tile;
+        private MahjongTile _tile = MahjongTile.WindSouth;
+
+        public MahjongTile Tile
+        {
+            get => _tile;
+            set
+            {
+                _tile = value;
+                Refresh();
+            }
+        }
 
         private static void InitFont()
         {
@@ -37,24 +47,37 @@ namespace RiichiCalc
             _fontCollection.AddMemoryFont(_fontPtr, MainRes.MahjongTiles.Length);
         }
 
-        public TileBtn(MahjongTile tile)
+        public MahjongTileBtn()
         {
             if (null == _fontCollection)
             {
                 InitFont();
             }
 
-            _tile = tile;
-
             InitializeComponent();
 
+            Tile = MahjongTile.WindSouth;
             _counter++;
+        }
+
+        public MahjongTileBtn(MahjongTile tile)
+        {
+            if (null == _fontCollection)
+            {
+                InitFont();
+            }
+
+            Tile = tile;
+            _counter++;
+
+            InitializeComponent();
         }
 
         public new static void Dispose()
         {
             // Let last component dispose memory
-            if (0 == --_counter)
+
+            if (0 >= --_counter)
             {
                 _fontCollection?.Dispose();
                 Marshal.FreeCoTaskMem(_fontPtr);

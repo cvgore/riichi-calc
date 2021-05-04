@@ -60,5 +60,8 @@
         Manzu9,
 
         #endregion
+
+        MinTile = WindSouth,
+        MaxTile = Manzu9,
     }
 }

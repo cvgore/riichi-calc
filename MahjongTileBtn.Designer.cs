@@ -1,8 +1,9 @@
 ﻿using System.Drawing;
+using RiichiCalc.Tiles;
 
 namespace RiichiCalc
 {
-    partial class TileBtn
+    partial class MahjongTileBtn
     {
         /// <summary> 
         /// Required designer variable.
@@ -30,29 +31,29 @@ namespace RiichiCalc
         /// </summary>
         private void InitializeComponent()
         {
-            this.mainBtn = new System.Windows.Forms.Button();
+            this.tileBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // mainBtn
+            // tileBtn
             // 
-            this.mainBtn.AutoSize = true;
-            this.mainBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.mainBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainBtn.Location = new System.Drawing.Point(0, 0);
-            this.mainBtn.Name = "mainBtn";
-            this.mainBtn.Size = new System.Drawing.Size(50, 80);
-            this.mainBtn.TabIndex = 0;
-            this.mainBtn.UseVisualStyleBackColor = true;
-            this.Font = new Font(_fontCollection.Families[0], this.mainBtn.Font.Size);
-            this.mainBtn.UseCompatibleTextRendering = true;
-
+            this.tileBtn.AutoSize = true;
+            this.tileBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.tileBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tileBtn.Location = new System.Drawing.Point(0, 0);
+            this.tileBtn.Name = "tileBtn";
+            this.tileBtn.Size = new System.Drawing.Size(50, 80);
+            this.tileBtn.TabIndex = 0;
+            this.tileBtn.Text = Tile.ToTileSymbol();
+            this.tileBtn.Font = new Font(_fontCollection.Families[0], 16f);
+            this.tileBtn.UseCompatibleTextRendering = true;
+            this.tileBtn.UseVisualStyleBackColor = true;
             // 
-            // TileBtn
+            // MahjongTileBtn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.mainBtn);
-            this.Name = "TileBtn";
+            this.Controls.Add(this.tileBtn);
+            this.Name = "MahjongTile";
             this.Size = new System.Drawing.Size(50, 80);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -61,6 +62,6 @@ namespace RiichiCalc
 
         #endregion
 
-        private System.Windows.Forms.Button mainBtn;
+        private System.Windows.Forms.Button tileBtn;
     }
 }
