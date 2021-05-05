@@ -41,12 +41,15 @@ namespace RiichiCalc
             this.tileBtn.AutoSize = true;
             this.tileBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.tileBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tileBtn.FlatAppearance.BorderSize = 0;
+            this.tileBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.tileBtn.Location = new System.Drawing.Point(0, 0);
+            this.tileBtn.Margin = new System.Windows.Forms.Padding(0);
             this.tileBtn.Name = "tileBtn";
-            this.tileBtn.Size = new System.Drawing.Size(40, 60);
+            this.tileBtn.Size = new System.Drawing.Size(35, 50);
             this.tileBtn.TabIndex = 0;
-            this.tileBtn.UseCompatibleTextRendering = true;
             this.tileBtn.UseVisualStyleBackColor = true;
+            this.tileBtn.Paint += new System.Windows.Forms.PaintEventHandler(this.tileBtn_Paint);
             // 
             // tileTip
             // 
@@ -60,7 +63,7 @@ namespace RiichiCalc
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tileBtn);
             this.Name = "MahjongTileBtn";
-            this.Size = new System.Drawing.Size(40, 60);
+            this.Size = new System.Drawing.Size(35, 50);
             this.ResumeLayout(false);
             this.PerformLayout();
 

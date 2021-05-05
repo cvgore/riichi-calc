@@ -15,9 +15,14 @@ namespace RiichiCalc
 {
     public partial class MahjongTileBtn : UserControl
     {
+        [DllImport("gdi32.dll")]
+        private static extern IntPtr AddFontMemResourceEx(IntPtr pbFont, uint cbFont, IntPtr pdv, [In] ref uint pcFonts);
+
         private static PrivateFontCollection? _fontCollection;
         private static IntPtr _fontPtr;
         private static int _counter = 0;
+        private const float FontYMargin = 5f;
+        private const float FontXMargin = 3f;
 
         private MahjongTile _tile = MahjongTile.WindSouth;
 
@@ -32,7 +37,7 @@ namespace RiichiCalc
         }
 
 
-        private static void InitFont()
+        private void InitFont()
         {
             _fontCollection = new();
 
@@ -45,23 +50,32 @@ namespace RiichiCalc
                 MainRes.MahjongTiles.Length
             );
 
+            if (DesignMode)
+            {
+                tileBtn.UseCompatibleTextRendering = true;
+            }
+            else
+            {
+                // https://stackoverflow.com/a/1956043
+                uint cFonts = 0;
+                AddFontMemResourceEx(_fontPtr, (uint)MainRes.MahjongTiles.Length, IntPtr.Zero, ref cFonts);
+            }
+            
             _fontCollection.AddMemoryFont(_fontPtr, MainRes.MahjongTiles.Length);
         }
 
         public MahjongTileBtn()
         {
-            if (null == _fontCollection)
-            {
-                InitFont();
-            }
-
-            InitializeComponent();
-
             Make(MahjongTile.WindSouth);
         }
 
         public MahjongTileBtn(MahjongTile tile)
         {
+            Make(tile);
+        }
+
+        private void Make(MahjongTile tile)
+        {
             if (null == _fontCollection)
             {
                 InitFont();
@@ -69,11 +83,6 @@ namespace RiichiCalc
 
             InitializeComponent();
 
-            Make(tile);
-        }
-
-        private void Make(MahjongTile tile)
-        {
             Tile = tile;
             tileBtn.Font = new Font(_fontCollection!.Families[0], 32f);
 
@@ -82,7 +91,6 @@ namespace RiichiCalc
 
         private void PostUpdateTile()
         {
-            tileBtn.Text = Tile.ToTileSymbol();
             tileTip.SetToolTip(tileBtn, Tile.ToPrettyString());
 
             tileBtn.ForeColor = Tile switch
@@ -112,6 +120,17 @@ namespace RiichiCalc
                 _fontCollection?.Dispose();
                 Marshal.FreeCoTaskMem(_fontPtr);
             }
+        }
+
+        private void tileBtn_Paint(object sender, PaintEventArgs e)
+        {
+            // This font is a little bit buggy and it's rendering needs to be adjusted (FontYMargin)
+            e.Graphics.DrawString(
+                Tile.ToTileSymbol(),
+                tileBtn.Font,
+                new SolidBrush(tileBtn.ForeColor),
+                new PointF(-FontXMargin, Height / 2f - tileBtn.Font.Size / 2f - FontYMargin)
+            );
         }
     }
 }
