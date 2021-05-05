@@ -15,15 +15,6 @@ namespace RiichiCalc
 {
     public partial class MahjongTileBtn : UserControl
     {
-        [DllImport("gdi32.dll")]
-        private static extern IntPtr AddFontMemResourceEx(IntPtr pbFont, uint cbFont, IntPtr pdv, [In] ref uint pcFonts);
-
-        private static PrivateFontCollection? _fontCollection;
-        private static IntPtr _fontPtr;
-        private static int _counter = 0;
-        private const float FontYMargin = 5f;
-        private const float FontXMargin = 3f;
-
         private MahjongTile _tile = MahjongTile.WindSouth;
 
         public MahjongTile Tile
@@ -35,35 +26,7 @@ namespace RiichiCalc
                 PostUpdateTile();
             }
         }
-
-
-        private void InitFont()
-        {
-            _fontCollection = new();
-
-            _fontPtr = Marshal.AllocCoTaskMem(MainRes.MahjongTiles.Length);
-
-            Marshal.Copy(
-                MainRes.MahjongTiles,
-                0,
-                _fontPtr,
-                MainRes.MahjongTiles.Length
-            );
-
-            if (DesignMode)
-            {
-                tileBtn.UseCompatibleTextRendering = true;
-            }
-            else
-            {
-                // https://stackoverflow.com/a/1956043
-                uint cFonts = 0;
-                AddFontMemResourceEx(_fontPtr, (uint)MainRes.MahjongTiles.Length, IntPtr.Zero, ref cFonts);
-            }
-            
-            _fontCollection.AddMemoryFont(_fontPtr, MainRes.MahjongTiles.Length);
-        }
-
+        
         public MahjongTileBtn()
         {
             Make(MahjongTile.WindSouth);

@@ -8,6 +8,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Update="CheckBtn - Copy.Designer.cs">
+      <DependentUpon>CheckBtn.Designer.cs</DependentUpon>
+    </Compile>
     <Compile Update="MainRes.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -16,6 +19,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="CheckBtn - Copy.resx">
+      <DependentUpon>CheckBtn.resx</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Update="MainRes.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>MainRes.Designer.cs</LastGenOutput>

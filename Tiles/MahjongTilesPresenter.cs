@@ -81,20 +81,43 @@ namespace RiichiCalc.Tiles
             return id is <= ManzuMax and >= ManzuMin;
         }
 
-        public static string ToPrettyString(this MahjongTile tile)
+        public static bool IsWind(this MahjongTile tile)
         {
             switch (tile)
             {
-                case MahjongTile.WindEast:
                 case MahjongTile.WindSouth:
+                case MahjongTile.WindEast:
                 case MahjongTile.WindWest:
                 case MahjongTile.WindNorth:
-                    return $"Wind: {tile.GetWindName()}";
+                    return true;
+            }
 
-                case MahjongTile.DragonRed:
+            return false;
+        }
+
+        public static bool IsDragon(this MahjongTile tile)
+        {
+            switch (tile)
+            {
                 case MahjongTile.DragonGreen:
                 case MahjongTile.DragonWhite:
-                    return $"Dragon: {tile.GetDragonName()}";
+                case MahjongTile.DragonRed:
+                    return true;
+            }
+
+            return false;
+        }
+
+        public static string ToPrettyString(this MahjongTile tile)
+        {
+            if (tile.IsWind())
+            {
+                return $"Wind: {tile.GetWindName()}";
+            }
+
+            if (tile.IsDragon())
+            {
+                return $"Dragon: {tile.GetDragonName()}";
             }
 
             var id = (uint)tile;

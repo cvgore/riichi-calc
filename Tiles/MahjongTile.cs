@@ -1,6 +1,6 @@
 ﻿namespace RiichiCalc.Tiles
 {
-    public enum MahjongTile
+    public enum MahjongTile: uint
     {
         #region Winds
 

@@ -69,16 +69,21 @@ namespace RiichiCalc
             this.mahjongTileBtn8 = new RiichiCalc.MahjongTileBtn();
             this.mahjongTileBtn1 = new RiichiCalc.MahjongTileBtn();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.ippatsuStateBtn = new RiichiCalc.CheckBtn();
+            this.kanStateBtn = new System.Windows.Forms.Button();
+            this.chiStateBtn = new System.Windows.Forms.Button();
+            this.ponStateBtn = new System.Windows.Forms.Button();
+            this.closedKanStateBtn = new System.Windows.Forms.Button();
+            this.riichiStateBtn = new RiichiCalc.CheckBtn();
+            this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.windSelBtn1 = new RiichiCalc.WindSelBtn();
             this.tableLayoutPanel2.SuspendLayout();
             this.tilesPane.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -439,15 +444,21 @@ namespace RiichiCalc
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.tableLayoutPanel1.BackColor = System.Drawing.SystemColors.Control;
             this.tableLayoutPanel1.ColumnCount = 4;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.Controls.Add(this.button4, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.button3, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.button1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.button2, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label2, 2, 6);
+            this.tableLayoutPanel1.Controls.Add(this.ippatsuStateBtn, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.kanStateBtn, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.chiStateBtn, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.ponStateBtn, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.closedKanStateBtn, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.riichiStateBtn, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 6);
+            this.tableLayoutPanel1.Controls.Add(this.windSelBtn1, 1, 6);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(378, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -462,46 +473,96 @@ namespace RiichiCalc
             this.tableLayoutPanel1.Size = new System.Drawing.Size(411, 224);
             this.tableLayoutPanel1.TabIndex = 5;
             // 
-            // button4
+            // label2
             // 
-            this.button4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button4.Location = new System.Drawing.Point(207, 3);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(96, 32);
-            this.button4.TabIndex = 5;
-            this.button4.Text = "Kan";
-            this.button4.UseVisualStyleBackColor = true;
+            this.label2.AutoSize = true;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.Location = new System.Drawing.Point(207, 189);
+            this.label2.Margin = new System.Windows.Forms.Padding(3);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(96, 32);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "Seat wind";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // button3
+            // ippatsuStateBtn
             // 
-            this.button3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button3.Location = new System.Drawing.Point(105, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(96, 32);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Chi";
-            this.button3.UseVisualStyleBackColor = true;
+            this.ippatsuStateBtn.AutoSize = true;
+            this.ippatsuStateBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ippatsuStateBtn.Checked = false;
+            this.ippatsuStateBtn.Content = "No Ippatsu";
+            this.ippatsuStateBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ippatsuStateBtn.Location = new System.Drawing.Point(105, 65);
+            this.ippatsuStateBtn.MinimumSize = new System.Drawing.Size(75, 25);
+            this.ippatsuStateBtn.Name = "ippatsuStateBtn";
+            this.ippatsuStateBtn.Size = new System.Drawing.Size(96, 32);
+            this.ippatsuStateBtn.TabIndex = 9;
             // 
-            // button1
+            // kanStateBtn
             // 
-            this.button1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button1.Location = new System.Drawing.Point(3, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(96, 32);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Pon";
-            this.button1.UseVisualStyleBackColor = true;
+            this.kanStateBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.kanStateBtn.Location = new System.Drawing.Point(207, 3);
+            this.kanStateBtn.Name = "kanStateBtn";
+            this.kanStateBtn.Size = new System.Drawing.Size(96, 32);
+            this.kanStateBtn.TabIndex = 5;
+            this.kanStateBtn.Text = "Kan";
+            this.kanStateBtn.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // chiStateBtn
             // 
-            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button2.Location = new System.Drawing.Point(309, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(99, 32);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Closed Kan";
-            this.button2.UseVisualStyleBackColor = true;
+            this.chiStateBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chiStateBtn.Location = new System.Drawing.Point(105, 3);
+            this.chiStateBtn.Name = "chiStateBtn";
+            this.chiStateBtn.Size = new System.Drawing.Size(96, 32);
+            this.chiStateBtn.TabIndex = 4;
+            this.chiStateBtn.Text = "Chi";
+            this.chiStateBtn.UseVisualStyleBackColor = true;
+            // 
+            // ponStateBtn
+            // 
+            this.ponStateBtn.Cursor = System.Windows.Forms.Cursors.Default;
+            this.ponStateBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ponStateBtn.Location = new System.Drawing.Point(3, 3);
+            this.ponStateBtn.Name = "ponStateBtn";
+            this.ponStateBtn.Size = new System.Drawing.Size(96, 32);
+            this.ponStateBtn.TabIndex = 3;
+            this.ponStateBtn.Text = "Pon";
+            this.ponStateBtn.UseVisualStyleBackColor = true;
+            // 
+            // closedKanStateBtn
+            // 
+            this.closedKanStateBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.closedKanStateBtn.Location = new System.Drawing.Point(309, 3);
+            this.closedKanStateBtn.Name = "closedKanStateBtn";
+            this.closedKanStateBtn.Size = new System.Drawing.Size(99, 32);
+            this.closedKanStateBtn.TabIndex = 1;
+            this.closedKanStateBtn.Text = "Closed Kan";
+            this.closedKanStateBtn.UseVisualStyleBackColor = true;
+            // 
+            // riichiStateBtn
+            // 
+            this.riichiStateBtn.AutoSize = true;
+            this.riichiStateBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.riichiStateBtn.Checked = false;
+            this.riichiStateBtn.Content = "No Riichi";
+            this.riichiStateBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.riichiStateBtn.Location = new System.Drawing.Point(3, 65);
+            this.riichiStateBtn.MinimumSize = new System.Drawing.Size(75, 25);
+            this.riichiStateBtn.Name = "riichiStateBtn";
+            this.riichiStateBtn.Size = new System.Drawing.Size(96, 32);
+            this.riichiStateBtn.TabIndex = 8;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Location = new System.Drawing.Point(3, 189);
+            this.label1.Margin = new System.Windows.Forms.Padding(3);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(96, 32);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Table wind";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // tableLayoutPanel3
             // 
@@ -573,6 +634,16 @@ namespace RiichiCalc
             this.tableLayoutPanel4.Size = new System.Drawing.Size(200, 100);
             this.tableLayoutPanel4.TabIndex = 0;
             // 
+            // windSelBtn1
+            // 
+            this.windSelBtn1.AutoSize = true;
+            this.windSelBtn1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.windSelBtn1.Location = new System.Drawing.Point(105, 189);
+            this.windSelBtn1.Name = "windSelBtn1";
+            this.windSelBtn1.Size = new System.Drawing.Size(75, 25);
+            this.windSelBtn1.TabIndex = 14;
+            this.windSelBtn1.Value = RiichiCalc.Tiles.MahjongTile.WindEast;
+            // 
             // MainWnd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -586,6 +657,7 @@ namespace RiichiCalc
             this.tableLayoutPanel2.PerformLayout();
             this.tilesPane.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -632,16 +704,21 @@ namespace RiichiCalc
         private MahjongTileBtn mahjongTileBtn8;
         private MahjongTileBtn mahjongTileBtn1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button kanStateBtn;
+        private System.Windows.Forms.Button chiStateBtn;
+        private System.Windows.Forms.Button ponStateBtn;
+        private System.Windows.Forms.Button closedKanStateBtn;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private CheckBtn riichiStateBtn;
+        private CheckBtn ippatsuStateBtn;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private WindSelBtn windSelBtn1;
     }
 }
 
