@@ -72,19 +72,19 @@ namespace RiichiCalc
             RiichiCalc.Controls.MahjongTileBtn manzu7MahjongTileBtn;
             RiichiCalc.Controls.MahjongTileBtn manzu8MahjongTileBtn;
             RiichiCalc.Controls.MahjongTileBtn manzu9MahjongTileBtn;
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.doraCounter = new System.Windows.Forms.NumericUpDown();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.windSelBtn1 = new RiichiCalc.Controls.WindSelBtn();
-            this.windSelBtn2 = new RiichiCalc.Controls.WindSelBtn();
-            this.winMethodEnumBtn1 = new RiichiCalc.Controls.WinMethodEnumBtn();
-            this.betYakuEnumBtn1 = new RiichiCalc.Controls.BetYakuEnumBtn();
-            this.extraYakuEnumBtn1 = new RiichiCalc.Controls.ExtraYakuEnumBtn();
+            this.tableWindBtn = new RiichiCalc.Controls.WindSelBtn();
+            this.seatWindBtn = new RiichiCalc.Controls.WindSelBtn();
+            this.winMethodEnumBtn = new RiichiCalc.Controls.WinMethodEnumBtn();
+            this.betYakuEnumBtn = new RiichiCalc.Controls.BetYakuEnumBtn();
+            this.extraYakuEnumBtn = new RiichiCalc.Controls.ExtraYakuEnumBtn();
+            this.checkBtn1 = new RiichiCalc.Controls.CheckBtn();
+            this.checkBtn2 = new RiichiCalc.Controls.CheckBtn();
+            this.checkBtn3 = new RiichiCalc.Controls.CheckBtn();
+            this.checkBtn4 = new RiichiCalc.Controls.CheckBtn();
             label1 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
@@ -125,7 +125,7 @@ namespace RiichiCalc
             manzu8MahjongTileBtn = new RiichiCalc.Controls.MahjongTileBtn();
             manzu9MahjongTileBtn = new RiichiCalc.Controls.MahjongTileBtn();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.doraCounter)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -177,7 +177,7 @@ namespace RiichiCalc
             // 
             // panel1
             // 
-            panel1.Controls.Add(this.numericUpDown1);
+            panel1.Controls.Add(this.doraCounter);
             panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             panel1.Location = new System.Drawing.Point(291, 114);
             panel1.Margin = new System.Windows.Forms.Padding(0);
@@ -185,15 +185,15 @@ namespace RiichiCalc
             panel1.Size = new System.Drawing.Size(99, 57);
             panel1.TabIndex = 14;
             // 
-            // numericUpDown1
+            // doraCounter
             // 
-            this.numericUpDown1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.doraCounter.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.numericUpDown1.Location = new System.Drawing.Point(3, 17);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(93, 23);
-            this.numericUpDown1.TabIndex = 0;
+            this.doraCounter.Location = new System.Drawing.Point(3, 17);
+            this.doraCounter.Name = "doraCounter";
+            this.doraCounter.Size = new System.Drawing.Size(93, 23);
+            this.doraCounter.TabIndex = 0;
             // 
             // windEastMahjongTileBtn
             // 
@@ -580,20 +580,20 @@ namespace RiichiCalc
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel3.Controls.Add(this.button1, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.button2, 1, 0);
-            this.tableLayoutPanel3.Controls.Add(this.button3, 2, 0);
-            this.tableLayoutPanel3.Controls.Add(this.button4, 3, 0);
-            this.tableLayoutPanel3.Controls.Add(this.windSelBtn1, 1, 3);
-            this.tableLayoutPanel3.Controls.Add(this.windSelBtn2, 3, 3);
+            this.tableLayoutPanel3.Controls.Add(this.tableWindBtn, 1, 3);
+            this.tableLayoutPanel3.Controls.Add(this.seatWindBtn, 3, 3);
             this.tableLayoutPanel3.Controls.Add(label1, 0, 3);
             this.tableLayoutPanel3.Controls.Add(label2, 2, 3);
-            this.tableLayoutPanel3.Controls.Add(this.winMethodEnumBtn1, 0, 1);
-            this.tableLayoutPanel3.Controls.Add(this.betYakuEnumBtn1, 1, 1);
-            this.tableLayoutPanel3.Controls.Add(this.extraYakuEnumBtn1, 3, 1);
+            this.tableLayoutPanel3.Controls.Add(this.winMethodEnumBtn, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.betYakuEnumBtn, 1, 1);
+            this.tableLayoutPanel3.Controls.Add(this.extraYakuEnumBtn, 3, 1);
             this.tableLayoutPanel3.Controls.Add(label3, 2, 1);
             this.tableLayoutPanel3.Controls.Add(label4, 2, 2);
             this.tableLayoutPanel3.Controls.Add(panel1, 3, 2);
+            this.tableLayoutPanel3.Controls.Add(this.checkBtn1, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.checkBtn2, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.checkBtn3, 2, 0);
+            this.tableLayoutPanel3.Controls.Add(this.checkBtn4, 3, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(399, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -605,97 +605,109 @@ namespace RiichiCalc
             this.tableLayoutPanel3.Size = new System.Drawing.Size(390, 230);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
-            // button1
+            // tableWindBtn
             // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button1.Location = new System.Drawing.Point(3, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(91, 51);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Pon";
-            this.button1.UseVisualStyleBackColor = true;
+            this.tableWindBtn.AutoSize = true;
+            this.tableWindBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.tableWindBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableWindBtn.Location = new System.Drawing.Point(100, 174);
+            this.tableWindBtn.Name = "tableWindBtn";
+            this.tableWindBtn.Size = new System.Drawing.Size(91, 53);
+            this.tableWindBtn.TabIndex = 5;
+            this.tableWindBtn.Value = RiichiCalc.Tiles.MahjongTile.WindEast;
             // 
-            // button2
+            // seatWindBtn
             // 
-            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button2.Location = new System.Drawing.Point(100, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(91, 51);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Chi";
-            this.button2.UseVisualStyleBackColor = true;
+            this.seatWindBtn.AutoSize = true;
+            this.seatWindBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.seatWindBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.seatWindBtn.Location = new System.Drawing.Point(294, 174);
+            this.seatWindBtn.Name = "seatWindBtn";
+            this.seatWindBtn.Size = new System.Drawing.Size(93, 53);
+            this.seatWindBtn.TabIndex = 6;
+            this.seatWindBtn.Value = RiichiCalc.Tiles.MahjongTile.WindEast;
             // 
-            // button3
+            // winMethodEnumBtn
             // 
-            this.button3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button3.Location = new System.Drawing.Point(197, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(91, 51);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Kan";
-            this.button3.UseVisualStyleBackColor = true;
+            this.winMethodEnumBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.winMethodEnumBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.winMethodEnumBtn.Location = new System.Drawing.Point(3, 60);
+            this.winMethodEnumBtn.Name = "winMethodEnumBtn";
+            this.winMethodEnumBtn.Size = new System.Drawing.Size(91, 51);
+            this.winMethodEnumBtn.TabIndex = 9;
+            this.winMethodEnumBtn.Value = RiichiCalc.Tiles.WinMethod.Tsumo;
             // 
-            // button4
+            // betYakuEnumBtn
             // 
-            this.button4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button4.Location = new System.Drawing.Point(294, 3);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(93, 51);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Closed Kan";
-            this.button4.UseVisualStyleBackColor = true;
+            this.betYakuEnumBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.betYakuEnumBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.betYakuEnumBtn.Location = new System.Drawing.Point(100, 60);
+            this.betYakuEnumBtn.Name = "betYakuEnumBtn";
+            this.betYakuEnumBtn.Size = new System.Drawing.Size(91, 51);
+            this.betYakuEnumBtn.TabIndex = 10;
+            this.betYakuEnumBtn.Value = RiichiCalc.Tiles.BetYaku.NoRiichi;
             // 
-            // windSelBtn1
+            // extraYakuEnumBtn
             // 
-            this.windSelBtn1.AutoSize = true;
-            this.windSelBtn1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.windSelBtn1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.windSelBtn1.Location = new System.Drawing.Point(100, 174);
-            this.windSelBtn1.Name = "windSelBtn1";
-            this.windSelBtn1.Size = new System.Drawing.Size(91, 53);
-            this.windSelBtn1.TabIndex = 5;
-            this.windSelBtn1.Value = RiichiCalc.Tiles.MahjongTile.WindEast;
+            this.extraYakuEnumBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.extraYakuEnumBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.extraYakuEnumBtn.Location = new System.Drawing.Point(294, 60);
+            this.extraYakuEnumBtn.Name = "extraYakuEnumBtn";
+            this.extraYakuEnumBtn.Size = new System.Drawing.Size(93, 51);
+            this.extraYakuEnumBtn.TabIndex = 11;
+            this.extraYakuEnumBtn.Value = RiichiCalc.Tiles.ExtraYaku.None;
             // 
-            // windSelBtn2
+            // checkBtn1
             // 
-            this.windSelBtn2.AutoSize = true;
-            this.windSelBtn2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.windSelBtn2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.windSelBtn2.Location = new System.Drawing.Point(294, 174);
-            this.windSelBtn2.Name = "windSelBtn2";
-            this.windSelBtn2.Size = new System.Drawing.Size(93, 53);
-            this.windSelBtn2.TabIndex = 6;
-            this.windSelBtn2.Value = RiichiCalc.Tiles.MahjongTile.WindEast;
+            this.checkBtn1.AutoSize = true;
+            this.checkBtn1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.checkBtn1.Checked = false;
+            this.checkBtn1.Content = "Pon";
+            this.checkBtn1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.checkBtn1.Location = new System.Drawing.Point(3, 3);
+            this.checkBtn1.MinimumSize = new System.Drawing.Size(75, 25);
+            this.checkBtn1.Name = "checkBtn1";
+            this.checkBtn1.Size = new System.Drawing.Size(91, 51);
+            this.checkBtn1.TabIndex = 15;
             // 
-            // winMethodEnumBtn1
+            // checkBtn2
             // 
-            this.winMethodEnumBtn1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.winMethodEnumBtn1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.winMethodEnumBtn1.Location = new System.Drawing.Point(3, 60);
-            this.winMethodEnumBtn1.Name = "winMethodEnumBtn1";
-            this.winMethodEnumBtn1.Size = new System.Drawing.Size(91, 51);
-            this.winMethodEnumBtn1.TabIndex = 9;
-            this.winMethodEnumBtn1.Value = RiichiCalc.Tiles.WinMethod.Tsumo;
+            this.checkBtn2.AutoSize = true;
+            this.checkBtn2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.checkBtn2.Checked = false;
+            this.checkBtn2.Content = "Chi";
+            this.checkBtn2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.checkBtn2.Location = new System.Drawing.Point(100, 3);
+            this.checkBtn2.MinimumSize = new System.Drawing.Size(75, 25);
+            this.checkBtn2.Name = "checkBtn2";
+            this.checkBtn2.Size = new System.Drawing.Size(91, 51);
+            this.checkBtn2.TabIndex = 16;
             // 
-            // betYakuEnumBtn1
+            // checkBtn3
             // 
-            this.betYakuEnumBtn1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.betYakuEnumBtn1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.betYakuEnumBtn1.Location = new System.Drawing.Point(100, 60);
-            this.betYakuEnumBtn1.Name = "betYakuEnumBtn1";
-            this.betYakuEnumBtn1.Size = new System.Drawing.Size(91, 51);
-            this.betYakuEnumBtn1.TabIndex = 10;
-            this.betYakuEnumBtn1.Value = RiichiCalc.Tiles.BetYaku.NoRiichi;
+            this.checkBtn3.AutoSize = true;
+            this.checkBtn3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.checkBtn3.Checked = false;
+            this.checkBtn3.Content = "Kan";
+            this.checkBtn3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.checkBtn3.Location = new System.Drawing.Point(197, 3);
+            this.checkBtn3.MinimumSize = new System.Drawing.Size(75, 25);
+            this.checkBtn3.Name = "checkBtn3";
+            this.checkBtn3.Size = new System.Drawing.Size(91, 51);
+            this.checkBtn3.TabIndex = 17;
             // 
-            // extraYakuEnumBtn1
+            // checkBtn4
             // 
-            this.extraYakuEnumBtn1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.extraYakuEnumBtn1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.extraYakuEnumBtn1.Location = new System.Drawing.Point(294, 60);
-            this.extraYakuEnumBtn1.Name = "extraYakuEnumBtn1";
-            this.extraYakuEnumBtn1.Size = new System.Drawing.Size(93, 51);
-            this.extraYakuEnumBtn1.TabIndex = 11;
-            this.extraYakuEnumBtn1.Value = RiichiCalc.Tiles.ExtraYaku.None;
+            this.checkBtn4.AutoSize = true;
+            this.checkBtn4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.checkBtn4.Checked = false;
+            this.checkBtn4.Content = "Closed Kan";
+            this.checkBtn4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.checkBtn4.Location = new System.Drawing.Point(294, 3);
+            this.checkBtn4.MinimumSize = new System.Drawing.Size(75, 25);
+            this.checkBtn4.Name = "checkBtn4";
+            this.checkBtn4.Size = new System.Drawing.Size(93, 51);
+            this.checkBtn4.TabIndex = 18;
             // 
             // MainWnd
             // 
@@ -709,7 +721,7 @@ namespace RiichiCalc
             this.Name = "MainWnd";
             this.Text = "RiichiCalc";
             panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.doraCounter)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
@@ -723,16 +735,16 @@ namespace RiichiCalc
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private WindSelBtn windSelBtn1;
-        private WindSelBtn windSelBtn2;
-        private WinMethodEnumBtn winMethodEnumBtn1;
-        private BetYakuEnumBtn betYakuEnumBtn1;
-        private ExtraYakuEnumBtn extraYakuEnumBtn1;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private WindSelBtn tableWindBtn;
+        private WindSelBtn seatWindBtn;
+        private WinMethodEnumBtn winMethodEnumBtn;
+        private BetYakuEnumBtn betYakuEnumBtn;
+        private ExtraYakuEnumBtn extraYakuEnumBtn;
+        private System.Windows.Forms.NumericUpDown doraCounter;
+        private CheckBtn checkBtn1;
+        private CheckBtn checkBtn2;
+        private CheckBtn checkBtn3;
+        private CheckBtn checkBtn4;
     }
 }
 
