@@ -1,5 +1,5 @@
 ﻿
-namespace RiichiCalc
+namespace RiichiCalc.Controls
 {
     partial class CheckBtn
     {

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using RiichiCalc.Controls;
 using RiichiCalc.Tiles;
 
 namespace RiichiCalc
@@ -32,146 +33,145 @@ namespace RiichiCalc
         /// </summary>
         private void InitializeComponent()
         {
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.tilesPane = new System.Windows.Forms.TableLayoutPanel();
-            this.mahjongTileBtn2 = new RiichiCalc.MahjongTileBtn();
-            this.mahjongTileBtn3 = new RiichiCalc.MahjongTileBtn();
-            this.mahjongTileBtn4 = new RiichiCalc.MahjongTileBtn();
-            this.mahjongTileBtn5 = new RiichiCalc.MahjongTileBtn();
-            this.mahjongTileBtn6 = new RiichiCalc.MahjongTileBtn();
-            this.mahjongTileBtn7 = new RiichiCalc.MahjongTileBtn();
-            this.mahjongTileBtn9 = new RiichiCalc.MahjongTileBtn();
-            this.mahjongTileBtn10 = new RiichiCalc.MahjongTileBtn();
-            this.mahjongTileBtn11 = new RiichiCalc.MahjongTileBtn();
-            this.mahjongTileBtn12 = new RiichiCalc.MahjongTileBtn();
-            this.mahjongTileBtn13 = new RiichiCalc.MahjongTileBtn();
-            this.mahjongTileBtn14 = new RiichiCalc.MahjongTileBtn();
-            this.mahjongTileBtn15 = new RiichiCalc.MahjongTileBtn();
-            this.mahjongTileBtn16 = new RiichiCalc.MahjongTileBtn();
-            this.mahjongTileBtn17 = new RiichiCalc.MahjongTileBtn();
-            this.mahjongTileBtn18 = new RiichiCalc.MahjongTileBtn();
-            this.mahjongTileBtn19 = new RiichiCalc.MahjongTileBtn();
-            this.mahjongTileBtn20 = new RiichiCalc.MahjongTileBtn();
-            this.mahjongTileBtn21 = new RiichiCalc.MahjongTileBtn();
-            this.mahjongTileBtn22 = new RiichiCalc.MahjongTileBtn();
-            this.mahjongTileBtn23 = new RiichiCalc.MahjongTileBtn();
-            this.mahjongTileBtn24 = new RiichiCalc.MahjongTileBtn();
-            this.mahjongTileBtn25 = new RiichiCalc.MahjongTileBtn();
-            this.mahjongTileBtn26 = new RiichiCalc.MahjongTileBtn();
-            this.mahjongTileBtn27 = new RiichiCalc.MahjongTileBtn();
-            this.mahjongTileBtn28 = new RiichiCalc.MahjongTileBtn();
-            this.mahjongTileBtn29 = new RiichiCalc.MahjongTileBtn();
-            this.mahjongTileBtn30 = new RiichiCalc.MahjongTileBtn();
-            this.mahjongTileBtn31 = new RiichiCalc.MahjongTileBtn();
-            this.mahjongTileBtn32 = new RiichiCalc.MahjongTileBtn();
-            this.mahjongTileBtn33 = new RiichiCalc.MahjongTileBtn();
-            this.mahjongTileBtn34 = new RiichiCalc.MahjongTileBtn();
-            this.mahjongTileBtn8 = new RiichiCalc.MahjongTileBtn();
-            this.mahjongTileBtn1 = new RiichiCalc.MahjongTileBtn();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.ippatsuStateBtn = new RiichiCalc.CheckBtn();
-            this.kanStateBtn = new System.Windows.Forms.Button();
-            this.chiStateBtn = new System.Windows.Forms.Button();
-            this.ponStateBtn = new System.Windows.Forms.Button();
-            this.closedKanStateBtn = new System.Windows.Forms.Button();
-            this.riichiStateBtn = new RiichiCalc.CheckBtn();
-            this.label1 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.mahjongTileBtn1 = new RiichiCalc.Controls.MahjongTileBtn();
+            this.mahjongTileBtn2 = new RiichiCalc.Controls.MahjongTileBtn();
+            this.mahjongTileBtn3 = new RiichiCalc.Controls.MahjongTileBtn();
+            this.mahjongTileBtn4 = new RiichiCalc.Controls.MahjongTileBtn();
+            this.mahjongTileBtn5 = new RiichiCalc.Controls.MahjongTileBtn();
+            this.mahjongTileBtn6 = new RiichiCalc.Controls.MahjongTileBtn();
+            this.mahjongTileBtn7 = new RiichiCalc.Controls.MahjongTileBtn();
+            this.mahjongTileBtn8 = new RiichiCalc.Controls.MahjongTileBtn();
+            this.mahjongTileBtn9 = new RiichiCalc.Controls.MahjongTileBtn();
+            this.mahjongTileBtn10 = new RiichiCalc.Controls.MahjongTileBtn();
+            this.mahjongTileBtn11 = new RiichiCalc.Controls.MahjongTileBtn();
+            this.mahjongTileBtn12 = new RiichiCalc.Controls.MahjongTileBtn();
+            this.mahjongTileBtn13 = new RiichiCalc.Controls.MahjongTileBtn();
+            this.mahjongTileBtn14 = new RiichiCalc.Controls.MahjongTileBtn();
+            this.mahjongTileBtn15 = new RiichiCalc.Controls.MahjongTileBtn();
+            this.mahjongTileBtn16 = new RiichiCalc.Controls.MahjongTileBtn();
+            this.mahjongTileBtn17 = new RiichiCalc.Controls.MahjongTileBtn();
+            this.mahjongTileBtn18 = new RiichiCalc.Controls.MahjongTileBtn();
+            this.mahjongTileBtn19 = new RiichiCalc.Controls.MahjongTileBtn();
+            this.mahjongTileBtn20 = new RiichiCalc.Controls.MahjongTileBtn();
+            this.mahjongTileBtn21 = new RiichiCalc.Controls.MahjongTileBtn();
+            this.mahjongTileBtn22 = new RiichiCalc.Controls.MahjongTileBtn();
+            this.mahjongTileBtn23 = new RiichiCalc.Controls.MahjongTileBtn();
+            this.mahjongTileBtn24 = new RiichiCalc.Controls.MahjongTileBtn();
+            this.mahjongTileBtn25 = new RiichiCalc.Controls.MahjongTileBtn();
+            this.mahjongTileBtn26 = new RiichiCalc.Controls.MahjongTileBtn();
+            this.mahjongTileBtn27 = new RiichiCalc.Controls.MahjongTileBtn();
+            this.mahjongTileBtn28 = new RiichiCalc.Controls.MahjongTileBtn();
+            this.mahjongTileBtn29 = new RiichiCalc.Controls.MahjongTileBtn();
+            this.mahjongTileBtn30 = new RiichiCalc.Controls.MahjongTileBtn();
+            this.mahjongTileBtn31 = new RiichiCalc.Controls.MahjongTileBtn();
+            this.mahjongTileBtn32 = new RiichiCalc.Controls.MahjongTileBtn();
+            this.mahjongTileBtn33 = new RiichiCalc.Controls.MahjongTileBtn();
+            this.mahjongTileBtn34 = new RiichiCalc.Controls.MahjongTileBtn();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.windSelBtn1 = new RiichiCalc.WindSelBtn();
-            this.tableLayoutPanel2.SuspendLayout();
-            this.tilesPane.SuspendLayout();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.windSelBtn1 = new RiichiCalc.Controls.WindSelBtn();
+            this.windSelBtn2 = new RiichiCalc.Controls.WindSelBtn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.winMethodEnumBtn1 = new RiichiCalc.Controls.WinMethodEnumBtn();
+            this.betYakuEnumBtn1 = new RiichiCalc.Controls.BetYakuEnumBtn();
+            this.extraYakuEnumBtn1 = new RiichiCalc.Controls.ExtraYakuEnumBtn();
+            this.label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            this.tableLayoutPanel4.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 1, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(792, 236);
+            this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel2
             // 
-            this.tableLayoutPanel2.AutoSize = true;
-            this.tableLayoutPanel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel2.Controls.Add(this.tilesPane, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel1, 1, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel2.ColumnCount = 9;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.tableLayoutPanel2.Controls.Add(this.mahjongTileBtn1, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.mahjongTileBtn2, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.mahjongTileBtn3, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.mahjongTileBtn4, 3, 0);
+            this.tableLayoutPanel2.Controls.Add(this.mahjongTileBtn5, 4, 0);
+            this.tableLayoutPanel2.Controls.Add(this.mahjongTileBtn6, 5, 0);
+            this.tableLayoutPanel2.Controls.Add(this.mahjongTileBtn7, 6, 0);
+            this.tableLayoutPanel2.Controls.Add(this.mahjongTileBtn8, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.mahjongTileBtn9, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.mahjongTileBtn10, 2, 1);
+            this.tableLayoutPanel2.Controls.Add(this.mahjongTileBtn11, 3, 1);
+            this.tableLayoutPanel2.Controls.Add(this.mahjongTileBtn12, 4, 1);
+            this.tableLayoutPanel2.Controls.Add(this.mahjongTileBtn13, 5, 1);
+            this.tableLayoutPanel2.Controls.Add(this.mahjongTileBtn14, 6, 1);
+            this.tableLayoutPanel2.Controls.Add(this.mahjongTileBtn15, 7, 1);
+            this.tableLayoutPanel2.Controls.Add(this.mahjongTileBtn16, 8, 1);
+            this.tableLayoutPanel2.Controls.Add(this.mahjongTileBtn17, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.mahjongTileBtn18, 1, 2);
+            this.tableLayoutPanel2.Controls.Add(this.mahjongTileBtn19, 2, 2);
+            this.tableLayoutPanel2.Controls.Add(this.mahjongTileBtn20, 3, 2);
+            this.tableLayoutPanel2.Controls.Add(this.mahjongTileBtn21, 4, 2);
+            this.tableLayoutPanel2.Controls.Add(this.mahjongTileBtn22, 5, 2);
+            this.tableLayoutPanel2.Controls.Add(this.mahjongTileBtn23, 6, 2);
+            this.tableLayoutPanel2.Controls.Add(this.mahjongTileBtn24, 7, 2);
+            this.tableLayoutPanel2.Controls.Add(this.mahjongTileBtn25, 8, 2);
+            this.tableLayoutPanel2.Controls.Add(this.mahjongTileBtn26, 0, 3);
+            this.tableLayoutPanel2.Controls.Add(this.mahjongTileBtn27, 1, 3);
+            this.tableLayoutPanel2.Controls.Add(this.mahjongTileBtn28, 2, 3);
+            this.tableLayoutPanel2.Controls.Add(this.mahjongTileBtn29, 3, 3);
+            this.tableLayoutPanel2.Controls.Add(this.mahjongTileBtn30, 4, 3);
+            this.tableLayoutPanel2.Controls.Add(this.mahjongTileBtn31, 5, 3);
+            this.tableLayoutPanel2.Controls.Add(this.mahjongTileBtn32, 6, 3);
+            this.tableLayoutPanel2.Controls.Add(this.mahjongTileBtn33, 7, 3);
+            this.tableLayoutPanel2.Controls.Add(this.mahjongTileBtn34, 8, 3);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(792, 230);
-            this.tableLayoutPanel2.TabIndex = 2;
+            this.tableLayoutPanel2.RowCount = 4;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(390, 230);
+            this.tableLayoutPanel2.TabIndex = 0;
             // 
-            // tilesPane
+            // mahjongTileBtn1
             // 
-            this.tilesPane.AutoSize = true;
-            this.tilesPane.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.tilesPane.ColumnCount = 10;
-            this.tilesPane.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tilesPane.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tilesPane.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tilesPane.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tilesPane.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tilesPane.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tilesPane.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tilesPane.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tilesPane.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tilesPane.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tilesPane.Controls.Add(this.mahjongTileBtn2, 1, 0);
-            this.tilesPane.Controls.Add(this.mahjongTileBtn3, 2, 0);
-            this.tilesPane.Controls.Add(this.mahjongTileBtn4, 3, 0);
-            this.tilesPane.Controls.Add(this.mahjongTileBtn5, 4, 0);
-            this.tilesPane.Controls.Add(this.mahjongTileBtn6, 5, 0);
-            this.tilesPane.Controls.Add(this.mahjongTileBtn7, 6, 0);
-            this.tilesPane.Controls.Add(this.mahjongTileBtn9, 1, 1);
-            this.tilesPane.Controls.Add(this.mahjongTileBtn10, 2, 1);
-            this.tilesPane.Controls.Add(this.mahjongTileBtn11, 3, 1);
-            this.tilesPane.Controls.Add(this.mahjongTileBtn12, 4, 1);
-            this.tilesPane.Controls.Add(this.mahjongTileBtn13, 5, 1);
-            this.tilesPane.Controls.Add(this.mahjongTileBtn14, 6, 1);
-            this.tilesPane.Controls.Add(this.mahjongTileBtn15, 7, 1);
-            this.tilesPane.Controls.Add(this.mahjongTileBtn16, 8, 1);
-            this.tilesPane.Controls.Add(this.mahjongTileBtn17, 0, 2);
-            this.tilesPane.Controls.Add(this.mahjongTileBtn18, 1, 2);
-            this.tilesPane.Controls.Add(this.mahjongTileBtn19, 2, 2);
-            this.tilesPane.Controls.Add(this.mahjongTileBtn20, 3, 2);
-            this.tilesPane.Controls.Add(this.mahjongTileBtn21, 4, 2);
-            this.tilesPane.Controls.Add(this.mahjongTileBtn22, 5, 2);
-            this.tilesPane.Controls.Add(this.mahjongTileBtn23, 6, 2);
-            this.tilesPane.Controls.Add(this.mahjongTileBtn24, 7, 2);
-            this.tilesPane.Controls.Add(this.mahjongTileBtn25, 8, 2);
-            this.tilesPane.Controls.Add(this.mahjongTileBtn26, 0, 3);
-            this.tilesPane.Controls.Add(this.mahjongTileBtn27, 1, 3);
-            this.tilesPane.Controls.Add(this.mahjongTileBtn28, 2, 3);
-            this.tilesPane.Controls.Add(this.mahjongTileBtn29, 3, 3);
-            this.tilesPane.Controls.Add(this.mahjongTileBtn30, 4, 3);
-            this.tilesPane.Controls.Add(this.mahjongTileBtn31, 5, 3);
-            this.tilesPane.Controls.Add(this.mahjongTileBtn32, 6, 3);
-            this.tilesPane.Controls.Add(this.mahjongTileBtn33, 7, 3);
-            this.tilesPane.Controls.Add(this.mahjongTileBtn34, 8, 3);
-            this.tilesPane.Controls.Add(this.mahjongTileBtn8, 0, 0);
-            this.tilesPane.Controls.Add(this.mahjongTileBtn1, 0, 1);
-            this.tilesPane.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tilesPane.Location = new System.Drawing.Point(3, 3);
-            this.tilesPane.Name = "tilesPane";
-            this.tilesPane.RowCount = 3;
-            this.tilesPane.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tilesPane.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tilesPane.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tilesPane.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tilesPane.Size = new System.Drawing.Size(369, 224);
-            this.tilesPane.TabIndex = 4;
+            this.mahjongTileBtn1.ForeColor = System.Drawing.Color.Blue;
+            this.mahjongTileBtn1.Location = new System.Drawing.Point(3, 3);
+            this.mahjongTileBtn1.Name = "mahjongTileBtn1";
+            this.mahjongTileBtn1.Size = new System.Drawing.Size(35, 50);
+            this.mahjongTileBtn1.TabIndex = 0;
+            this.mahjongTileBtn1.Tile = RiichiCalc.Tiles.MahjongTile.WindEast;
             // 
             // mahjongTileBtn2
             // 
-            this.mahjongTileBtn2.Location = new System.Drawing.Point(44, 3);
+            this.mahjongTileBtn2.ForeColor = System.Drawing.Color.Blue;
+            this.mahjongTileBtn2.Location = new System.Drawing.Point(46, 3);
             this.mahjongTileBtn2.Name = "mahjongTileBtn2";
             this.mahjongTileBtn2.Size = new System.Drawing.Size(35, 50);
             this.mahjongTileBtn2.TabIndex = 1;
@@ -179,15 +179,17 @@ namespace RiichiCalc
             // 
             // mahjongTileBtn3
             // 
-            this.mahjongTileBtn3.Location = new System.Drawing.Point(85, 3);
+            this.mahjongTileBtn3.ForeColor = System.Drawing.Color.Blue;
+            this.mahjongTileBtn3.Location = new System.Drawing.Point(89, 3);
             this.mahjongTileBtn3.Name = "mahjongTileBtn3";
             this.mahjongTileBtn3.Size = new System.Drawing.Size(35, 50);
-            this.mahjongTileBtn3.TabIndex = 34;
+            this.mahjongTileBtn3.TabIndex = 2;
             this.mahjongTileBtn3.Tile = RiichiCalc.Tiles.MahjongTile.WindWest;
             // 
             // mahjongTileBtn4
             // 
-            this.mahjongTileBtn4.Location = new System.Drawing.Point(126, 3);
+            this.mahjongTileBtn4.ForeColor = System.Drawing.Color.Blue;
+            this.mahjongTileBtn4.Location = new System.Drawing.Point(132, 3);
             this.mahjongTileBtn4.Name = "mahjongTileBtn4";
             this.mahjongTileBtn4.Size = new System.Drawing.Size(35, 50);
             this.mahjongTileBtn4.TabIndex = 3;
@@ -195,31 +197,44 @@ namespace RiichiCalc
             // 
             // mahjongTileBtn5
             // 
-            this.mahjongTileBtn5.Location = new System.Drawing.Point(167, 3);
+            this.mahjongTileBtn5.ForeColor = System.Drawing.Color.Green;
+            this.mahjongTileBtn5.Location = new System.Drawing.Point(175, 3);
             this.mahjongTileBtn5.Name = "mahjongTileBtn5";
             this.mahjongTileBtn5.Size = new System.Drawing.Size(35, 50);
             this.mahjongTileBtn5.TabIndex = 4;
-            this.mahjongTileBtn5.Tile = RiichiCalc.Tiles.MahjongTile.DragonRed;
+            this.mahjongTileBtn5.Tile = RiichiCalc.Tiles.MahjongTile.DragonGreen;
             // 
             // mahjongTileBtn6
             // 
-            this.mahjongTileBtn6.Location = new System.Drawing.Point(208, 3);
+            this.mahjongTileBtn6.ForeColor = System.Drawing.Color.DarkRed;
+            this.mahjongTileBtn6.Location = new System.Drawing.Point(218, 3);
             this.mahjongTileBtn6.Name = "mahjongTileBtn6";
             this.mahjongTileBtn6.Size = new System.Drawing.Size(35, 50);
             this.mahjongTileBtn6.TabIndex = 5;
-            this.mahjongTileBtn6.Tile = RiichiCalc.Tiles.MahjongTile.DragonGreen;
+            this.mahjongTileBtn6.Tile = RiichiCalc.Tiles.MahjongTile.DragonRed;
             // 
             // mahjongTileBtn7
             // 
-            this.mahjongTileBtn7.Location = new System.Drawing.Point(249, 3);
+            this.mahjongTileBtn7.ForeColor = System.Drawing.Color.White;
+            this.mahjongTileBtn7.Location = new System.Drawing.Point(261, 3);
             this.mahjongTileBtn7.Name = "mahjongTileBtn7";
             this.mahjongTileBtn7.Size = new System.Drawing.Size(35, 50);
             this.mahjongTileBtn7.TabIndex = 6;
             this.mahjongTileBtn7.Tile = RiichiCalc.Tiles.MahjongTile.DragonWhite;
             // 
+            // mahjongTileBtn8
+            // 
+            this.mahjongTileBtn8.ForeColor = System.Drawing.Color.MediumVioletRed;
+            this.mahjongTileBtn8.Location = new System.Drawing.Point(3, 60);
+            this.mahjongTileBtn8.Name = "mahjongTileBtn8";
+            this.mahjongTileBtn8.Size = new System.Drawing.Size(35, 50);
+            this.mahjongTileBtn8.TabIndex = 7;
+            this.mahjongTileBtn8.Tile = RiichiCalc.Tiles.MahjongTile.Pinzu1;
+            // 
             // mahjongTileBtn9
             // 
-            this.mahjongTileBtn9.Location = new System.Drawing.Point(44, 59);
+            this.mahjongTileBtn9.ForeColor = System.Drawing.Color.MediumVioletRed;
+            this.mahjongTileBtn9.Location = new System.Drawing.Point(46, 60);
             this.mahjongTileBtn9.Name = "mahjongTileBtn9";
             this.mahjongTileBtn9.Size = new System.Drawing.Size(35, 50);
             this.mahjongTileBtn9.TabIndex = 8;
@@ -227,7 +242,8 @@ namespace RiichiCalc
             // 
             // mahjongTileBtn10
             // 
-            this.mahjongTileBtn10.Location = new System.Drawing.Point(85, 59);
+            this.mahjongTileBtn10.ForeColor = System.Drawing.Color.MediumVioletRed;
+            this.mahjongTileBtn10.Location = new System.Drawing.Point(89, 60);
             this.mahjongTileBtn10.Name = "mahjongTileBtn10";
             this.mahjongTileBtn10.Size = new System.Drawing.Size(35, 50);
             this.mahjongTileBtn10.TabIndex = 9;
@@ -235,7 +251,8 @@ namespace RiichiCalc
             // 
             // mahjongTileBtn11
             // 
-            this.mahjongTileBtn11.Location = new System.Drawing.Point(126, 59);
+            this.mahjongTileBtn11.ForeColor = System.Drawing.Color.MediumVioletRed;
+            this.mahjongTileBtn11.Location = new System.Drawing.Point(132, 60);
             this.mahjongTileBtn11.Name = "mahjongTileBtn11";
             this.mahjongTileBtn11.Size = new System.Drawing.Size(35, 50);
             this.mahjongTileBtn11.TabIndex = 10;
@@ -243,7 +260,8 @@ namespace RiichiCalc
             // 
             // mahjongTileBtn12
             // 
-            this.mahjongTileBtn12.Location = new System.Drawing.Point(167, 59);
+            this.mahjongTileBtn12.ForeColor = System.Drawing.Color.MediumVioletRed;
+            this.mahjongTileBtn12.Location = new System.Drawing.Point(175, 60);
             this.mahjongTileBtn12.Name = "mahjongTileBtn12";
             this.mahjongTileBtn12.Size = new System.Drawing.Size(35, 50);
             this.mahjongTileBtn12.TabIndex = 11;
@@ -251,7 +269,8 @@ namespace RiichiCalc
             // 
             // mahjongTileBtn13
             // 
-            this.mahjongTileBtn13.Location = new System.Drawing.Point(208, 59);
+            this.mahjongTileBtn13.ForeColor = System.Drawing.Color.MediumVioletRed;
+            this.mahjongTileBtn13.Location = new System.Drawing.Point(218, 60);
             this.mahjongTileBtn13.Name = "mahjongTileBtn13";
             this.mahjongTileBtn13.Size = new System.Drawing.Size(35, 50);
             this.mahjongTileBtn13.TabIndex = 12;
@@ -259,7 +278,8 @@ namespace RiichiCalc
             // 
             // mahjongTileBtn14
             // 
-            this.mahjongTileBtn14.Location = new System.Drawing.Point(249, 59);
+            this.mahjongTileBtn14.ForeColor = System.Drawing.Color.MediumVioletRed;
+            this.mahjongTileBtn14.Location = new System.Drawing.Point(261, 60);
             this.mahjongTileBtn14.Name = "mahjongTileBtn14";
             this.mahjongTileBtn14.Size = new System.Drawing.Size(35, 50);
             this.mahjongTileBtn14.TabIndex = 13;
@@ -267,7 +287,8 @@ namespace RiichiCalc
             // 
             // mahjongTileBtn15
             // 
-            this.mahjongTileBtn15.Location = new System.Drawing.Point(290, 59);
+            this.mahjongTileBtn15.ForeColor = System.Drawing.Color.MediumVioletRed;
+            this.mahjongTileBtn15.Location = new System.Drawing.Point(304, 60);
             this.mahjongTileBtn15.Name = "mahjongTileBtn15";
             this.mahjongTileBtn15.Size = new System.Drawing.Size(35, 50);
             this.mahjongTileBtn15.TabIndex = 14;
@@ -275,7 +296,8 @@ namespace RiichiCalc
             // 
             // mahjongTileBtn16
             // 
-            this.mahjongTileBtn16.Location = new System.Drawing.Point(331, 59);
+            this.mahjongTileBtn16.ForeColor = System.Drawing.Color.MediumVioletRed;
+            this.mahjongTileBtn16.Location = new System.Drawing.Point(347, 60);
             this.mahjongTileBtn16.Name = "mahjongTileBtn16";
             this.mahjongTileBtn16.Size = new System.Drawing.Size(35, 50);
             this.mahjongTileBtn16.TabIndex = 15;
@@ -283,7 +305,8 @@ namespace RiichiCalc
             // 
             // mahjongTileBtn17
             // 
-            this.mahjongTileBtn17.Location = new System.Drawing.Point(3, 115);
+            this.mahjongTileBtn17.ForeColor = System.Drawing.Color.DarkGreen;
+            this.mahjongTileBtn17.Location = new System.Drawing.Point(3, 117);
             this.mahjongTileBtn17.Name = "mahjongTileBtn17";
             this.mahjongTileBtn17.Size = new System.Drawing.Size(35, 50);
             this.mahjongTileBtn17.TabIndex = 16;
@@ -291,7 +314,8 @@ namespace RiichiCalc
             // 
             // mahjongTileBtn18
             // 
-            this.mahjongTileBtn18.Location = new System.Drawing.Point(44, 115);
+            this.mahjongTileBtn18.ForeColor = System.Drawing.Color.DarkGreen;
+            this.mahjongTileBtn18.Location = new System.Drawing.Point(46, 117);
             this.mahjongTileBtn18.Name = "mahjongTileBtn18";
             this.mahjongTileBtn18.Size = new System.Drawing.Size(35, 50);
             this.mahjongTileBtn18.TabIndex = 17;
@@ -299,7 +323,8 @@ namespace RiichiCalc
             // 
             // mahjongTileBtn19
             // 
-            this.mahjongTileBtn19.Location = new System.Drawing.Point(85, 115);
+            this.mahjongTileBtn19.ForeColor = System.Drawing.Color.DarkGreen;
+            this.mahjongTileBtn19.Location = new System.Drawing.Point(89, 117);
             this.mahjongTileBtn19.Name = "mahjongTileBtn19";
             this.mahjongTileBtn19.Size = new System.Drawing.Size(35, 50);
             this.mahjongTileBtn19.TabIndex = 18;
@@ -307,7 +332,8 @@ namespace RiichiCalc
             // 
             // mahjongTileBtn20
             // 
-            this.mahjongTileBtn20.Location = new System.Drawing.Point(126, 115);
+            this.mahjongTileBtn20.ForeColor = System.Drawing.Color.DarkGreen;
+            this.mahjongTileBtn20.Location = new System.Drawing.Point(132, 117);
             this.mahjongTileBtn20.Name = "mahjongTileBtn20";
             this.mahjongTileBtn20.Size = new System.Drawing.Size(35, 50);
             this.mahjongTileBtn20.TabIndex = 19;
@@ -315,7 +341,8 @@ namespace RiichiCalc
             // 
             // mahjongTileBtn21
             // 
-            this.mahjongTileBtn21.Location = new System.Drawing.Point(167, 115);
+            this.mahjongTileBtn21.ForeColor = System.Drawing.Color.DarkGreen;
+            this.mahjongTileBtn21.Location = new System.Drawing.Point(175, 117);
             this.mahjongTileBtn21.Name = "mahjongTileBtn21";
             this.mahjongTileBtn21.Size = new System.Drawing.Size(35, 50);
             this.mahjongTileBtn21.TabIndex = 20;
@@ -323,7 +350,8 @@ namespace RiichiCalc
             // 
             // mahjongTileBtn22
             // 
-            this.mahjongTileBtn22.Location = new System.Drawing.Point(208, 115);
+            this.mahjongTileBtn22.ForeColor = System.Drawing.Color.DarkGreen;
+            this.mahjongTileBtn22.Location = new System.Drawing.Point(218, 117);
             this.mahjongTileBtn22.Name = "mahjongTileBtn22";
             this.mahjongTileBtn22.Size = new System.Drawing.Size(35, 50);
             this.mahjongTileBtn22.TabIndex = 21;
@@ -331,7 +359,8 @@ namespace RiichiCalc
             // 
             // mahjongTileBtn23
             // 
-            this.mahjongTileBtn23.Location = new System.Drawing.Point(249, 115);
+            this.mahjongTileBtn23.ForeColor = System.Drawing.Color.DarkGreen;
+            this.mahjongTileBtn23.Location = new System.Drawing.Point(261, 117);
             this.mahjongTileBtn23.Name = "mahjongTileBtn23";
             this.mahjongTileBtn23.Size = new System.Drawing.Size(35, 50);
             this.mahjongTileBtn23.TabIndex = 22;
@@ -339,7 +368,8 @@ namespace RiichiCalc
             // 
             // mahjongTileBtn24
             // 
-            this.mahjongTileBtn24.Location = new System.Drawing.Point(290, 115);
+            this.mahjongTileBtn24.ForeColor = System.Drawing.Color.DarkGreen;
+            this.mahjongTileBtn24.Location = new System.Drawing.Point(304, 117);
             this.mahjongTileBtn24.Name = "mahjongTileBtn24";
             this.mahjongTileBtn24.Size = new System.Drawing.Size(35, 50);
             this.mahjongTileBtn24.TabIndex = 23;
@@ -347,7 +377,8 @@ namespace RiichiCalc
             // 
             // mahjongTileBtn25
             // 
-            this.mahjongTileBtn25.Location = new System.Drawing.Point(331, 115);
+            this.mahjongTileBtn25.ForeColor = System.Drawing.Color.DarkGreen;
+            this.mahjongTileBtn25.Location = new System.Drawing.Point(347, 117);
             this.mahjongTileBtn25.Name = "mahjongTileBtn25";
             this.mahjongTileBtn25.Size = new System.Drawing.Size(35, 50);
             this.mahjongTileBtn25.TabIndex = 24;
@@ -355,7 +386,8 @@ namespace RiichiCalc
             // 
             // mahjongTileBtn26
             // 
-            this.mahjongTileBtn26.Location = new System.Drawing.Point(3, 171);
+            this.mahjongTileBtn26.ForeColor = System.Drawing.Color.DarkBlue;
+            this.mahjongTileBtn26.Location = new System.Drawing.Point(3, 174);
             this.mahjongTileBtn26.Name = "mahjongTileBtn26";
             this.mahjongTileBtn26.Size = new System.Drawing.Size(35, 50);
             this.mahjongTileBtn26.TabIndex = 25;
@@ -363,7 +395,8 @@ namespace RiichiCalc
             // 
             // mahjongTileBtn27
             // 
-            this.mahjongTileBtn27.Location = new System.Drawing.Point(44, 171);
+            this.mahjongTileBtn27.ForeColor = System.Drawing.Color.DarkBlue;
+            this.mahjongTileBtn27.Location = new System.Drawing.Point(46, 174);
             this.mahjongTileBtn27.Name = "mahjongTileBtn27";
             this.mahjongTileBtn27.Size = new System.Drawing.Size(35, 50);
             this.mahjongTileBtn27.TabIndex = 26;
@@ -371,7 +404,8 @@ namespace RiichiCalc
             // 
             // mahjongTileBtn28
             // 
-            this.mahjongTileBtn28.Location = new System.Drawing.Point(85, 171);
+            this.mahjongTileBtn28.ForeColor = System.Drawing.Color.DarkBlue;
+            this.mahjongTileBtn28.Location = new System.Drawing.Point(89, 174);
             this.mahjongTileBtn28.Name = "mahjongTileBtn28";
             this.mahjongTileBtn28.Size = new System.Drawing.Size(35, 50);
             this.mahjongTileBtn28.TabIndex = 27;
@@ -379,7 +413,8 @@ namespace RiichiCalc
             // 
             // mahjongTileBtn29
             // 
-            this.mahjongTileBtn29.Location = new System.Drawing.Point(126, 171);
+            this.mahjongTileBtn29.ForeColor = System.Drawing.Color.DarkBlue;
+            this.mahjongTileBtn29.Location = new System.Drawing.Point(132, 174);
             this.mahjongTileBtn29.Name = "mahjongTileBtn29";
             this.mahjongTileBtn29.Size = new System.Drawing.Size(35, 50);
             this.mahjongTileBtn29.TabIndex = 28;
@@ -387,7 +422,8 @@ namespace RiichiCalc
             // 
             // mahjongTileBtn30
             // 
-            this.mahjongTileBtn30.Location = new System.Drawing.Point(167, 171);
+            this.mahjongTileBtn30.ForeColor = System.Drawing.Color.DarkBlue;
+            this.mahjongTileBtn30.Location = new System.Drawing.Point(175, 174);
             this.mahjongTileBtn30.Name = "mahjongTileBtn30";
             this.mahjongTileBtn30.Size = new System.Drawing.Size(35, 50);
             this.mahjongTileBtn30.TabIndex = 29;
@@ -395,7 +431,8 @@ namespace RiichiCalc
             // 
             // mahjongTileBtn31
             // 
-            this.mahjongTileBtn31.Location = new System.Drawing.Point(208, 171);
+            this.mahjongTileBtn31.ForeColor = System.Drawing.Color.DarkBlue;
+            this.mahjongTileBtn31.Location = new System.Drawing.Point(218, 174);
             this.mahjongTileBtn31.Name = "mahjongTileBtn31";
             this.mahjongTileBtn31.Size = new System.Drawing.Size(35, 50);
             this.mahjongTileBtn31.TabIndex = 30;
@@ -403,7 +440,8 @@ namespace RiichiCalc
             // 
             // mahjongTileBtn32
             // 
-            this.mahjongTileBtn32.Location = new System.Drawing.Point(249, 171);
+            this.mahjongTileBtn32.ForeColor = System.Drawing.Color.DarkBlue;
+            this.mahjongTileBtn32.Location = new System.Drawing.Point(261, 174);
             this.mahjongTileBtn32.Name = "mahjongTileBtn32";
             this.mahjongTileBtn32.Size = new System.Drawing.Size(35, 50);
             this.mahjongTileBtn32.TabIndex = 31;
@@ -411,7 +449,8 @@ namespace RiichiCalc
             // 
             // mahjongTileBtn33
             // 
-            this.mahjongTileBtn33.Location = new System.Drawing.Point(290, 171);
+            this.mahjongTileBtn33.ForeColor = System.Drawing.Color.DarkBlue;
+            this.mahjongTileBtn33.Location = new System.Drawing.Point(304, 174);
             this.mahjongTileBtn33.Name = "mahjongTileBtn33";
             this.mahjongTileBtn33.Size = new System.Drawing.Size(35, 50);
             this.mahjongTileBtn33.TabIndex = 32;
@@ -419,262 +458,195 @@ namespace RiichiCalc
             // 
             // mahjongTileBtn34
             // 
-            this.mahjongTileBtn34.Location = new System.Drawing.Point(331, 171);
+            this.mahjongTileBtn34.ForeColor = System.Drawing.Color.DarkBlue;
+            this.mahjongTileBtn34.Location = new System.Drawing.Point(347, 174);
             this.mahjongTileBtn34.Name = "mahjongTileBtn34";
             this.mahjongTileBtn34.Size = new System.Drawing.Size(35, 50);
             this.mahjongTileBtn34.TabIndex = 33;
             this.mahjongTileBtn34.Tile = RiichiCalc.Tiles.MahjongTile.Manzu9;
             // 
-            // mahjongTileBtn8
-            // 
-            this.mahjongTileBtn8.Location = new System.Drawing.Point(3, 3);
-            this.mahjongTileBtn8.Name = "mahjongTileBtn8";
-            this.mahjongTileBtn8.Size = new System.Drawing.Size(35, 50);
-            this.mahjongTileBtn8.TabIndex = 7;
-            this.mahjongTileBtn8.Tile = RiichiCalc.Tiles.MahjongTile.WindEast;
-            // 
-            // mahjongTileBtn1
-            // 
-            this.mahjongTileBtn1.Location = new System.Drawing.Point(3, 59);
-            this.mahjongTileBtn1.Name = "mahjongTileBtn1";
-            this.mahjongTileBtn1.Size = new System.Drawing.Size(35, 50);
-            this.mahjongTileBtn1.TabIndex = 0;
-            this.mahjongTileBtn1.Tile = RiichiCalc.Tiles.MahjongTile.Pinzu1;
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.tableLayoutPanel1.BackColor = System.Drawing.SystemColors.Control;
-            this.tableLayoutPanel1.ColumnCount = 4;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.Controls.Add(this.label2, 2, 6);
-            this.tableLayoutPanel1.Controls.Add(this.ippatsuStateBtn, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.kanStateBtn, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.chiStateBtn, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.ponStateBtn, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.closedKanStateBtn, 3, 0);
-            this.tableLayoutPanel1.Controls.Add(this.riichiStateBtn, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 6);
-            this.tableLayoutPanel1.Controls.Add(this.windSelBtn1, 1, 6);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(378, 3);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 7;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(411, 224);
-            this.tableLayoutPanel1.TabIndex = 5;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Location = new System.Drawing.Point(207, 189);
-            this.label2.Margin = new System.Windows.Forms.Padding(3);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(96, 32);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "Seat wind";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // ippatsuStateBtn
-            // 
-            this.ippatsuStateBtn.AutoSize = true;
-            this.ippatsuStateBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ippatsuStateBtn.Checked = false;
-            this.ippatsuStateBtn.Content = "No Ippatsu";
-            this.ippatsuStateBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ippatsuStateBtn.Location = new System.Drawing.Point(105, 65);
-            this.ippatsuStateBtn.MinimumSize = new System.Drawing.Size(75, 25);
-            this.ippatsuStateBtn.Name = "ippatsuStateBtn";
-            this.ippatsuStateBtn.Size = new System.Drawing.Size(96, 32);
-            this.ippatsuStateBtn.TabIndex = 9;
-            // 
-            // kanStateBtn
-            // 
-            this.kanStateBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.kanStateBtn.Location = new System.Drawing.Point(207, 3);
-            this.kanStateBtn.Name = "kanStateBtn";
-            this.kanStateBtn.Size = new System.Drawing.Size(96, 32);
-            this.kanStateBtn.TabIndex = 5;
-            this.kanStateBtn.Text = "Kan";
-            this.kanStateBtn.UseVisualStyleBackColor = true;
-            // 
-            // chiStateBtn
-            // 
-            this.chiStateBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chiStateBtn.Location = new System.Drawing.Point(105, 3);
-            this.chiStateBtn.Name = "chiStateBtn";
-            this.chiStateBtn.Size = new System.Drawing.Size(96, 32);
-            this.chiStateBtn.TabIndex = 4;
-            this.chiStateBtn.Text = "Chi";
-            this.chiStateBtn.UseVisualStyleBackColor = true;
-            // 
-            // ponStateBtn
-            // 
-            this.ponStateBtn.Cursor = System.Windows.Forms.Cursors.Default;
-            this.ponStateBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ponStateBtn.Location = new System.Drawing.Point(3, 3);
-            this.ponStateBtn.Name = "ponStateBtn";
-            this.ponStateBtn.Size = new System.Drawing.Size(96, 32);
-            this.ponStateBtn.TabIndex = 3;
-            this.ponStateBtn.Text = "Pon";
-            this.ponStateBtn.UseVisualStyleBackColor = true;
-            // 
-            // closedKanStateBtn
-            // 
-            this.closedKanStateBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.closedKanStateBtn.Location = new System.Drawing.Point(309, 3);
-            this.closedKanStateBtn.Name = "closedKanStateBtn";
-            this.closedKanStateBtn.Size = new System.Drawing.Size(99, 32);
-            this.closedKanStateBtn.TabIndex = 1;
-            this.closedKanStateBtn.Text = "Closed Kan";
-            this.closedKanStateBtn.UseVisualStyleBackColor = true;
-            // 
-            // riichiStateBtn
-            // 
-            this.riichiStateBtn.AutoSize = true;
-            this.riichiStateBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.riichiStateBtn.Checked = false;
-            this.riichiStateBtn.Content = "No Riichi";
-            this.riichiStateBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.riichiStateBtn.Location = new System.Drawing.Point(3, 65);
-            this.riichiStateBtn.MinimumSize = new System.Drawing.Size(75, 25);
-            this.riichiStateBtn.Name = "riichiStateBtn";
-            this.riichiStateBtn.Size = new System.Drawing.Size(96, 32);
-            this.riichiStateBtn.TabIndex = 8;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Location = new System.Drawing.Point(3, 189);
-            this.label1.Margin = new System.Windows.Forms.Padding(3);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(96, 32);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "Table wind";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // tableLayoutPanel3
             // 
-            this.tableLayoutPanel3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.tableLayoutPanel3.ColumnCount = 4;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel3.Controls.Add(this.button5, 2, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.button1, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.button2, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.button3, 2, 0);
+            this.tableLayoutPanel3.Controls.Add(this.button4, 3, 0);
+            this.tableLayoutPanel3.Controls.Add(this.windSelBtn1, 1, 3);
+            this.tableLayoutPanel3.Controls.Add(this.windSelBtn2, 3, 3);
+            this.tableLayoutPanel3.Controls.Add(this.label1, 0, 3);
+            this.tableLayoutPanel3.Controls.Add(this.label2, 2, 3);
+            this.tableLayoutPanel3.Controls.Add(this.winMethodEnumBtn1, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.betYakuEnumBtn1, 1, 1);
+            this.tableLayoutPanel3.Controls.Add(this.extraYakuEnumBtn1, 3, 1);
+            this.tableLayoutPanel3.Controls.Add(this.label3, 2, 1);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(399, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 1;
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(200, 100);
-            this.tableLayoutPanel3.TabIndex = 0;
+            this.tableLayoutPanel3.RowCount = 4;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(390, 230);
+            this.tableLayoutPanel3.TabIndex = 1;
             // 
-            // button5
+            // button1
             // 
-            this.button5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button5.Location = new System.Drawing.Point(103, 3);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(44, 94);
-            this.button5.TabIndex = 5;
-            this.button5.Text = "Kan";
-            this.button5.UseVisualStyleBackColor = true;
+            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button1.Location = new System.Drawing.Point(3, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(91, 51);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Pon";
+            this.button1.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // button2
             // 
-            this.button6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button6.Location = new System.Drawing.Point(53, 3);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(44, 94);
-            this.button6.TabIndex = 4;
-            this.button6.Text = "Chi";
-            this.button6.UseVisualStyleBackColor = true;
+            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button2.Location = new System.Drawing.Point(100, 3);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(91, 51);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "Chi";
+            this.button2.UseVisualStyleBackColor = true;
             // 
-            // button8
+            // button3
             // 
-            this.button8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button8.Location = new System.Drawing.Point(53, 3);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(44, 94);
-            this.button8.TabIndex = 4;
-            this.button8.Text = "Chi";
-            this.button8.UseVisualStyleBackColor = true;
+            this.button3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button3.Location = new System.Drawing.Point(197, 3);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(91, 51);
+            this.button3.TabIndex = 2;
+            this.button3.Text = "Kan";
+            this.button3.UseVisualStyleBackColor = true;
             // 
-            // button7
+            // button4
             // 
-            this.button7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button7.Location = new System.Drawing.Point(103, 3);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(44, 94);
-            this.button7.TabIndex = 5;
-            this.button7.Text = "Kan";
-            this.button7.UseVisualStyleBackColor = true;
-            // 
-            // tableLayoutPanel4
-            // 
-            this.tableLayoutPanel4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.tableLayoutPanel4.ColumnCount = 4;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel4.Controls.Add(this.button7, 2, 0);
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 1;
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(200, 100);
-            this.tableLayoutPanel4.TabIndex = 0;
+            this.button4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button4.Location = new System.Drawing.Point(294, 3);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(93, 51);
+            this.button4.TabIndex = 3;
+            this.button4.Text = "Closed Kan";
+            this.button4.UseVisualStyleBackColor = true;
             // 
             // windSelBtn1
             // 
             this.windSelBtn1.AutoSize = true;
             this.windSelBtn1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.windSelBtn1.Location = new System.Drawing.Point(105, 189);
+            this.windSelBtn1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.windSelBtn1.Location = new System.Drawing.Point(100, 174);
             this.windSelBtn1.Name = "windSelBtn1";
-            this.windSelBtn1.Size = new System.Drawing.Size(75, 25);
-            this.windSelBtn1.TabIndex = 14;
+            this.windSelBtn1.Size = new System.Drawing.Size(91, 53);
+            this.windSelBtn1.TabIndex = 5;
             this.windSelBtn1.Value = RiichiCalc.Tiles.MahjongTile.WindEast;
+            // 
+            // windSelBtn2
+            // 
+            this.windSelBtn2.AutoSize = true;
+            this.windSelBtn2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.windSelBtn2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.windSelBtn2.Location = new System.Drawing.Point(294, 174);
+            this.windSelBtn2.Name = "windSelBtn2";
+            this.windSelBtn2.Size = new System.Drawing.Size(93, 53);
+            this.windSelBtn2.TabIndex = 6;
+            this.windSelBtn2.Value = RiichiCalc.Tiles.MahjongTile.WindEast;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Location = new System.Drawing.Point(3, 171);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(91, 59);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Table wind";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.Location = new System.Drawing.Point(197, 171);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(91, 59);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Seat wind";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // winMethodEnumBtn1
+            // 
+            this.winMethodEnumBtn1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.winMethodEnumBtn1.Location = new System.Drawing.Point(3, 60);
+            this.winMethodEnumBtn1.Name = "winMethodEnumBtn1";
+            this.winMethodEnumBtn1.Size = new System.Drawing.Size(91, 51);
+            this.winMethodEnumBtn1.TabIndex = 9;
+            this.winMethodEnumBtn1.Value = RiichiCalc.Tiles.WinMethod.Tsumo;
+            // 
+            // betYakuEnumBtn1
+            // 
+            this.betYakuEnumBtn1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.betYakuEnumBtn1.Location = new System.Drawing.Point(100, 60);
+            this.betYakuEnumBtn1.Name = "betYakuEnumBtn1";
+            this.betYakuEnumBtn1.Size = new System.Drawing.Size(91, 51);
+            this.betYakuEnumBtn1.TabIndex = 10;
+            this.betYakuEnumBtn1.Value = RiichiCalc.Tiles.BetYaku.NoRiichi;
+            // 
+            // extraYakuEnumBtn1
+            // 
+            this.extraYakuEnumBtn1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.extraYakuEnumBtn1.Location = new System.Drawing.Point(294, 60);
+            this.extraYakuEnumBtn1.Name = "extraYakuEnumBtn1";
+            this.extraYakuEnumBtn1.Size = new System.Drawing.Size(91, 51);
+            this.extraYakuEnumBtn1.TabIndex = 11;
+            this.extraYakuEnumBtn1.Value = RiichiCalc.Tiles.ExtraYaku.None;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label3.Location = new System.Drawing.Point(197, 57);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(91, 57);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Extra yaku";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // MainWnd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(792, 466);
-            this.Controls.Add(this.tableLayoutPanel2);
+            this.Controls.Add(this.tableLayoutPanel1);
+            this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(720, 500);
             this.Name = "MainWnd";
             this.Text = "RiichiCalc";
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
-            this.tilesPane.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
+            this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
-            this.tableLayoutPanel4.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.TableLayoutPanel tilesPane;
+        private MahjongTileBtn mahjongTileBtn1;
         private MahjongTileBtn mahjongTileBtn2;
         private MahjongTileBtn mahjongTileBtn3;
         private MahjongTileBtn mahjongTileBtn4;
         private MahjongTileBtn mahjongTileBtn5;
         private MahjongTileBtn mahjongTileBtn6;
         private MahjongTileBtn mahjongTileBtn7;
+        private MahjongTileBtn mahjongTileBtn8;
         private MahjongTileBtn mahjongTileBtn9;
         private MahjongTileBtn mahjongTileBtn10;
         private MahjongTileBtn mahjongTileBtn11;
@@ -701,24 +673,19 @@ namespace RiichiCalc
         private MahjongTileBtn mahjongTileBtn32;
         private MahjongTileBtn mahjongTileBtn33;
         private MahjongTileBtn mahjongTileBtn34;
-        private MahjongTileBtn mahjongTileBtn8;
-        private MahjongTileBtn mahjongTileBtn1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Button kanStateBtn;
-        private System.Windows.Forms.Button chiStateBtn;
-        private System.Windows.Forms.Button ponStateBtn;
-        private System.Windows.Forms.Button closedKanStateBtn;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
-        private CheckBtn riichiStateBtn;
-        private CheckBtn ippatsuStateBtn;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
         private WindSelBtn windSelBtn1;
+        private WindSelBtn windSelBtn2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private WinMethodEnumBtn winMethodEnumBtn1;
+        private BetYakuEnumBtn betYakuEnumBtn1;
+        private ExtraYakuEnumBtn extraYakuEnumBtn1;
+        private System.Windows.Forms.Label label3;
     }
 }
 

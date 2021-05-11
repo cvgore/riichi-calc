@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Drawing;
 using System.Drawing.Text;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -10,19 +11,24 @@ using System.Windows.Forms;
 
 namespace RiichiCalc.Tiles
 {
-    class MahjongFont: IDisposable
+    class MahjongFont
     {
         [DllImport("gdi32.dll")]
         private static extern IntPtr AddFontMemResourceEx(IntPtr pbFont, uint cbFont, IntPtr pdv, [In] ref uint pcFonts);
 
-        private static PrivateFontCollection? _fontCollection;
-        private static IntPtr _fontPtr;
-        private static int _counter = 0;
-        private const float FontYMargin = 5f;
-        private const float FontXMargin = 3f;
+        private static PrivateFontCollection _fontCollection = null!;
+        private static IntPtr _fontPtr = IntPtr.Zero;
+        private const float FontYMargin = 2f;
+        private const float FontXMargin = 5f;
+        private static uint _counter = 0;
 
-        private void InitFontFor()
+        private static void EnsureFontIsInitialized()
         {
+            if (_counter != 0)
+            {
+                return;
+            }
+
             _fontCollection = new();
 
             _fontPtr = Marshal.AllocCoTaskMem(MainRes.MahjongTiles.Length);
@@ -34,35 +40,44 @@ namespace RiichiCalc.Tiles
                 MainRes.MahjongTiles.Length
             );
 
-            if (LicenseManager.UsageMode == LicenseUsageMode.Designtime)
-            {
-                Application.SetCompatibleTextRenderingDefault(true);
-            }
-            else
-            {
+            // if (!InDesignMode())
+            // {
                 // https://stackoverflow.com/a/1956043
                 uint cFonts = 0;
                 AddFontMemResourceEx(_fontPtr, (uint)MainRes.MahjongTiles.Length, IntPtr.Zero, ref cFonts);
-            }
+            // }
 
             _fontCollection.AddMemoryFont(_fontPtr, MainRes.MahjongTiles.Length);
         }
 
-        private void ReleaseUnmanagedResources()
+        internal static void InitCustomFontForControl(Control ctr, float em)
         {
-            _fontCollection?.Dispose();
-            Marshal.FreeCoTaskMem(_fontPtr);
+            EnsureFontIsInitialized();
+            _counter++;
+
+            ctr.Font = new(_fontCollection.Families[0], em);
         }
 
-        public void Dispose()
+        // This font is a little bit buggy and it's rendering needs to be adjusted (Font*Margin)
+        internal static void PaintUsingFont(Graphics g, MahjongTile tile, Control ctr)
         {
-            ReleaseUnmanagedResources();
-            GC.SuppressFinalize(this);
+            g.DrawString(
+                tile.ToTileSymbol(),
+                ctr.Font,
+                new SolidBrush(ctr.ForeColor),
+                new PointF(ctr.Width / 2f - ctr.Font.Size / 2f - FontXMargin, ctr.Height / 2f - ctr.Font.Size / 2f - FontYMargin)
+            );
         }
 
-        ~MahjongFont()
+        internal static bool InDesignMode() => LicenseManager.UsageMode == LicenseUsageMode.Designtime;
+
+        internal static void DisposeControl()
         {
-            ReleaseUnmanagedResources();
+            if (--_counter == 0)
+            {
+                _fontCollection.Dispose();
+                Marshal.FreeCoTaskMem(_fontPtr);
+            }
         }
     }
 }

@@ -1,5 +1,5 @@
 ﻿
-namespace RiichiCalc
+namespace RiichiCalc.Controls
 {
     partial class WindSelBtn
     {
@@ -36,14 +36,15 @@ namespace RiichiCalc
             // 
             this.togglerBtn.AutoSize = true;
             this.togglerBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.togglerBtn.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.togglerBtn.Location = new System.Drawing.Point(0, 0);
             this.togglerBtn.Margin = new System.Windows.Forms.Padding(0);
             this.togglerBtn.Name = "togglerBtn";
-            this.togglerBtn.Size = new System.Drawing.Size(75, 25);
+            this.togglerBtn.Size = new System.Drawing.Size(88, 35);
             this.togglerBtn.TabIndex = 0;
-            this.togglerBtn.Text = "button1";
             this.togglerBtn.UseVisualStyleBackColor = true;
             this.togglerBtn.Click += new System.EventHandler(this.togglerBtn_Click);
+            this.togglerBtn.Paint += new System.Windows.Forms.PaintEventHandler(this.togglerBtn_Paint);
             // 
             // WindSelBtn
             // 
@@ -53,7 +54,7 @@ namespace RiichiCalc
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Controls.Add(this.togglerBtn);
             this.Name = "WindSelBtn";
-            this.Size = new System.Drawing.Size(75, 25);
+            this.Size = new System.Drawing.Size(88, 35);
             this.ResumeLayout(false);
             this.PerformLayout();
 

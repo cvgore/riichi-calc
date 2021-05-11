@@ -1,19 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using RiichiCalc.Tiles;
 
-namespace RiichiCalc
+namespace RiichiCalc.Controls
 {
     public partial class WindSelBtn : UserControl
     {
         private readonly uint WindMax = (uint)MahjongTile.WindNorth;
+        private readonly MahjongFontInstance _mfi;
 
         private MahjongTile _value;
 
@@ -31,18 +25,25 @@ namespace RiichiCalc
             }
 
             _value = value;
-
-            togglerBtn.Text = value.ToTileSymbol();
         }
 
         public WindSelBtn()
         {
             InitializeComponent();
+
+            _mfi = new(togglerBtn, 24f);
         }
 
         private void togglerBtn_Click(object sender, EventArgs e)
         {
-            _value = (MahjongTile)((uint)_value + 1 % (WindMax + 1));
+            _value = (MahjongTile)(((uint)_value + 1) % (WindMax + 1));
+
+            Refresh();
+        }
+
+        private void togglerBtn_Paint(object sender, PaintEventArgs e)
+        {
+            _mfi.PaintText(e.Graphics, Value);
         }
     }
 }

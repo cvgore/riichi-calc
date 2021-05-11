@@ -1,7 +1,4 @@
-﻿using System.Drawing;
-using RiichiCalc.Tiles;
-
-namespace RiichiCalc
+﻿namespace RiichiCalc.Controls
 {
     partial class MahjongTileBtn
     {
@@ -43,6 +40,7 @@ namespace RiichiCalc
             this.tileBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tileBtn.FlatAppearance.BorderSize = 0;
             this.tileBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.tileBtn.Font = new System.Drawing.Font("Segoe UI", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tileBtn.Location = new System.Drawing.Point(0, 0);
             this.tileBtn.Margin = new System.Windows.Forms.Padding(0);
             this.tileBtn.Name = "tileBtn";

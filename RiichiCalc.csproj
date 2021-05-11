@@ -11,6 +11,9 @@
     <Compile Update="CheckBtn - Copy.Designer.cs">
       <DependentUpon>CheckBtn.Designer.cs</DependentUpon>
     </Compile>
+    <Compile Update="Controls\BetYakuEnumBtn.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="MainRes.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -26,6 +29,10 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>MainRes.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Core\" />
   </ItemGroup>
 
 </Project>
