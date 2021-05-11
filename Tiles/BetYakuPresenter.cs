@@ -14,7 +14,8 @@ namespace RiichiCalc.Tiles
             {
                 BetYaku.NoRiichi => "No Riichi",
                 BetYaku.Riichi => "Riichi",
-                BetYaku.DoubleRiichi => "Double Riichi"
+                BetYaku.DoubleRiichi => "Double Riichi",
+                _ => throw new ArgumentOutOfRangeException(nameof(yaku), yaku, null)
             };
         }
     }

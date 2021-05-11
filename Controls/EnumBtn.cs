@@ -21,6 +21,7 @@ namespace RiichiCalc.Controls
         private readonly bool _supportsPrettyString = SupportsPrettyPrint();
         private readonly MethodInfo? _customStringMethod = GetPrettyStringMethod();
         private int _enumIdx = 0;
+        protected bool OwnerDraw { get; init; } = false;
 
         public T Value
         {
@@ -41,9 +42,10 @@ namespace RiichiCalc.Controls
         {
             _value = value;
 
-            toggleBtn.Text = GetString(value);
-
-            Refresh();
+            if (!OwnerDraw)
+            {
+                toggleBtn.Text = GetString(value);
+            }
         }
 
         private string GetString(T value)

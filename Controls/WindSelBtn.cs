@@ -4,46 +4,22 @@ using RiichiCalc.Tiles;
 
 namespace RiichiCalc.Controls
 {
-    public partial class WindSelBtn : UserControl
+    public class WindSelBtn : EnumBtn<MahjongWindTile>
     {
-        private readonly uint WindMax = (uint)MahjongTile.WindNorth;
         private readonly MahjongFontInstance _mfi;
-
-        private MahjongTile _value;
-
-        public MahjongTile Value
-        {
-            get => _value;
-            set => SetValue(value);
-        }
-
-        private void SetValue(MahjongTile value)
-        {
-            if (!value.IsWind())
-            {
-                throw new TileNotWindException(value);
-            }
-
-            _value = value;
-        }
 
         public WindSelBtn()
         {
-            InitializeComponent();
+            _mfi = new(toggleBtn, 24f);
 
-            _mfi = new(togglerBtn, 24f);
+            toggleBtn.Paint += toggleBtn_Paint;
+
+            OwnerDraw = true;
         }
-
-        private void togglerBtn_Click(object sender, EventArgs e)
+        
+        private void toggleBtn_Paint(object sender, PaintEventArgs e)
         {
-            _value = (MahjongTile)(((uint)_value + 1) % (WindMax + 1));
-
-            Refresh();
-        }
-
-        private void togglerBtn_Paint(object sender, PaintEventArgs e)
-        {
-            _mfi.PaintText(e.Graphics, Value);
+            _mfi.PaintText(e.Graphics, (MahjongTile)Value);
         }
     }
 }

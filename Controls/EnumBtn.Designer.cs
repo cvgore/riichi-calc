@@ -57,6 +57,6 @@ namespace RiichiCalc.Controls
 
         #endregion
 
-        private System.Windows.Forms.Button toggleBtn;
+        protected System.Windows.Forms.Button toggleBtn;
     }
 }

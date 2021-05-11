@@ -20,5 +20,10 @@ namespace RiichiCalc.Controls
         {
             InitializeComponent();
         }
+
+        private void btn_Click(object sender, System.EventArgs e)
+        {
+            Checked = !Checked;
+        }
     }
 }

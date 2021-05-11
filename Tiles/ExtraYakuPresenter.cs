@@ -18,6 +18,7 @@ namespace RiichiCalc.Tiles
                 ExtraYaku.Haitei => "Haitei",
                 ExtraYaku.Houtei => "Houtei",
                 ExtraYaku.Ippatsu => "Ippatsu",
+                _ => throw new ArgumentOutOfRangeException(nameof(yaku), yaku, null)
             };
         }
     }

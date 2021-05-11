@@ -614,7 +614,7 @@ namespace RiichiCalc
             this.tableWindBtn.Name = "tableWindBtn";
             this.tableWindBtn.Size = new System.Drawing.Size(91, 53);
             this.tableWindBtn.TabIndex = 5;
-            this.tableWindBtn.Value = RiichiCalc.Tiles.MahjongTile.WindEast;
+            this.tableWindBtn.Value = RiichiCalc.Tiles.MahjongWindTile.WindEast;
             // 
             // seatWindBtn
             // 
@@ -625,7 +625,7 @@ namespace RiichiCalc
             this.seatWindBtn.Name = "seatWindBtn";
             this.seatWindBtn.Size = new System.Drawing.Size(93, 53);
             this.seatWindBtn.TabIndex = 6;
-            this.seatWindBtn.Value = RiichiCalc.Tiles.MahjongTile.WindEast;
+            this.seatWindBtn.Value = RiichiCalc.Tiles.MahjongWindTile.WindEast;
             // 
             // winMethodEnumBtn
             // 
