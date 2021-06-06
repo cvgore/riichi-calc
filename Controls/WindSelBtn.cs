@@ -8,13 +8,11 @@ namespace RiichiCalc.Controls
     {
         private readonly MahjongFontInstance _mfi;
 
-        public WindSelBtn()
+        public WindSelBtn(): base(ownerDraw: true)
         {
             _mfi = new(toggleBtn, 24f);
 
             toggleBtn.Paint += toggleBtn_Paint;
-
-            OwnerDraw = true;
         }
         
         private void toggleBtn_Paint(object sender, PaintEventArgs e)

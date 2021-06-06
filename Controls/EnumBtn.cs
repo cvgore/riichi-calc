@@ -21,7 +21,7 @@ namespace RiichiCalc.Controls
         private readonly bool _supportsPrettyString = SupportsPrettyPrint();
         private readonly MethodInfo? _customStringMethod = GetPrettyStringMethod();
         private int _enumIdx = 0;
-        protected bool OwnerDraw { get; init; } = false;
+        private readonly bool _ownerDraw;
 
         public T Value
         {
@@ -29,11 +29,17 @@ namespace RiichiCalc.Controls
             set => SetValue(value);
         }
 
-        protected EnumBtn()
+        protected EnumBtn(bool ownerDraw = false)
         {
             InitializeComponent();
 
+            _ownerDraw = ownerDraw;
             _value = (T)_enumValues.GetValue(0)!;
+
+            if (_ownerDraw)
+            {
+                toggleBtn.Text = "";
+            }
 
             SetValue(_value);
         }
@@ -42,7 +48,7 @@ namespace RiichiCalc.Controls
         {
             _value = value;
 
-            if (!OwnerDraw)
+            if (!_ownerDraw)
             {
                 toggleBtn.Text = GetString(value);
             }

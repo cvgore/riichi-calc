@@ -72,7 +72,10 @@ namespace RiichiCalc
             RiichiCalc.Controls.MahjongTileBtn manzu7MahjongTileBtn;
             RiichiCalc.Controls.MahjongTileBtn manzu8MahjongTileBtn;
             RiichiCalc.Controls.MahjongTileBtn manzu9MahjongTileBtn;
+            System.Windows.Forms.StatusStrip statusBar;
+            System.Windows.Forms.ToolStripStatusLabel copyrightNotice;
             this.doraCounter = new System.Windows.Forms.NumericUpDown();
+            this.versionInfo = new System.Windows.Forms.ToolStripStatusLabel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -85,6 +88,9 @@ namespace RiichiCalc
             this.checkBtn2 = new RiichiCalc.Controls.CheckBtn();
             this.checkBtn3 = new RiichiCalc.Controls.CheckBtn();
             this.checkBtn4 = new RiichiCalc.Controls.CheckBtn();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.handCont = new RiichiCalc.Controls.MahjongTileSet(handCtx);
             label1 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
@@ -124,11 +130,15 @@ namespace RiichiCalc
             manzu7MahjongTileBtn = new RiichiCalc.Controls.MahjongTileBtn();
             manzu8MahjongTileBtn = new RiichiCalc.Controls.MahjongTileBtn();
             manzu9MahjongTileBtn = new RiichiCalc.Controls.MahjongTileBtn();
+            statusBar = new System.Windows.Forms.StatusStrip();
+            copyrightNotice = new System.Windows.Forms.ToolStripStatusLabel();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.doraCounter)).BeginInit();
+            statusBar.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -203,6 +213,7 @@ namespace RiichiCalc
             windEastMahjongTileBtn.Size = new System.Drawing.Size(35, 50);
             windEastMahjongTileBtn.TabIndex = 0;
             windEastMahjongTileBtn.Tile = RiichiCalc.Tiles.MahjongTile.WindEast;
+            windEastMahjongTileBtn.Click += new System.EventHandler(this.MahjongTileBtn_Click);
             // 
             // windSouthMahjongTileBtn
             // 
@@ -212,6 +223,7 @@ namespace RiichiCalc
             windSouthMahjongTileBtn.Size = new System.Drawing.Size(35, 50);
             windSouthMahjongTileBtn.TabIndex = 1;
             windSouthMahjongTileBtn.Tile = RiichiCalc.Tiles.MahjongTile.WindSouth;
+            windSouthMahjongTileBtn.Click += new System.EventHandler(this.MahjongTileBtn_Click);
             // 
             // windWestMahjongTileBtn
             // 
@@ -221,6 +233,7 @@ namespace RiichiCalc
             windWestMahjongTileBtn.Size = new System.Drawing.Size(35, 50);
             windWestMahjongTileBtn.TabIndex = 2;
             windWestMahjongTileBtn.Tile = RiichiCalc.Tiles.MahjongTile.WindWest;
+            windWestMahjongTileBtn.Click += new System.EventHandler(this.MahjongTileBtn_Click);
             // 
             // windNorthMahjongTileBtn
             // 
@@ -230,6 +243,7 @@ namespace RiichiCalc
             windNorthMahjongTileBtn.Size = new System.Drawing.Size(35, 50);
             windNorthMahjongTileBtn.TabIndex = 3;
             windNorthMahjongTileBtn.Tile = RiichiCalc.Tiles.MahjongTile.WindNorth;
+            windNorthMahjongTileBtn.Click += new System.EventHandler(this.MahjongTileBtn_Click);
             // 
             // dragonGreenMahjongTileBtn
             // 
@@ -239,6 +253,7 @@ namespace RiichiCalc
             dragonGreenMahjongTileBtn.Size = new System.Drawing.Size(35, 50);
             dragonGreenMahjongTileBtn.TabIndex = 4;
             dragonGreenMahjongTileBtn.Tile = RiichiCalc.Tiles.MahjongTile.DragonGreen;
+            dragonGreenMahjongTileBtn.Click += new System.EventHandler(this.MahjongTileBtn_Click);
             // 
             // dragonRedMahjongTileBtn
             // 
@@ -248,6 +263,7 @@ namespace RiichiCalc
             dragonRedMahjongTileBtn.Size = new System.Drawing.Size(35, 50);
             dragonRedMahjongTileBtn.TabIndex = 5;
             dragonRedMahjongTileBtn.Tile = RiichiCalc.Tiles.MahjongTile.DragonRed;
+            dragonRedMahjongTileBtn.Click += new System.EventHandler(this.MahjongTileBtn_Click);
             // 
             // dragonWhiteMahjongTileBtn
             // 
@@ -257,6 +273,7 @@ namespace RiichiCalc
             dragonWhiteMahjongTileBtn.Size = new System.Drawing.Size(35, 50);
             dragonWhiteMahjongTileBtn.TabIndex = 6;
             dragonWhiteMahjongTileBtn.Tile = RiichiCalc.Tiles.MahjongTile.DragonWhite;
+            dragonWhiteMahjongTileBtn.Click += new System.EventHandler(this.MahjongTileBtn_Click);
             // 
             // pinzu1MahjongTileBtn
             // 
@@ -266,6 +283,7 @@ namespace RiichiCalc
             pinzu1MahjongTileBtn.Size = new System.Drawing.Size(35, 50);
             pinzu1MahjongTileBtn.TabIndex = 7;
             pinzu1MahjongTileBtn.Tile = RiichiCalc.Tiles.MahjongTile.Pinzu1;
+            pinzu1MahjongTileBtn.Click += new System.EventHandler(this.MahjongTileBtn_Click);
             // 
             // pinzu2MahjongTileBtn
             // 
@@ -275,6 +293,7 @@ namespace RiichiCalc
             pinzu2MahjongTileBtn.Size = new System.Drawing.Size(35, 50);
             pinzu2MahjongTileBtn.TabIndex = 8;
             pinzu2MahjongTileBtn.Tile = RiichiCalc.Tiles.MahjongTile.Pinzu2;
+            pinzu2MahjongTileBtn.Click += new System.EventHandler(this.MahjongTileBtn_Click);
             // 
             // pinzu3MahjongTileBtn
             // 
@@ -284,6 +303,7 @@ namespace RiichiCalc
             pinzu3MahjongTileBtn.Size = new System.Drawing.Size(35, 50);
             pinzu3MahjongTileBtn.TabIndex = 9;
             pinzu3MahjongTileBtn.Tile = RiichiCalc.Tiles.MahjongTile.Pinzu3;
+            pinzu3MahjongTileBtn.Click += new System.EventHandler(this.MahjongTileBtn_Click);
             // 
             // pinzu4MahjongTileBtn
             // 
@@ -293,6 +313,7 @@ namespace RiichiCalc
             pinzu4MahjongTileBtn.Size = new System.Drawing.Size(35, 50);
             pinzu4MahjongTileBtn.TabIndex = 10;
             pinzu4MahjongTileBtn.Tile = RiichiCalc.Tiles.MahjongTile.Pinzu4;
+            pinzu4MahjongTileBtn.Click += new System.EventHandler(this.MahjongTileBtn_Click);
             // 
             // pinzu5MahjongTileBtn
             // 
@@ -302,6 +323,7 @@ namespace RiichiCalc
             pinzu5MahjongTileBtn.Size = new System.Drawing.Size(35, 50);
             pinzu5MahjongTileBtn.TabIndex = 11;
             pinzu5MahjongTileBtn.Tile = RiichiCalc.Tiles.MahjongTile.Pinzu5;
+            pinzu5MahjongTileBtn.Click += new System.EventHandler(this.MahjongTileBtn_Click);
             // 
             // pinzu6MahjongTileBtn
             // 
@@ -311,6 +333,7 @@ namespace RiichiCalc
             pinzu6MahjongTileBtn.Size = new System.Drawing.Size(35, 50);
             pinzu6MahjongTileBtn.TabIndex = 12;
             pinzu6MahjongTileBtn.Tile = RiichiCalc.Tiles.MahjongTile.Pinzu6;
+            pinzu6MahjongTileBtn.Click += new System.EventHandler(this.MahjongTileBtn_Click);
             // 
             // pinzu7MahjongTileBtn
             // 
@@ -320,6 +343,7 @@ namespace RiichiCalc
             pinzu7MahjongTileBtn.Size = new System.Drawing.Size(35, 50);
             pinzu7MahjongTileBtn.TabIndex = 13;
             pinzu7MahjongTileBtn.Tile = RiichiCalc.Tiles.MahjongTile.Pinzu7;
+            pinzu7MahjongTileBtn.Click += new System.EventHandler(this.MahjongTileBtn_Click);
             // 
             // pinzu8MahjongTileBtn
             // 
@@ -329,6 +353,7 @@ namespace RiichiCalc
             pinzu8MahjongTileBtn.Size = new System.Drawing.Size(35, 50);
             pinzu8MahjongTileBtn.TabIndex = 14;
             pinzu8MahjongTileBtn.Tile = RiichiCalc.Tiles.MahjongTile.Pinzu8;
+            pinzu8MahjongTileBtn.Click += new System.EventHandler(this.MahjongTileBtn_Click);
             // 
             // pinzu9MahjongTileBtn
             // 
@@ -338,6 +363,7 @@ namespace RiichiCalc
             pinzu9MahjongTileBtn.Size = new System.Drawing.Size(35, 50);
             pinzu9MahjongTileBtn.TabIndex = 15;
             pinzu9MahjongTileBtn.Tile = RiichiCalc.Tiles.MahjongTile.Pinzu9;
+            pinzu9MahjongTileBtn.Click += new System.EventHandler(this.MahjongTileBtn_Click);
             // 
             // souzu1MahjongTileBtn
             // 
@@ -347,6 +373,7 @@ namespace RiichiCalc
             souzu1MahjongTileBtn.Size = new System.Drawing.Size(35, 50);
             souzu1MahjongTileBtn.TabIndex = 16;
             souzu1MahjongTileBtn.Tile = RiichiCalc.Tiles.MahjongTile.Souzu1;
+            souzu1MahjongTileBtn.Click += new System.EventHandler(this.MahjongTileBtn_Click);
             // 
             // souzu2MahjongTileBtn
             // 
@@ -356,6 +383,7 @@ namespace RiichiCalc
             souzu2MahjongTileBtn.Size = new System.Drawing.Size(35, 50);
             souzu2MahjongTileBtn.TabIndex = 17;
             souzu2MahjongTileBtn.Tile = RiichiCalc.Tiles.MahjongTile.Souzu2;
+            souzu2MahjongTileBtn.Click += new System.EventHandler(this.MahjongTileBtn_Click);
             // 
             // souzu3MahjongTileBtn
             // 
@@ -365,6 +393,7 @@ namespace RiichiCalc
             souzu3MahjongTileBtn.Size = new System.Drawing.Size(35, 50);
             souzu3MahjongTileBtn.TabIndex = 18;
             souzu3MahjongTileBtn.Tile = RiichiCalc.Tiles.MahjongTile.Souzu3;
+            souzu3MahjongTileBtn.Click += new System.EventHandler(this.MahjongTileBtn_Click);
             // 
             // souzu4MahjongTileBtn
             // 
@@ -374,6 +403,7 @@ namespace RiichiCalc
             souzu4MahjongTileBtn.Size = new System.Drawing.Size(35, 50);
             souzu4MahjongTileBtn.TabIndex = 19;
             souzu4MahjongTileBtn.Tile = RiichiCalc.Tiles.MahjongTile.Souzu4;
+            souzu4MahjongTileBtn.Click += new System.EventHandler(this.MahjongTileBtn_Click);
             // 
             // souzu5MahjongTileBtn
             // 
@@ -383,6 +413,7 @@ namespace RiichiCalc
             souzu5MahjongTileBtn.Size = new System.Drawing.Size(35, 50);
             souzu5MahjongTileBtn.TabIndex = 20;
             souzu5MahjongTileBtn.Tile = RiichiCalc.Tiles.MahjongTile.Souzu5;
+            souzu5MahjongTileBtn.Click += new System.EventHandler(this.MahjongTileBtn_Click);
             // 
             // souzu6MahjongTileBtn
             // 
@@ -392,6 +423,7 @@ namespace RiichiCalc
             souzu6MahjongTileBtn.Size = new System.Drawing.Size(35, 50);
             souzu6MahjongTileBtn.TabIndex = 21;
             souzu6MahjongTileBtn.Tile = RiichiCalc.Tiles.MahjongTile.Souzu6;
+            souzu6MahjongTileBtn.Click += new System.EventHandler(this.MahjongTileBtn_Click);
             // 
             // souzu7MahjongTileBtn
             // 
@@ -401,6 +433,7 @@ namespace RiichiCalc
             souzu7MahjongTileBtn.Size = new System.Drawing.Size(35, 50);
             souzu7MahjongTileBtn.TabIndex = 22;
             souzu7MahjongTileBtn.Tile = RiichiCalc.Tiles.MahjongTile.Souzu7;
+            souzu7MahjongTileBtn.Click += new System.EventHandler(this.MahjongTileBtn_Click);
             // 
             // souzu8MahjongTileBtn
             // 
@@ -410,6 +443,7 @@ namespace RiichiCalc
             souzu8MahjongTileBtn.Size = new System.Drawing.Size(35, 50);
             souzu8MahjongTileBtn.TabIndex = 23;
             souzu8MahjongTileBtn.Tile = RiichiCalc.Tiles.MahjongTile.Souzu8;
+            souzu8MahjongTileBtn.Click += new System.EventHandler(this.MahjongTileBtn_Click);
             // 
             // souzu9MahjongTileBtn
             // 
@@ -419,6 +453,7 @@ namespace RiichiCalc
             souzu9MahjongTileBtn.Size = new System.Drawing.Size(35, 50);
             souzu9MahjongTileBtn.TabIndex = 24;
             souzu9MahjongTileBtn.Tile = RiichiCalc.Tiles.MahjongTile.Souzu9;
+            souzu9MahjongTileBtn.Click += new System.EventHandler(this.MahjongTileBtn_Click);
             // 
             // manzu1MahjongTileBtn
             // 
@@ -428,6 +463,7 @@ namespace RiichiCalc
             manzu1MahjongTileBtn.Size = new System.Drawing.Size(35, 50);
             manzu1MahjongTileBtn.TabIndex = 25;
             manzu1MahjongTileBtn.Tile = RiichiCalc.Tiles.MahjongTile.Manzu1;
+            manzu1MahjongTileBtn.Click += new System.EventHandler(this.MahjongTileBtn_Click);
             // 
             // manzu2MahjongTileBtn
             // 
@@ -437,6 +473,7 @@ namespace RiichiCalc
             manzu2MahjongTileBtn.Size = new System.Drawing.Size(35, 50);
             manzu2MahjongTileBtn.TabIndex = 26;
             manzu2MahjongTileBtn.Tile = RiichiCalc.Tiles.MahjongTile.Manzu2;
+            manzu2MahjongTileBtn.Click += new System.EventHandler(this.MahjongTileBtn_Click);
             // 
             // manzu3MahjongTileBtn
             // 
@@ -446,6 +483,7 @@ namespace RiichiCalc
             manzu3MahjongTileBtn.Size = new System.Drawing.Size(35, 50);
             manzu3MahjongTileBtn.TabIndex = 27;
             manzu3MahjongTileBtn.Tile = RiichiCalc.Tiles.MahjongTile.Manzu3;
+            manzu3MahjongTileBtn.Click += new System.EventHandler(this.MahjongTileBtn_Click);
             // 
             // manzu4MahjongTileBtn
             // 
@@ -455,6 +493,7 @@ namespace RiichiCalc
             manzu4MahjongTileBtn.Size = new System.Drawing.Size(35, 50);
             manzu4MahjongTileBtn.TabIndex = 28;
             manzu4MahjongTileBtn.Tile = RiichiCalc.Tiles.MahjongTile.Manzu4;
+            manzu4MahjongTileBtn.Click += new System.EventHandler(this.MahjongTileBtn_Click);
             // 
             // manzu5MahjongTileBtn
             // 
@@ -464,6 +503,7 @@ namespace RiichiCalc
             manzu5MahjongTileBtn.Size = new System.Drawing.Size(35, 50);
             manzu5MahjongTileBtn.TabIndex = 29;
             manzu5MahjongTileBtn.Tile = RiichiCalc.Tiles.MahjongTile.Manzu5;
+            manzu5MahjongTileBtn.Click += new System.EventHandler(this.MahjongTileBtn_Click);
             // 
             // manzu6MahjongTileBtn
             // 
@@ -473,6 +513,7 @@ namespace RiichiCalc
             manzu6MahjongTileBtn.Size = new System.Drawing.Size(35, 50);
             manzu6MahjongTileBtn.TabIndex = 30;
             manzu6MahjongTileBtn.Tile = RiichiCalc.Tiles.MahjongTile.Manzu6;
+            manzu6MahjongTileBtn.Click += new System.EventHandler(this.MahjongTileBtn_Click);
             // 
             // manzu7MahjongTileBtn
             // 
@@ -482,6 +523,7 @@ namespace RiichiCalc
             manzu7MahjongTileBtn.Size = new System.Drawing.Size(35, 50);
             manzu7MahjongTileBtn.TabIndex = 31;
             manzu7MahjongTileBtn.Tile = RiichiCalc.Tiles.MahjongTile.Manzu7;
+            manzu7MahjongTileBtn.Click += new System.EventHandler(this.MahjongTileBtn_Click);
             // 
             // manzu8MahjongTileBtn
             // 
@@ -491,6 +533,7 @@ namespace RiichiCalc
             manzu8MahjongTileBtn.Size = new System.Drawing.Size(35, 50);
             manzu8MahjongTileBtn.TabIndex = 32;
             manzu8MahjongTileBtn.Tile = RiichiCalc.Tiles.MahjongTile.Manzu8;
+            manzu8MahjongTileBtn.Click += new System.EventHandler(this.MahjongTileBtn_Click);
             // 
             // manzu9MahjongTileBtn
             // 
@@ -500,6 +543,37 @@ namespace RiichiCalc
             manzu9MahjongTileBtn.Size = new System.Drawing.Size(35, 50);
             manzu9MahjongTileBtn.TabIndex = 33;
             manzu9MahjongTileBtn.Tile = RiichiCalc.Tiles.MahjongTile.Manzu9;
+            manzu9MahjongTileBtn.Click += new System.EventHandler(this.MahjongTileBtn_Click);
+            // 
+            // statusBar
+            // 
+            statusBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.versionInfo,
+            copyrightNotice});
+            statusBar.Location = new System.Drawing.Point(0, 444);
+            statusBar.Name = "statusBar";
+            statusBar.Size = new System.Drawing.Size(792, 22);
+            statusBar.TabIndex = 3;
+            statusBar.Text = "RiichiCalc v.";
+            statusBar.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.statusBar_ItemClicked);
+            // 
+            // versionInfo
+            // 
+            this.versionInfo.Name = "versionInfo";
+            this.versionInfo.Size = new System.Drawing.Size(71, 17);
+            this.versionInfo.Tag = "version_info";
+            this.versionInfo.Text = "RiichiCalc v.";
+            // 
+            // copyrightNotice
+            // 
+            copyrightNotice.Enabled = false;
+            copyrightNotice.Name = "copyrightNotice";
+            copyrightNotice.Size = new System.Drawing.Size(706, 17);
+            copyrightNotice.Spring = true;
+            copyrightNotice.Tag = "copyright_notice";
+            copyrightNotice.Text = "Kacper Palka 2021";
+            copyrightNotice.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            copyrightNotice.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
             // 
             // tableLayoutPanel1
             // 
@@ -533,7 +607,6 @@ namespace RiichiCalc
             this.tableLayoutPanel2.Controls.Add(windWestMahjongTileBtn, 2, 0);
             this.tableLayoutPanel2.Controls.Add(windNorthMahjongTileBtn, 3, 0);
             this.tableLayoutPanel2.Controls.Add(dragonGreenMahjongTileBtn, 4, 0);
-            this.tableLayoutPanel2.Controls.Add(dragonRedMahjongTileBtn, 5, 0);
             this.tableLayoutPanel2.Controls.Add(dragonWhiteMahjongTileBtn, 6, 0);
             this.tableLayoutPanel2.Controls.Add(pinzu1MahjongTileBtn, 0, 1);
             this.tableLayoutPanel2.Controls.Add(pinzu2MahjongTileBtn, 1, 1);
@@ -541,7 +614,6 @@ namespace RiichiCalc
             this.tableLayoutPanel2.Controls.Add(pinzu4MahjongTileBtn, 3, 1);
             this.tableLayoutPanel2.Controls.Add(pinzu5MahjongTileBtn, 4, 1);
             this.tableLayoutPanel2.Controls.Add(pinzu6MahjongTileBtn, 5, 1);
-            this.tableLayoutPanel2.Controls.Add(pinzu7MahjongTileBtn, 6, 1);
             this.tableLayoutPanel2.Controls.Add(pinzu8MahjongTileBtn, 7, 1);
             this.tableLayoutPanel2.Controls.Add(pinzu9MahjongTileBtn, 8, 1);
             this.tableLayoutPanel2.Controls.Add(souzu1MahjongTileBtn, 0, 2);
@@ -562,6 +634,8 @@ namespace RiichiCalc
             this.tableLayoutPanel2.Controls.Add(manzu7MahjongTileBtn, 6, 3);
             this.tableLayoutPanel2.Controls.Add(manzu8MahjongTileBtn, 7, 3);
             this.tableLayoutPanel2.Controls.Add(manzu9MahjongTileBtn, 8, 3);
+            this.tableLayoutPanel2.Controls.Add(pinzu7MahjongTileBtn, 6, 1);
+            this.tableLayoutPanel2.Controls.Add(dragonRedMahjongTileBtn, 5, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -709,11 +783,45 @@ namespace RiichiCalc
             this.checkBtn4.Size = new System.Drawing.Size(93, 51);
             this.checkBtn4.TabIndex = 18;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.handCont);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox1.Location = new System.Drawing.Point(0, 236);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(792, 82);
+            this.groupBox1.TabIndex = 1;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Hand";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox2.Location = new System.Drawing.Point(0, 318);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(792, 148);
+            this.groupBox2.TabIndex = 2;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Summary";
+            // 
+            // handCont
+            // 
+            this.handCont.AutoSize = true;
+            this.handCont.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.handCont.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.handCont.Location = new System.Drawing.Point(3, 19);
+            this.handCont.Name = "handCont";
+            this.handCont.Size = new System.Drawing.Size(786, 60);
+            this.handCont.TabIndex = 0;
+            // 
             // MainWnd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(792, 466);
+            this.Controls.Add(statusBar);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -722,11 +830,16 @@ namespace RiichiCalc
             this.Text = "RiichiCalc";
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.doraCounter)).EndInit();
+            statusBar.ResumeLayout(false);
+            statusBar.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -745,6 +858,10 @@ namespace RiichiCalc
         private CheckBtn checkBtn2;
         private CheckBtn checkBtn3;
         private CheckBtn checkBtn4;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.ToolStripStatusLabel versionInfo;
+        private MahjongTileSet handCont;
     }
 }
 

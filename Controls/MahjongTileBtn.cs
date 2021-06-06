@@ -6,7 +6,7 @@ namespace RiichiCalc.Controls
 {
     public partial class MahjongTileBtn : UserControl
     {
-        private MahjongTile _tile = MahjongTile.WindSouth;
+        private MahjongTile _tile;
         private readonly MahjongFontInstance _mfi;
 
         protected override Padding DefaultMargin => new(3);
@@ -21,9 +21,23 @@ namespace RiichiCalc.Controls
             }
         }
 
+        /// <summary>
+        /// Required for Designer, otherwise crashes
+        /// </summary>
         public MahjongTileBtn()
         {
             InitializeComponent();
+
+            _tile = MahjongTile.WindSouth;
+
+            _mfi = new(tileBtn, 28f);
+        }
+
+        public MahjongTileBtn(MahjongTile tile = MahjongTile.WindSouth)
+        {
+            InitializeComponent();
+
+            _tile = tile;
 
             _mfi = new(tileBtn, 28f);
         }
@@ -53,6 +67,16 @@ namespace RiichiCalc.Controls
         private void tileBtn_Paint(object sender, PaintEventArgs e)
         {
             _mfi.PaintText(e.Graphics, Tile);
+        }
+
+        private void MahjongTileBtn_Load(object sender, System.EventArgs e)
+        {
+            tileBtn.Click += MahjongTileBtn_Click;
+        }
+
+        private void MahjongTileBtn_Click(object? sender, System.EventArgs e)
+        {
+            OnClick(e);
         }
     }
 }

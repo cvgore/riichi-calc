@@ -1,4 +1,5 @@
 ﻿using System;
+using RiichiCalc.Core.Tile;
 
 namespace RiichiCalc.Tiles
 {
@@ -38,6 +39,26 @@ namespace RiichiCalc.Tiles
                 MahjongTile.DragonWhite => "White",
                 _ => throw new TileNotDragonException(tile)
             };
+        }
+
+        public static MahjongTileSuit GetSuit(this MahjongTile tile)
+        {
+            if (tile.IsPinzu())
+            {
+                return MahjongTileSuit.Pinzu;
+            }
+
+            if (tile.IsManzu())
+            {
+                return MahjongTileSuit.Manzu;
+            }
+
+            if (tile.IsSouzu())
+            {
+                return MahjongTileSuit.Souzu;
+            }
+
+            throw new TileNotSuitException(tile);
         }
 
         public static string GetSuitName(this MahjongTile tile)
