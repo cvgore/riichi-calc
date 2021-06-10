@@ -10,11 +10,11 @@ namespace RiichiCalc.Core.Pattern
     {
         public bool Matches(TableContext ctx, ParsedHand hand)
         {
-            return !hand.Tiles.Any(x => x.IsHonor())
+            return hand.IsRegularCompleteHand
+                   && !hand.Tiles.Any(x => x.IsHonor())
                    && hand.Tiles.GroupBy(x => x.GetSuit()).Count() == 1
                    && hand.Groups.Any(x => x is Triple && x.FirstTile.GetTileNumber() == 1)
                    && hand.Groups.Any(x => x is Triple && x.FirstTile.GetTileNumber() == 9)
-                   && hand.Groups.Count(x => x is Triple || x is Sequence) == 2
                    && hand.Tiles.ToHashSet().Count == 9;
         }
 

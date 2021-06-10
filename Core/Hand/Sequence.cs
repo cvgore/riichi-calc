@@ -46,7 +46,7 @@ namespace RiichiCalc.Core.Hand
         public Sequence(IReadOnlyList<MahjongTile> tiles) : base(tiles)
         {
             if (tiles.Count != 3
-                || tiles.Any(x => x.IsDragon() || x.IsWind())
+                || tiles.Any(x => x.IsHonor())
                 || tiles.GroupBy(x => x.GetSuit()).Count() != 1
                 || !IsValidSequence(tiles)
             )

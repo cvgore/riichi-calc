@@ -1,20 +1,22 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Timers;
 using RiichiCalc.Core.Hand;
 using RiichiCalc.Core.Tile;
 using RiichiCalc.Tiles;
 
 namespace RiichiCalc.Core.Pattern
 {
-    class RyuuiisouYakumanPattern : IYakumanPattern
+    class ShousuushiYakumanPattern : IYakumanPattern
     {
         public bool Matches(TableContext ctx, ParsedHand hand)
         {
             return hand.IsRegularCompleteHand
-                   && hand.Tiles.All(x => x == MahjongTile.DragonGreen || !x.IsTerminal() && x.GetSuit() == MahjongTileSuit.Souzu);
+                   && hand.Groups.Where(x => x.FirstTile.IsWind()).Count(x => x is Triple) == 3
+                   && hand.Groups.Where(x => x.FirstTile.IsWind()).Count(x => x is Pair) == 1;
         }
 
-        public string Name() => "Ryuuiisou";
+        public string Name() => "Shousuushi";
 
         public uint BigPoints() => 13;
 

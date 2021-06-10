@@ -11,7 +11,8 @@ namespace RiichiCalc.Core.Pattern
     {
         public bool Matches(TableContext ctx, ParsedHand hand)
         {
-            return hand.Tiles.All(x => x.IsOneOrNine());
+            return hand.IsRegularCompleteHand
+            && hand.Tiles.All(x => x.IsOneOrNine());
         }
 
         public string Name() => "Chinroutou";
