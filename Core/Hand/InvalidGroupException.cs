@@ -17,7 +17,7 @@ namespace RiichiCalc.Core.Hand
 
         public override string ToString()
         {
-            return $"Cannot construct group '{nameof(_group)}' out of tiles: {string.Join(',', _group.GetTiles())}";
+            return $"Cannot construct group '{nameof(_group)}' out of tiles: {string.Join(',', _group.Tiles)}";
         }
     }
 }

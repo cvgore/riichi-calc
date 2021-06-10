@@ -14,7 +14,8 @@ namespace RiichiCalc.Tiles
         private const uint ManzuMin = (uint)MahjongTile.Manzu1;
         private const uint ManzuMax = (uint)MahjongTile.Manzu9;
 
-        private const uint TerminalMax = (uint)MahjongTile.DragonWhite;
+        private const uint HonorMin = (uint)MahjongTile.WindEast;
+        private const uint HonorMax = (uint)MahjongTile.DragonWhite;
 
         private const uint SuitMaxTiles = 9;
 
@@ -61,6 +62,35 @@ namespace RiichiCalc.Tiles
             throw new TileNotSuitException(tile);
         }
 
+        public static bool IsHonor(this MahjongTile tile)
+        {
+            var id = (uint) tile;
+
+            return id >= HonorMin && id <= HonorMax;
+        }
+
+        public static bool IsTerminal(this MahjongTile tile)
+        {
+            var id = (uint) tile;
+
+            if (id > ManzuMin && id < ManzuMax)
+            {
+                return false;
+            }
+
+            if (id > SouzuMin && id < SouzuMax)
+            {
+                return false;
+            }
+
+            if (id > PinzuMin && id < PinzuMax)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
         public static string GetSuitName(this MahjongTile tile)
         {
             if (tile.IsPinzu())
@@ -79,6 +109,30 @@ namespace RiichiCalc.Tiles
             }
 
             throw new TileNotSuitException(tile);
+        }
+
+        public static bool IsOneOrNine(this MahjongTile tile)
+        {
+            if (tile.IsHonor())
+            {
+                return false;
+            }
+
+            var no = tile.GetTileNumber();
+
+            return no == 1 || no == 9;
+        }
+
+        public static uint GetTileNumber(this MahjongTile tile)
+        {
+            if (tile.IsWind() || tile.IsDragon())
+            {
+                throw new TileNotSuitException(tile);
+            }
+
+            var id = (uint)tile;
+
+            return ((id - HonorMax - 1) % SuitMaxTiles) + 1;
         }
 
         public static bool IsPinzu(this MahjongTile tile)
@@ -141,8 +195,7 @@ namespace RiichiCalc.Tiles
                 return $"Dragon: {tile.GetDragonName()}";
             }
 
-            var id = (uint)tile;
-            var idx = (id - TerminalMax - 1) % SuitMaxTiles;
+            var idx = tile.GetTileNumber();
 
             return $"{tile.GetSuitName()}: {idx + 1}";
         }

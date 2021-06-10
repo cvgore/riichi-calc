@@ -4,42 +4,45 @@ using RiichiCalc.Tiles;
 
 namespace RiichiCalc.Core.Hand
 {
-    internal class CalculatedHand
+    internal class ParsedHand
     {
-        public List<Group> Groups { get; init; }
-        public uint BigPoints { get; init; }
-        public uint SmallPoints { get; init; }
+        public List<Group> Groups { get; }
+        public List<MahjongTile> Tiles { get; }
+        public MahjongTile LastTile { get; }
+        public bool IsRegularCompleteHand { get; }
 
-        public CalculatedHand(IReadOnlyList<MahjongTile> tiles)
+        public ParsedHand(IReadOnlyList<MahjongTile> tiles)
         {
-            Groups = new();
+            Groups = new List<Group>();
+            LastTile = tiles.Last();
+            Tiles = tiles.OrderBy(x => x).ToList();
 
-            ParseTiles(tiles);
+            ParseTiles();
+
+            IsRegularCompleteHand = Groups.Count(x => x is Sequence || x is Triple) == 4 && Groups.Any(x => x is Pair);
         }
 
-        private void ParseTiles(IReadOnlyList<MahjongTile> tiles)
+        private void ParseTiles()
         {
-            var sortedTiles = tiles.OrderBy(x => x).ToList();
-
             // We'll manually advance cursor
-            for (int i = 0; i < tiles.Count - 1;)
+            for (int i = 0; i < Tiles.Count - 1;)
             {
                 // (tileCurrent, tileNext)
-                var (tileC, tileN) = (tiles[i], tiles[i + 1]);
+                var (tileC, tileN) = (Tiles[i], Tiles[i + 1]);
 
                 // At least we've got pair
                 if (tileC == tileN)
                 {
                     // Definitely pair (out of range next index)
-                    if (i + 2 >= tiles.Count)
+                    if (i + 2 >= Tiles.Count)
                     {
                         Groups.Add(new Pair(new []{ tileC, tileN}));
                         i += 2;
                     }
                     // Got a triple?
-                    else if (tileC == tiles[i + 2])
+                    else if (tileC == Tiles[i + 2])
                     {
-                        Groups.Add(new Triple(new []{ tileC, tileN, tiles[i+2]}));
+                        Groups.Add(new Triple(new []{ tileC, tileN, Tiles[i+2]}));
                         i += 3;
                     }
                     // Nah, only pair - what a pity
@@ -63,14 +66,14 @@ namespace RiichiCalc.Core.Hand
                         i += 1;
                     }
                     // Check if third index will be in bounds
-                    else if (i + 2 >= tiles.Count)
+                    else if (i + 2 >= Tiles.Count)
                     {
                         i += 1;
                     }
                     // Finally, check if valid
-                    else if (Sequence.IsValidSequence(new[] {tileC, tileN, tiles[i + 2]}))
+                    else if (Sequence.IsValidSequence(new[] {tileC, tileN, Tiles[i + 2]}))
                     {
-                        Groups.Add(new Triple(new []{ tileC, tileN, tiles[i+2]}));
+                        Groups.Add(new Sequence(new []{ tileC, tileN, Tiles[i+2]}));
                     }
 
                     i += 1;

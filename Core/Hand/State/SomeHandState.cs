@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using RiichiCalc.Tiles;
 
 namespace RiichiCalc.Core.States
@@ -15,6 +16,12 @@ namespace RiichiCalc.Core.States
 
         public void AddTile(HandContext ctx, MahjongTile tile)
         {
+            // Allow adding no more than 4 tiles per variant
+            if (_collection.Count(x => x == tile) >= 4)
+            {
+                return;
+            }
+
             _collection.Add(tile);
 
             if (ctx.MaxHandLen == _collection.Count)

@@ -10,7 +10,7 @@ namespace RiichiCalc.Core.Hand
     class Hand
     {
         private readonly List<MahjongTile> _tiles;
-        public CalculatedHand CalculatedHand { get; private set; }
+        public ParsedHand ParsedHand { get; private set; }
 
         public Hand(IReadOnlyList<MahjongTile> tiles)
         {
@@ -19,7 +19,7 @@ namespace RiichiCalc.Core.Hand
 
         public void Calculate()
         {
-            CalculatedHand = new(_tiles);
+            ParsedHand = new(_tiles);
         }
     }
 }

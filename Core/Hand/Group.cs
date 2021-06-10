@@ -9,13 +9,36 @@ namespace RiichiCalc.Core.Hand
 {
     class Group
     {
-        protected List<MahjongTile> _tiles;
+        public MahjongTile FirstTile { get; }
+
+        public List<MahjongTile> Tiles { get; }
 
         public Group(IReadOnlyList<MahjongTile> tiles)
         {
-            _tiles = tiles.ToList();
+            Tiles = tiles.ToList();
+            FirstTile = Tiles.First();
         }
 
-        public IReadOnlyList<MahjongTile> GetTiles() => _tiles;
+        public override bool Equals(object? obj)
+        {
+            if (obj is not Group)
+            {
+                return false;
+            }
+
+            var grp = (Group) obj;
+
+            return grp.Tiles.SequenceEqual(Tiles);
+        }
+
+        protected bool Equals(Group other)
+        {
+            return Tiles.SequenceEqual(other.Tiles);
+        }
+
+        public override int GetHashCode()
+        {
+            return Tiles.GetHashCode();
+        }
     }
 }
