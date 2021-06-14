@@ -12,10 +12,13 @@ namespace RiichiCalc.Core.Pattern
     {
         public uint Matches(TableContext ctx, ParsedHand hand)
         {
-            return hand.Groups.Where(x => x is Sequence)
-                .GroupBy(x => x.FirstTile.GetSuit())
-                .Count(x => x.GroupBy(y => y.FirstTile).Count() == 2) == 1 ? 1u : 0;
-        }
+            return hand.IsRegularCompleteHand
+                   && hand.Groups.Where(x => x is Sequence)
+                    .GroupBy(x => x.FirstTile.GetSuit())
+                    .Count(x => x.GroupBy(y => y.FirstTile).Count() == 2) == 1
+                ? 1u
+                : 0;
+            }
 
         public string Name() => "Iipeeko";
 

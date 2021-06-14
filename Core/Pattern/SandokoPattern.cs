@@ -9,14 +9,21 @@ using RiichiCalc.Tiles;
 namespace RiichiCalc.Core.Pattern
 {
     // A hand with at least one group of dragon tiles, seat wind, or round wind tiles. This hand can be valued at 1 han for each group. 
-    class SandokoPattern : IPattern
+    class SandoukouPattern : IPattern
     {
         public uint Matches(TableContext ctx, ParsedHand hand)
         {
-            var mx = new Queue<int>(new []{100, 10, 1});
+            if (!hand.IsRegularCompleteHand)
+            {
+                return 0;
+            }
 
-            var groups = hand.Groups.Where(x => x is Triple)
-                .GroupBy(x => x.Tiles.Sum(val => mx.Dequeue() * (int) val));
+            var groups = hand.Groups.Where(x => x is Triple && !x.FirstTile.IsHonor())
+                .GroupBy(x => {
+                    var mx = new Queue<int>(new []{100, 10, 1});
+
+                    return x.Tiles.Sum(val => mx.Dequeue() * (int) val);
+                });
 
             if (groups.Count() != 1)
             {
@@ -28,7 +35,7 @@ namespace RiichiCalc.Core.Pattern
             return grp.GroupBy(x => x.FirstTile.GetSuit()).All(x => x.Count() == 1) ? 1u : 0;
         }
 
-        public string Name() => "Sandoko";
+        public string Name() => "Sandoukou";
 
         public uint BigPoints() => 2;
 

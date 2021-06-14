@@ -8,7 +8,7 @@ using RiichiCalc.Tiles;
 
 namespace RiichiCalc.Core
 {
-    class TableContext
+    public class TableContext
     {
         public MahjongWindTile TableWind { get; set; }
         public MahjongWindTile PlayerWind { get; set; }

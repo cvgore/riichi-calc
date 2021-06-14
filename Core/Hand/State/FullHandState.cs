@@ -1,30 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
+using RiichiCalc.Core.Hand;
 using RiichiCalc.Tiles;
 
 namespace RiichiCalc.Core.States
 {
     class FullHandState : IHandState
     {
-        private readonly List<MahjongTile> _collection;
+        public FullHand FullHand { get; }
 
-        public FullHandState(List<MahjongTile> collection)
+        public FullHandState(IReadOnlyList<MahjongTile> tiles)
         {
-            _collection = collection;
+            FullHand = new FullHand(tiles);
         }
 
-        public void AddTile(HandContext ctx, MahjongTile tile)
+        public bool AddTile(HandContext ctx, MahjongTile tile)
         {
-            // noop
+            return false;
         }
 
-        public void RemoveTile(HandContext ctx, int index)
+        public bool RemoveTile(HandContext ctx, int index)
         {
-            _collection.RemoveAt(index);
+            FullHand.ParsedHand.Tiles.RemoveAt(index);
 
-            ctx.SetState(new SomeHandState(_collection));
+            ctx.SetState(new SomeHandState(FullHand.ParsedHand.Tiles));
+
+            return true;
         }
-
-        public IReadOnlyList<MahjongTile> GetItems() => _collection;
+        
+        public IReadOnlyList<MahjongTile> GetItems() => FullHand.ParsedHand.Tiles;
     }
 }

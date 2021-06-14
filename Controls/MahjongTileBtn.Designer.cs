@@ -63,6 +63,7 @@
             this.Name = "MahjongTileBtn";
             this.Size = new System.Drawing.Size(35, 50);
             this.Load += new System.EventHandler(this.MahjongTileBtn_Load);
+            this.EnabledChanged += new System.EventHandler(this.MahjongTileBtn_EnabledChanged);
             this.ResumeLayout(false);
             this.PerformLayout();
 

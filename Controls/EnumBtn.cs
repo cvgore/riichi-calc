@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
 using System.Linq;
 using System.Reflection;
@@ -22,6 +23,8 @@ namespace RiichiCalc.Controls
         private readonly MethodInfo? _customStringMethod = GetPrettyStringMethod();
         private int _enumIdx = 0;
         private readonly bool _ownerDraw;
+
+        public event EventHandler ValueChanged = null!;
 
         public T Value
         {
@@ -47,6 +50,8 @@ namespace RiichiCalc.Controls
         private void SetValue(T value)
         {
             _value = value;
+
+            ValueChanged?.Invoke(null, EventArgs.Empty);
 
             if (!_ownerDraw)
             {
@@ -78,18 +83,15 @@ namespace RiichiCalc.Controls
             Value = (T)_enumValues.GetValue(_enumIdx)!;
         }
 
-        private void toggleBtn_MouseClick(object sender, MouseEventArgs e)
+        private void toggleBtn_MouseClick([NotNull] object? sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
                 NextEnumValue();
-                return;
             }
-
-            if (e.Button == MouseButtons.Right)
+            else if (e.Button == MouseButtons.Right)
             {
                 PrevEnumValue();
-                return;
             }
         }
 

@@ -69,7 +69,28 @@ namespace RiichiCalc.Tiles
             );
         }
 
-        internal static bool InDesignMode() => LicenseManager.UsageMode == LicenseUsageMode.Designtime;
+        public static void Colorize(Control target, MahjongTile tile)
+        {
+            target.ForeColor = tile switch
+            {
+                MahjongTile.WindSouth => Color.Blue,
+                MahjongTile.WindEast => Color.Blue,
+                MahjongTile.WindWest => Color.Blue,
+                MahjongTile.WindNorth => Color.Blue,
+                MahjongTile.DragonWhite => Color.White,
+                MahjongTile.DragonGreen => Color.Green,
+                MahjongTile.DragonRed => Color.DarkRed,
+                var t when t.IsPinzu() => Color.MediumVioletRed,
+                var t when t.IsManzu() => Color.DarkBlue,
+                var t when t.IsSouzu() => Color.DarkGreen,
+                _ => Control.DefaultForeColor
+            };
+        }
+
+        public static void Tooltipize(Control target, ToolTip presenter, MahjongTile tile)
+        {
+            presenter.SetToolTip(target, tile.ToPrettyString());
+        }
 
         internal static void DisposeControl()
         {

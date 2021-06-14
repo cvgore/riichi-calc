@@ -7,13 +7,19 @@ using RiichiCalc.Tiles;
 
 namespace RiichiCalc.Core.Pattern
 {
-    class DaisangenYakumanPattern : IYakumanPattern
+    class DaisangenYakumanPattern : IPattern
     {
-        public bool Matches(TableContext ctx, ParsedHand hand)
+        public uint Matches(TableContext ctx, ParsedHand hand)
         {
-            return hand.IsRegularCompleteHand
-                && hand.Groups.Where(x => x.FirstTile.IsDragon() && x is Triple)
-                    .GroupBy(x => x).Count() == 3;
+            if (!hand.IsRegularCompleteHand)
+            {
+                return 0;
+            }
+
+            return hand.Groups.Where(x => x.FirstTile.IsDragon() && x is Triple)
+                    .GroupBy(x => x).Count() == 3
+                ? 1u
+                : 0;
         }
 
         public string Name() => "Daisangen";

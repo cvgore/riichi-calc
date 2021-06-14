@@ -5,14 +5,15 @@ namespace RiichiCalc.Core.States
 {
     class EmptyHandState : IHandState
     {
-        public void AddTile(HandContext ctx, MahjongTile tile)
+        public bool AddTile(HandContext ctx, MahjongTile tile)
         {
             ctx.SetState(new SomeHandState(new(new [] {tile})));
+            return true;
         }
 
-        public void RemoveTile(HandContext ctx, int tile)
+        public bool RemoveTile(HandContext ctx, int tile)
         {
-            // noop
+            return false;
         }
 
         public IReadOnlyList<MahjongTile> GetItems() => new MahjongTile[]{};

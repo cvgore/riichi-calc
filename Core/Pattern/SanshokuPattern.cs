@@ -13,10 +13,17 @@ namespace RiichiCalc.Core.Pattern
     {
         public uint Matches(TableContext ctx, ParsedHand hand)
         {
-            var mx = new Queue<int>(new []{100, 10, 1});
+            if (!hand.IsRegularCompleteHand)
+            {
+                return 0;
+            }
 
             var groups = hand.Groups.Where(x => x is Sequence)
-                .GroupBy(x => x.Tiles.Sum(val => mx.Dequeue() * (int) val));
+                .GroupBy(x => {
+                    var mx = new Queue<int>(new []{100, 10, 1});
+
+                    return x.Tiles.Sum(val => mx.Dequeue() * (int) val);
+                });
 
             if (groups.Count() != 1)
             {

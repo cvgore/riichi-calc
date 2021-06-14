@@ -7,12 +7,18 @@ using RiichiCalc.Tiles;
 
 namespace RiichiCalc.Core.Pattern
 {
-    class DaisuushiYakumanPattern : IYakumanPattern
+    class DaisuushiYakumanPattern : IPattern
     {
-        public bool Matches(TableContext ctx, ParsedHand hand)
+        public uint Matches(TableContext ctx, ParsedHand hand)
         {
-            return hand.IsRegularCompleteHand
-                   && hand.Groups.Where(x => x.FirstTile.IsWind()).Count(x => x is Triple) == 4;
+            if (!hand.IsRegularCompleteHand)
+            {
+                return 0;
+            }
+
+            return hand.Groups.Where(x => x.FirstTile.IsWind()).Count(x => x is Triple) == 4
+                ? 1u
+                : 0;
         }
 
         public string Name() => "Daisuushi";

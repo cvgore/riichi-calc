@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Windows.Forms;
 
 namespace RiichiCalc.Controls
 {
@@ -21,7 +22,7 @@ namespace RiichiCalc.Controls
             InitializeComponent();
         }
 
-        private void btn_Click(object sender, System.EventArgs e)
+        private void btn_Click([NotNull] object? sender, System.EventArgs e)
         {
             Checked = !Checked;
         }

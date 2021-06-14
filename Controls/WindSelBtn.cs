@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Windows.Forms;
 using RiichiCalc.Tiles;
 
@@ -13,9 +14,16 @@ namespace RiichiCalc.Controls
             _mfi = new(toggleBtn, 24f);
 
             toggleBtn.Paint += toggleBtn_Paint;
+
+            ValueChanged += WindSelBtn_ValueChanged;
         }
-        
-        private void toggleBtn_Paint(object sender, PaintEventArgs e)
+
+        private void WindSelBtn_ValueChanged([NotNull] object? sender, EventArgs e)
+        {
+            MahjongFont.Colorize(this, Value.ToMahjongTile());
+        }
+
+        private void toggleBtn_Paint([NotNull] object? sender, PaintEventArgs e)
         {
             _mfi.PaintText(e.Graphics, (MahjongTile)Value);
         }

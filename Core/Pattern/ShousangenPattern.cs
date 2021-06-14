@@ -9,17 +9,22 @@ using RiichiCalc.Tiles;
 namespace RiichiCalc.Core.Pattern
 {
     // A hand with at least one group of dragon tiles, seat wind, or round wind tiles. This hand can be valued at 1 han for each group. 
-    class ShosangenPattern : IPattern
+    class ShousangenPattern : IPattern
     {
         public uint Matches(TableContext ctx, ParsedHand hand)
         {
+            if (!hand.IsRegularCompleteHand)
+            {
+                return 0;
+            }
+
             return hand.Groups.Count(x => x is Triple && x.FirstTile.IsDragon()) == 2
                    && hand.Groups.Any(x => x is Pair && x.FirstTile.IsDragon())
                 ? 1u
                 : 0;
         }
 
-        public string Name() => "Shosangen";
+        public string Name() => "Shousangen";
 
         public uint BigPoints() => 2;
 

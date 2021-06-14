@@ -6,12 +6,18 @@ using RiichiCalc.Tiles;
 
 namespace RiichiCalc.Core.Pattern
 {
-    class RyuuiisouYakumanPattern : IYakumanPattern
+    class RyuuiisouYakumanPattern : IPattern
     {
-        public bool Matches(TableContext ctx, ParsedHand hand)
+        public uint Matches(TableContext ctx, ParsedHand hand)
         {
-            return hand.IsRegularCompleteHand
-                   && hand.Tiles.All(x => x == MahjongTile.DragonGreen || !x.IsTerminal() && x.GetSuit() == MahjongTileSuit.Souzu);
+            if (!hand.IsRegularCompleteHand)
+            {
+                return 0;
+            }
+
+            return hand.Tiles.All(x => x == MahjongTile.DragonGreen || !x.IsTerminal() && x.GetSuit() == MahjongTileSuit.Souzu)
+                ? 1u
+                : 0;
         }
 
         public string Name() => "Ryuuiisou";

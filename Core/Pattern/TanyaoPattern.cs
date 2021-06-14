@@ -13,7 +13,7 @@ namespace RiichiCalc.Core.Pattern
     {
         public uint Matches(TableContext ctx, ParsedHand hand)
         {
-            return hand.Tiles.Count(x => x.IsTerminal()) == 0 ? 1u : 0;
+            return hand.IsRegularCompleteHand && hand.Tiles.Count(x => x.IsTerminal()) == 0 ? 1u : 0;
         }
 
         public string Name() => "Tanyao";

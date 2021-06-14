@@ -5,11 +5,11 @@ using RiichiCalc.Tiles;
 namespace RiichiCalc.Core.States
 {
     /// <summary>
-    /// Required to denote an invalid hand state
+    /// Required to denote an invalid, full hand state
     /// </summary>
     class InvalidFullHandState : FullHandState
     {
-        public InvalidFullHandState(List<MahjongTile> collection) : base(collection)
+        public InvalidFullHandState(IReadOnlyList<MahjongTile> collection) : base(collection)
         {
         }
     }

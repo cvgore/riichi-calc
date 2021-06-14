@@ -13,11 +13,23 @@ namespace RiichiCalc.Core.Pattern
     {
         public uint Matches(TableContext ctx, ParsedHand hand)
         {
-            var mx = new Queue<uint>(new [] {1u, 4u, 7u});
+            if (!hand.IsRegularCompleteHand)
+            {
+                return 0;
+            }
 
-            return hand.Groups.GroupBy(x => x.FirstTile.GetSuit())
-                .Count(x => x.Count() == 3 &&
-                            x.All(y => y is Sequence && y.FirstTile.GetTileNumber() == mx.Dequeue())) == 1
+            if (hand.Groups.Count(x => x is Sequence) < 3)
+            {
+                return 0;
+            }
+
+            return hand.Groups.Where(x => x is Sequence)
+                .GroupBy(x => x.FirstTile.GetSuit())
+                .Count(x => {
+                    var mx = new Queue<uint>(new [] {1u, 4u, 7u});
+
+                    return x.Count() == 3 && x.All(y => y.FirstTile.GetTileNumber() == mx.Dequeue());
+                }) == 1
                 ? 1u
                 : 0;
         }

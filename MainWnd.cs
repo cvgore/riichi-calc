@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using RiichiCalc.Controls;
+using RiichiCalc.Core;
 using RiichiCalc.Core.States;
 using RiichiCalc.Tiles;
 
@@ -14,24 +16,52 @@ namespace RiichiCalc
 {
     public partial class MainWnd : Form
     {
-        private readonly string Version;
-        private HandContext handCtx;
+        private readonly string _version;
+        private TableContext _tableCtx;
 
         public MainWnd()
         {
-            handCtx = new(new EmptyHandState());
-            
+            _tableCtx = new();
+            _tableCtx.Hand.StateChanged += Hand_StateChanged;
+
             InitializeComponent();
+
+            handCont.SetHandContext(_tableCtx.Hand);
 
             var info = FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location);
 
-            Version = $"{info.FileMajorPart}.{info.FileMinorPart}.{info.FileBuildPart}";
+            _version = $"{info.FileMajorPart}.{info.FileMinorPart}.{info.FileBuildPart}";
 
-            versionInfo.Text = $"{versionInfo}{Version}";
+            versionInfo.Text = $"{versionInfo}{_version}";
 
         }
 
-        private void statusBar_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        private void Hand_StateChanged([NotNull] object? sender, IHandState e)
+        {
+            deck.Enabled = true;
+
+            if (e is InvalidFullHandState)
+            {
+                test.Text = "Invalid";
+                deck.Enabled = false;
+            }
+            else if (e is FullHandState fhs)
+            {
+                fhs.FullHand.Calculate(_tableCtx);
+
+                if (fhs.FullHand.BigPoints == 0)
+                {
+                    _tableCtx.Hand.SetState(new InvalidFullHandState(_tableCtx.Hand.GetHandItems()));
+
+                    return;
+                }
+
+                test.Text = string.Join(',', fhs.FullHand.MatchedPatterns.Select(x => x.Name()));
+                deck.Enabled = false;
+            }
+        }
+
+        private void statusBar_ItemClicked([NotNull] object? sender, ToolStripItemClickedEventArgs e)
         {
             var item = (string) e.ClickedItem.Tag;
 
@@ -39,8 +69,8 @@ namespace RiichiCalc
             {
                 var page = new TaskDialogPage
                 {
-                    Caption = $"About RiichiCalc v.{Version}",
-                    Heading = $"RiichiCalc v.{Version}",
+                    Caption = $"About RiichiCalc v.{_version}",
+                    Heading = $"RiichiCalc v.{_version}",
                     AllowMinimize = false,
                     AllowCancel = true,
                     Text = "(c) 2021 Kacper Palka\nLicensed under GPLv2-only terms.",
@@ -69,11 +99,11 @@ namespace RiichiCalc
             }
         }
 
-        private void MahjongTileBtn_Click(object sender, EventArgs e)
+        private void MahjongTileBtn_Click([NotNull] object? sender, EventArgs e)
         {
-            var btn = (MahjongTileBtn) sender;
+            var btn = (MahjongTileBtn) sender!;
 
-            handCtx.AddTile(btn.Tile);
+            _tableCtx.Hand.AddTile(btn.Tile);
         }
     }
 }

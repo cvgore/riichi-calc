@@ -7,12 +7,18 @@ using RiichiCalc.Tiles;
 
 namespace RiichiCalc.Core.Pattern
 {
-    class ChinroutouYakumanPattern : IYakumanPattern
+    class ChinroutouYakumanPattern : IPattern
     {
-        public bool Matches(TableContext ctx, ParsedHand hand)
+        public uint Matches(TableContext ctx, ParsedHand hand)
         {
-            return hand.IsRegularCompleteHand
-            && hand.Tiles.All(x => x.IsOneOrNine());
+            if (!hand.IsRegularCompleteHand)
+            {
+                return 0;
+            }
+
+            return hand.Tiles.All(x => x.IsOneOrNine())
+                ? 1u
+                : 0;
         }
 
         public string Name() => "Chinroutou";

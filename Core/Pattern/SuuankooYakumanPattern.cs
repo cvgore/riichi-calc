@@ -6,11 +6,19 @@ using RiichiCalc.Tiles;
 
 namespace RiichiCalc.Core.Pattern
 {
-    class SuuankouYakumanPattern : IYakumanPattern
+    class SuuankouYakumanPattern : IPattern
     {
-        public bool Matches(TableContext ctx, ParsedHand hand)
+        public uint Matches(TableContext ctx, ParsedHand hand)
         {
-            return hand.Groups.Count(x => x is Triple) == 4;
+            if (ctx.WinMethod != WinMethod.Tsumo)
+            {
+                return 0;
+            }
+
+            return hand.Groups.Count(x => x is Triple) == 4
+                && hand.Groups.Count(x => x is Pair) == 1
+                ? 1u
+                : 0;
         }
 
         public string Name() => "Suuankou";

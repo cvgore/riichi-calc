@@ -7,13 +7,19 @@ using RiichiCalc.Tiles;
 
 namespace RiichiCalc.Core.Pattern
 {
-    class ShousuushiYakumanPattern : IYakumanPattern
+    class ShousuushiYakumanPattern : IPattern
     {
-        public bool Matches(TableContext ctx, ParsedHand hand)
+        public uint Matches(TableContext ctx, ParsedHand hand)
         {
-            return hand.IsRegularCompleteHand
-                   && hand.Groups.Where(x => x.FirstTile.IsWind()).Count(x => x is Triple) == 3
-                   && hand.Groups.Where(x => x.FirstTile.IsWind()).Count(x => x is Pair) == 1;
+            if (!hand.IsRegularCompleteHand)
+            {
+                return 0;
+            }
+
+            return hand.Groups.Where(x => x.FirstTile.IsWind()).Count(x => x is Triple) == 3
+                   && hand.Groups.Where(x => x.FirstTile.IsWind()).Count(x => x is Pair) == 1
+                   ? 1u
+                   : 0;
         }
 
         public string Name() => "Shousuushi";

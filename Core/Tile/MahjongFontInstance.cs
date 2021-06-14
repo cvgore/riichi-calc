@@ -23,7 +23,7 @@ namespace RiichiCalc.Tiles
         {
             MahjongFont.PaintUsingFont(g, tile, _ctr);
         }
-
+        
         ~MahjongFontInstance()
         {
             MahjongFont.DisposeControl();

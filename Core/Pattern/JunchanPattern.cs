@@ -13,6 +13,11 @@ namespace RiichiCalc.Core.Pattern
     {
         public uint Matches(TableContext ctx, ParsedHand hand)
         {
+            if (!hand.IsRegularCompleteHand)
+            {
+                return 0;
+            }
+
             return hand.Groups.All(x => x.Tiles.Count(x => x.IsOneOrNine()) > 0)
                           && hand.Groups.Any(x => x is Sequence)
                 ? 1u

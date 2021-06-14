@@ -10,6 +10,7 @@ namespace RiichiCalc.Core.Hand
         public List<MahjongTile> Tiles { get; }
         public MahjongTile LastTile { get; }
         public bool IsRegularCompleteHand { get; }
+        public bool IsOpened { get; }
 
         public ParsedHand(IReadOnlyList<MahjongTile> tiles)
         {
@@ -59,21 +60,30 @@ namespace RiichiCalc.Core.Hand
                     if (tileC.IsDragon() || tileC.IsWind())
                     {
                         i += 1;
+
+                        continue;
                     }
                     // Checking if both (current & next) tiles have same suit
                     else if (tileC.GetSuit() != tileN.GetSuit())
                     {
                         i += 1;
+
+                        continue;
                     }
                     // Check if third index will be in bounds
                     else if (i + 2 >= Tiles.Count)
                     {
                         i += 1;
+
+                        continue;
                     }
                     // Finally, check if valid
                     else if (Sequence.IsValidSequence(new[] {tileC, tileN, Tiles[i + 2]}))
                     {
                         Groups.Add(new Sequence(new []{ tileC, tileN, Tiles[i+2]}));
+                        i += 3;
+
+                        continue;
                     }
 
                     i += 1;

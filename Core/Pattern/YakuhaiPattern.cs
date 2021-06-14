@@ -9,10 +9,15 @@ using RiichiCalc.Tiles;
 namespace RiichiCalc.Core.Pattern
 {
     // A hand with at least one group of dragon tiles, seat wind, or round wind tiles. This hand can be valued at 1 han for each group. 
-    class YakupaiPattern : IPattern
+    class YakuhaiPattern : IPattern
     {
         public uint Matches(TableContext ctx, ParsedHand hand)
         {
+            if (!hand.IsRegularCompleteHand)
+            {
+                return 0;
+            }
+
             var tableWind = ctx.TableWind.ToMahjongTile();
             var ownWind = ctx.TableWind.ToMahjongTile();
             int occurrences = 0;
@@ -30,7 +35,7 @@ namespace RiichiCalc.Core.Pattern
             return (uint) (occurrences + hand.Groups.Count(x => x.FirstTile.IsDragon() && x is Triple));
         }
 
-        public string Name() => "Yakupai";
+        public string Name() => "Yakuhai";
 
         public uint BigPoints() => 1;
 

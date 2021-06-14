@@ -52,7 +52,6 @@ namespace RiichiCalc.Controls
             this.Name = "EnumBtn";
             this.Size = new System.Drawing.Size(102, 77);
             this.ResumeLayout(false);
-
         }
 
         #endregion

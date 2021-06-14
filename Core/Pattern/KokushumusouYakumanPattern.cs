@@ -7,7 +7,7 @@ using RiichiCalc.Tiles;
 
 namespace RiichiCalc.Core.Pattern
 {
-    class KokushumusouYakumanPattern : IYakumanPattern
+    class KokushumusouYakumanPattern : IPattern
     {
         private static readonly MahjongTile[] Pattern =
         {
@@ -18,11 +18,13 @@ namespace RiichiCalc.Core.Pattern
             MahjongTile.Manzu1, MahjongTile.Manzu9
         };
 
-        public bool Matches(TableContext ctx, ParsedHand hand)
+        public uint Matches(TableContext ctx, ParsedHand hand)
         {
             return hand.Groups.Count(x => x is Pair) == 1
                    && hand.Tiles.All(x => x.IsTerminal()) 
-                   && hand.Tiles.SequenceEqual(Pattern);
+                   && hand.Tiles.SequenceEqual(Pattern)
+                   ? 1u
+                   : 0;
         }
 
         public string Name() => "Kokushumusou";

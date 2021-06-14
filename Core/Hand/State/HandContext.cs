@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using RiichiCalc.Controls;
 using RiichiCalc.Tiles;
 
 namespace RiichiCalc.Core.States
@@ -8,8 +9,9 @@ namespace RiichiCalc.Core.States
     {
         public readonly int MaxHandLen = 14;
 
-        public event EventHandler TileAdded;
-        public event EventHandler TileRemoved;
+        public event EventHandler<MahjongTile> TileAdded;
+        public event EventHandler<int> TileRemoved;
+        public event EventHandler<IHandState> StateChanged;
 
         private IHandState _currentState;
 
@@ -21,21 +23,25 @@ namespace RiichiCalc.Core.States
         public void SetState(IHandState state)
         {
             _currentState = state;
+            StateChanged?.Invoke(this, state);
         }
 
         public void AddTile(MahjongTile tile)
         {
-            _currentState.AddTile(this, tile);
-            TileAdded?.Invoke(null, EventArgs.Empty);
+            if (_currentState.AddTile(this, tile))
+            {
+                TileAdded?.Invoke(null, tile);
+            }
         }
 
         public void RemoveTile(int tile)
         {
-            _currentState.RemoveTile(this, tile);
-            TileRemoved?.Invoke(null, EventArgs.Empty);
+            if (_currentState.RemoveTile(this, tile))
+            {
+                TileRemoved?.Invoke(null, tile);
+            }
         }
 
         public IReadOnlyList<MahjongTile> GetHandItems() => _currentState.GetItems();
-
     }
 }

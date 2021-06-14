@@ -6,16 +6,22 @@ using RiichiCalc.Tiles;
 
 namespace RiichiCalc.Core.Pattern
 {
-    class ChuurenPoutouYakumanPattern : IYakumanPattern
+    class ChuurenPoutouYakumanPattern : IPattern
     {
-        public bool Matches(TableContext ctx, ParsedHand hand)
+        public uint Matches(TableContext ctx, ParsedHand hand)
         {
-            return hand.IsRegularCompleteHand
-                   && !hand.Tiles.Any(x => x.IsHonor())
+            if (!hand.IsRegularCompleteHand)
+            {
+                return 0;
+            }
+
+            return !hand.Tiles.Any(x => x.IsHonor())
                    && hand.Tiles.GroupBy(x => x.GetSuit()).Count() == 1
                    && hand.Groups.Any(x => x is Triple && x.FirstTile.GetTileNumber() == 1)
                    && hand.Groups.Any(x => x is Triple && x.FirstTile.GetTileNumber() == 9)
-                   && hand.Tiles.ToHashSet().Count == 9;
+                   && hand.Tiles.ToHashSet().Count == 9
+                   ? 1u
+                   : 0;
         }
 
         public string Name() => "Chuuren poutou";

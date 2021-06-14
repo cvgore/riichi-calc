@@ -76,7 +76,7 @@ namespace RiichiCalc
             System.Windows.Forms.ToolStripStatusLabel copyrightNotice;
             this.doraCounter = new System.Windows.Forms.NumericUpDown();
             this.versionInfo = new System.Windows.Forms.ToolStripStatusLabel();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.deck = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableWindBtn = new RiichiCalc.Controls.WindSelBtn();
@@ -89,8 +89,9 @@ namespace RiichiCalc
             this.checkBtn3 = new RiichiCalc.Controls.CheckBtn();
             this.checkBtn4 = new RiichiCalc.Controls.CheckBtn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.handCont = new RiichiCalc.Controls.MahjongTileSet();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.handCont = new RiichiCalc.Controls.MahjongTileSet(handCtx);
+            this.test = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
@@ -135,10 +136,11 @@ namespace RiichiCalc
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.doraCounter)).BeginInit();
             statusBar.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.deck.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -575,20 +577,20 @@ namespace RiichiCalc
             copyrightNotice.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             copyrightNotice.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
             // 
-            // tableLayoutPanel1
+            // deck
             // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 1, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(792, 236);
-            this.tableLayoutPanel1.TabIndex = 0;
+            this.deck.ColumnCount = 2;
+            this.deck.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.deck.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.deck.Controls.Add(this.tableLayoutPanel2, 0, 0);
+            this.deck.Controls.Add(this.tableLayoutPanel3, 1, 0);
+            this.deck.Dock = System.Windows.Forms.DockStyle.Top;
+            this.deck.Location = new System.Drawing.Point(0, 0);
+            this.deck.Name = "deck";
+            this.deck.RowCount = 1;
+            this.deck.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.deck.Size = new System.Drawing.Size(792, 236);
+            this.deck.TabIndex = 0;
             // 
             // tableLayoutPanel2
             // 
@@ -794,16 +796,6 @@ namespace RiichiCalc
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Hand";
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(0, 318);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(792, 148);
-            this.groupBox2.TabIndex = 2;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Summary";
-            // 
             // handCont
             // 
             this.handCont.AutoSize = true;
@@ -814,6 +806,26 @@ namespace RiichiCalc
             this.handCont.Size = new System.Drawing.Size(786, 60);
             this.handCont.TabIndex = 0;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.test);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox2.Location = new System.Drawing.Point(0, 318);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(792, 148);
+            this.groupBox2.TabIndex = 2;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Summary";
+            // 
+            // test
+            // 
+            this.test.AutoSize = true;
+            this.test.Location = new System.Drawing.Point(40, 57);
+            this.test.Name = "test";
+            this.test.Size = new System.Drawing.Size(38, 15);
+            this.test.TabIndex = 0;
+            this.test.Text = "label5";
+            // 
             // MainWnd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -822,7 +834,7 @@ namespace RiichiCalc
             this.Controls.Add(statusBar);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.deck);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(720, 500);
@@ -832,12 +844,14 @@ namespace RiichiCalc
             ((System.ComponentModel.ISupportInitialize)(this.doraCounter)).EndInit();
             statusBar.ResumeLayout(false);
             statusBar.PerformLayout();
-            this.tableLayoutPanel1.ResumeLayout(false);
+            this.deck.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -845,7 +859,7 @@ namespace RiichiCalc
 
         #endregion
 
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel deck;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private WindSelBtn tableWindBtn;
@@ -861,6 +875,7 @@ namespace RiichiCalc
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ToolStripStatusLabel versionInfo;
+        private System.Windows.Forms.Label test;
         private MahjongTileSet handCont;
     }
 }

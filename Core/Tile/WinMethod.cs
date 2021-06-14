@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RiichiCalc.Tiles
 {
-    enum WinMethod
+    public enum WinMethod
     {
         Tsumo,
         Ron

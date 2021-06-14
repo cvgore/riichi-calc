@@ -14,12 +14,12 @@ namespace RiichiCalc.Core.States
             _collection = collection;
         }
 
-        public void AddTile(HandContext ctx, MahjongTile tile)
+        public bool AddTile(HandContext ctx, MahjongTile tile)
         {
             // Allow adding no more than 4 tiles per variant
-            if (_collection.Count(x => x == tile) >= 4)
+            if (_collection.Count(x => x == tile) > 3) // 3 because we'll add 4th tile
             {
-                return;
+                return false;
             }
 
             _collection.Add(tile);
@@ -28,9 +28,11 @@ namespace RiichiCalc.Core.States
             {
                 ctx.SetState(new FullHandState(_collection));
             }
+
+            return true;
         }
 
-        public void RemoveTile(HandContext ctx, int index)
+        public bool RemoveTile(HandContext ctx, int index)
         {
             _collection.RemoveAt(index);
 
@@ -38,6 +40,8 @@ namespace RiichiCalc.Core.States
             {
                 ctx.SetState(new EmptyHandState());
             }
+
+            return true;
         }
 
         public IReadOnlyList<MahjongTile> GetItems() => _collection;

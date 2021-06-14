@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Drawing;
 using System.Windows.Forms;
 using RiichiCalc.Tiles;
 
@@ -21,9 +22,7 @@ namespace RiichiCalc.Controls
             }
         }
 
-        /// <summary>
-        /// Required for Designer, otherwise crashes
-        /// </summary>
+        // Required for Designer, otherwise crashes
         public MahjongTileBtn()
         {
             InitializeComponent();
@@ -44,39 +43,38 @@ namespace RiichiCalc.Controls
 
         private void PostUpdateTile()
         {
-            tileTip.SetToolTip(tileBtn, Tile.ToPrettyString());
+            MahjongFont.Colorize(this, Tile);
+            MahjongFont.Tooltipize(tileBtn, tileTip, Tile);
 
-            ForeColor = Tile switch
-            {
-                MahjongTile.WindSouth => Color.Blue,
-                MahjongTile.WindEast => Color.Blue,
-                MahjongTile.WindWest => Color.Blue,
-                MahjongTile.WindNorth => Color.Blue,
-                MahjongTile.DragonWhite => Color.White,
-                MahjongTile.DragonGreen => Color.Green,
-                MahjongTile.DragonRed => Color.DarkRed,
-                var tile when tile.IsPinzu() => Color.MediumVioletRed,
-                var tile when tile.IsManzu() => Color.DarkBlue,
-                var tile when tile.IsSouzu() => Color.DarkGreen,
-                _ => DefaultForeColor
-            };
-
-            Invalidate();
+            tileBtn.Invalidate();
         }
 
-        private void tileBtn_Paint(object sender, PaintEventArgs e)
+        private void tileBtn_Paint([NotNull] object? sender, PaintEventArgs e)
         {
             _mfi.PaintText(e.Graphics, Tile);
         }
 
-        private void MahjongTileBtn_Load(object sender, System.EventArgs e)
+        private void MahjongTileBtn_Load([NotNull] object? sender, System.EventArgs e)
         {
             tileBtn.Click += MahjongTileBtn_Click;
         }
 
-        private void MahjongTileBtn_Click(object? sender, System.EventArgs e)
+        private void MahjongTileBtn_Click([NotNull] object? sender, System.EventArgs e)
         {
             OnClick(e);
+        }
+
+        private void MahjongTileBtn_EnabledChanged([NotNull] object? sender, System.EventArgs e)
+        {
+            if (Enabled)
+            {
+                PostUpdateTile();
+            }
+            else
+            {
+                ForeColor = Color.DimGray;
+                tileBtn.Invalidate();
+            }
         }
     }
 }
