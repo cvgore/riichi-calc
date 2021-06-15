@@ -17,16 +17,11 @@ namespace RiichiCalc.Controls
 {
     public partial class MahjongTileSet : UserControl
     {
-        // private ObservableCollection<MahjongTile> _tiles;
         private HandContext _handCtx = null!;
 
         public MahjongTileSet()
         {
             InitializeComponent();
-
-            // _tiles = new();
-
-            // InitObservable();
         }
 
         public void SetHandContext(HandContext ctx)
@@ -59,28 +54,6 @@ namespace RiichiCalc.Controls
         {
             tilesSet.Invalidate();
         }
-
-        // private void InitObservable()
-        // {
-        //     _tiles.CollectionChanged += TilesConnectionChanged;
-        // }
-        //
-        // private void TilesConnectionChanged(object? sender, NotifyCollectionChangedEventArgs e)
-        // {
-        //     tilesSet.SuspendLayout();
-        //     tilesSet.Controls.Clear();
-        //
-        //     for (int i = 0; i < _tiles.Count; i++)
-        //     {
-        //         var tileBtn = new MahjongTileBtn(_tiles[i]) { Tag = i };
-        //         tileBtn.Click += TileBtn_Click;
-        //
-        //         tilesSet.Controls.Add(tileBtn);
-        //     }
-        //
-        //     tilesSet.Invalidate();
-        //     tilesSet.ResumeLayout();
-        // }
 
         private void TileBtn_Click([NotNull] object? sender, EventArgs e)
         {

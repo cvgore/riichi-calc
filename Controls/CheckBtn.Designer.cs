@@ -29,8 +29,8 @@ namespace RiichiCalc.Controls
         /// </summary>
         private void InitializeComponent()
         {
-            this.btn = new System.Windows.Forms.Button();
-            this.stateIndicatorCheckbox = new System.Windows.Forms.CheckBox();
+            this.btn = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.stateIndicatorCheckbox = new MaterialSkin.Controls.MaterialCheckBox();
             this.SuspendLayout();
             // 
             // btn
@@ -80,7 +80,7 @@ namespace RiichiCalc.Controls
 
         #endregion
 
-        private System.Windows.Forms.Button btn;
-        private System.Windows.Forms.CheckBox stateIndicatorCheckbox;
+        private MaterialSkin.Controls.MaterialRaisedButton btn;
+        private MaterialSkin.Controls.MaterialCheckBox stateIndicatorCheckbox;
     }
 }

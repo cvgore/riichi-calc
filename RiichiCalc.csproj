@@ -19,6 +19,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MaterialSkin" Version="0.2.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="CheckBtn - Copy.Designer.cs">
       <DependentUpon>CheckBtn.Designer.cs</DependentUpon>
     </Compile>

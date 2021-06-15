@@ -197,7 +197,7 @@ namespace RiichiCalc.Tiles
 
             var idx = tile.GetTileNumber();
 
-            return $"{tile.GetSuitName()}: {idx + 1}";
+            return $"{tile.GetSuitName()}: {idx}";
         }
 
         public static string ToTileSymbol(this MahjongTile tile)

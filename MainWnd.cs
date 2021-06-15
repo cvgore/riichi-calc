@@ -7,6 +7,7 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using MaterialSkin;
 using RiichiCalc.Controls;
 using RiichiCalc.Core;
 using RiichiCalc.Core.States;
@@ -14,7 +15,7 @@ using RiichiCalc.Tiles;
 
 namespace RiichiCalc
 {
-    public partial class MainWnd : Form
+    public partial class MainWnd : MaterialSkin.Controls.MaterialForm
     {
         private readonly string _version;
         private TableContext _tableCtx;
@@ -33,6 +34,17 @@ namespace RiichiCalc
             _version = $"{info.FileMajorPart}.{info.FileMinorPart}.{info.FileBuildPart}";
 
             versionInfo.Text = $"{versionInfo}{_version}";
+
+            var materialSkinManager = MaterialSkinManager.Instance;
+            materialSkinManager.AddFormToManage(this);
+            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
+            materialSkinManager.ColorScheme = new ColorScheme(
+                Primary.BlueGrey800,
+                Primary.BlueGrey900,
+                Primary.BlueGrey500,
+                Accent.LightBlue200,
+                TextShade.WHITE
+            );
 
         }
 
