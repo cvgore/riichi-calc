@@ -76,10 +76,13 @@ namespace RiichiCalc
             RiichiCalc.Controls.MahjongTileBtn manzu9MahjongTileBtn;
             System.Windows.Forms.StatusStrip statusBar;
             System.Windows.Forms.ToolStripStatusLabel copyrightNotice;
+            MaterialSkin.Controls.MaterialDivider materialDivider1;
+            MaterialSkin.Controls.MaterialDivider materialDivider2;
+            MaterialSkin.Controls.MaterialDivider materialDivider4;
+            MaterialSkin.Controls.MaterialDivider materialDivider3;
             this.numeric1 = new RiichiCalc.Controls.Numeric();
             this.versionInfo = new System.Windows.Forms.ToolStripStatusLabel();
             this.deck = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableWindBtn = new RiichiCalc.Controls.WindSelBtn();
             this.seatWindBtn = new RiichiCalc.Controls.WindSelBtn();
@@ -90,10 +93,13 @@ namespace RiichiCalc
             this.checkBtn2 = new RiichiCalc.Controls.CheckBtn();
             this.checkBtn3 = new RiichiCalc.Controls.CheckBtn();
             this.checkBtn4 = new RiichiCalc.Controls.CheckBtn();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.handCont = new RiichiCalc.Controls.MahjongTileSet();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.test = new MaterialSkin.Controls.MaterialLabel();
+            this.handCont = new RiichiCalc.Controls.MahjongTileSet();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
+            this.clearHandBtn = new MaterialSkin.Controls.MaterialRaisedButton();
             label1 = new MaterialSkin.Controls.MaterialLabel();
             label2 = new MaterialSkin.Controls.MaterialLabel();
             label3 = new MaterialSkin.Controls.MaterialLabel();
@@ -135,13 +141,16 @@ namespace RiichiCalc
             manzu9MahjongTileBtn = new RiichiCalc.Controls.MahjongTileBtn();
             statusBar = new System.Windows.Forms.StatusStrip();
             copyrightNotice = new System.Windows.Forms.ToolStripStatusLabel();
+            materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
+            materialDivider2 = new MaterialSkin.Controls.MaterialDivider();
+            materialDivider4 = new MaterialSkin.Controls.MaterialDivider();
+            materialDivider3 = new MaterialSkin.Controls.MaterialDivider();
             panel1.SuspendLayout();
             statusBar.SuspendLayout();
             this.deck.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -600,8 +609,8 @@ namespace RiichiCalc
             this.deck.ColumnCount = 2;
             this.deck.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.deck.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.deck.Controls.Add(this.tableLayoutPanel2, 0, 0);
             this.deck.Controls.Add(this.tableLayoutPanel3, 1, 0);
+            this.deck.Controls.Add(this.tableLayoutPanel2, 0, 0);
             this.deck.Dock = System.Windows.Forms.DockStyle.Top;
             this.deck.Location = new System.Drawing.Point(0, 0);
             this.deck.Name = "deck";
@@ -609,63 +618,6 @@ namespace RiichiCalc
             this.deck.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.deck.Size = new System.Drawing.Size(792, 236);
             this.deck.TabIndex = 0;
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 9;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
-            this.tableLayoutPanel2.Controls.Add(windEastMahjongTileBtn, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(windSouthMahjongTileBtn, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(windWestMahjongTileBtn, 2, 0);
-            this.tableLayoutPanel2.Controls.Add(windNorthMahjongTileBtn, 3, 0);
-            this.tableLayoutPanel2.Controls.Add(dragonGreenMahjongTileBtn, 4, 0);
-            this.tableLayoutPanel2.Controls.Add(dragonWhiteMahjongTileBtn, 6, 0);
-            this.tableLayoutPanel2.Controls.Add(pinzu1MahjongTileBtn, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(pinzu2MahjongTileBtn, 1, 1);
-            this.tableLayoutPanel2.Controls.Add(pinzu3MahjongTileBtn, 2, 1);
-            this.tableLayoutPanel2.Controls.Add(pinzu4MahjongTileBtn, 3, 1);
-            this.tableLayoutPanel2.Controls.Add(pinzu5MahjongTileBtn, 4, 1);
-            this.tableLayoutPanel2.Controls.Add(pinzu6MahjongTileBtn, 5, 1);
-            this.tableLayoutPanel2.Controls.Add(pinzu8MahjongTileBtn, 7, 1);
-            this.tableLayoutPanel2.Controls.Add(pinzu9MahjongTileBtn, 8, 1);
-            this.tableLayoutPanel2.Controls.Add(souzu1MahjongTileBtn, 0, 2);
-            this.tableLayoutPanel2.Controls.Add(souzu2MahjongTileBtn, 1, 2);
-            this.tableLayoutPanel2.Controls.Add(souzu3MahjongTileBtn, 2, 2);
-            this.tableLayoutPanel2.Controls.Add(souzu4MahjongTileBtn, 3, 2);
-            this.tableLayoutPanel2.Controls.Add(souzu5MahjongTileBtn, 4, 2);
-            this.tableLayoutPanel2.Controls.Add(souzu6MahjongTileBtn, 5, 2);
-            this.tableLayoutPanel2.Controls.Add(souzu7MahjongTileBtn, 6, 2);
-            this.tableLayoutPanel2.Controls.Add(souzu8MahjongTileBtn, 7, 2);
-            this.tableLayoutPanel2.Controls.Add(souzu9MahjongTileBtn, 8, 2);
-            this.tableLayoutPanel2.Controls.Add(manzu1MahjongTileBtn, 0, 3);
-            this.tableLayoutPanel2.Controls.Add(manzu2MahjongTileBtn, 1, 3);
-            this.tableLayoutPanel2.Controls.Add(manzu3MahjongTileBtn, 2, 3);
-            this.tableLayoutPanel2.Controls.Add(manzu4MahjongTileBtn, 3, 3);
-            this.tableLayoutPanel2.Controls.Add(manzu5MahjongTileBtn, 4, 3);
-            this.tableLayoutPanel2.Controls.Add(manzu6MahjongTileBtn, 5, 3);
-            this.tableLayoutPanel2.Controls.Add(manzu7MahjongTileBtn, 6, 3);
-            this.tableLayoutPanel2.Controls.Add(manzu8MahjongTileBtn, 7, 3);
-            this.tableLayoutPanel2.Controls.Add(manzu9MahjongTileBtn, 8, 3);
-            this.tableLayoutPanel2.Controls.Add(pinzu7MahjongTileBtn, 6, 1);
-            this.tableLayoutPanel2.Controls.Add(dragonRedMahjongTileBtn, 5, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 4;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(390, 230);
-            this.tableLayoutPanel2.TabIndex = 0;
             // 
             // tableLayoutPanel3
             // 
@@ -807,37 +759,123 @@ namespace RiichiCalc
             this.checkBtn4.Size = new System.Drawing.Size(93, 51);
             this.checkBtn4.TabIndex = 18;
             // 
-            // groupBox1
+            // tableLayoutPanel2
             // 
-            this.groupBox1.Controls.Add(this.handCont);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox1.Location = new System.Drawing.Point(0, 236);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(792, 82);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Hand";
+            this.tableLayoutPanel2.ColumnCount = 9;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.tableLayoutPanel2.Controls.Add(windEastMahjongTileBtn, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(windSouthMahjongTileBtn, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(windWestMahjongTileBtn, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(windNorthMahjongTileBtn, 3, 0);
+            this.tableLayoutPanel2.Controls.Add(dragonGreenMahjongTileBtn, 4, 0);
+            this.tableLayoutPanel2.Controls.Add(dragonWhiteMahjongTileBtn, 6, 0);
+            this.tableLayoutPanel2.Controls.Add(pinzu1MahjongTileBtn, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(pinzu2MahjongTileBtn, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(pinzu3MahjongTileBtn, 2, 1);
+            this.tableLayoutPanel2.Controls.Add(pinzu4MahjongTileBtn, 3, 1);
+            this.tableLayoutPanel2.Controls.Add(pinzu5MahjongTileBtn, 4, 1);
+            this.tableLayoutPanel2.Controls.Add(pinzu6MahjongTileBtn, 5, 1);
+            this.tableLayoutPanel2.Controls.Add(pinzu8MahjongTileBtn, 7, 1);
+            this.tableLayoutPanel2.Controls.Add(pinzu9MahjongTileBtn, 8, 1);
+            this.tableLayoutPanel2.Controls.Add(souzu1MahjongTileBtn, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(souzu2MahjongTileBtn, 1, 2);
+            this.tableLayoutPanel2.Controls.Add(souzu3MahjongTileBtn, 2, 2);
+            this.tableLayoutPanel2.Controls.Add(souzu4MahjongTileBtn, 3, 2);
+            this.tableLayoutPanel2.Controls.Add(souzu5MahjongTileBtn, 4, 2);
+            this.tableLayoutPanel2.Controls.Add(souzu6MahjongTileBtn, 5, 2);
+            this.tableLayoutPanel2.Controls.Add(souzu7MahjongTileBtn, 6, 2);
+            this.tableLayoutPanel2.Controls.Add(souzu8MahjongTileBtn, 7, 2);
+            this.tableLayoutPanel2.Controls.Add(souzu9MahjongTileBtn, 8, 2);
+            this.tableLayoutPanel2.Controls.Add(manzu1MahjongTileBtn, 0, 3);
+            this.tableLayoutPanel2.Controls.Add(manzu2MahjongTileBtn, 1, 3);
+            this.tableLayoutPanel2.Controls.Add(manzu3MahjongTileBtn, 2, 3);
+            this.tableLayoutPanel2.Controls.Add(manzu4MahjongTileBtn, 3, 3);
+            this.tableLayoutPanel2.Controls.Add(manzu5MahjongTileBtn, 4, 3);
+            this.tableLayoutPanel2.Controls.Add(manzu6MahjongTileBtn, 5, 3);
+            this.tableLayoutPanel2.Controls.Add(manzu7MahjongTileBtn, 6, 3);
+            this.tableLayoutPanel2.Controls.Add(manzu8MahjongTileBtn, 7, 3);
+            this.tableLayoutPanel2.Controls.Add(manzu9MahjongTileBtn, 8, 3);
+            this.tableLayoutPanel2.Controls.Add(pinzu7MahjongTileBtn, 6, 1);
+            this.tableLayoutPanel2.Controls.Add(dragonRedMahjongTileBtn, 5, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 4;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(390, 230);
+            this.tableLayoutPanel2.TabIndex = 0;
             // 
-            // handCont
+            // materialDivider1
             // 
-            this.handCont.AutoSize = true;
-            this.handCont.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.handCont.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.handCont.Location = new System.Drawing.Point(3, 19);
-            this.handCont.Name = "handCont";
-            this.handCont.Size = new System.Drawing.Size(786, 60);
-            this.handCont.TabIndex = 0;
+            materialDivider1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            materialDivider1.Depth = 0;
+            materialDivider1.Dock = System.Windows.Forms.DockStyle.Top;
+            materialDivider1.Location = new System.Drawing.Point(0, 236);
+            materialDivider1.MouseState = MaterialSkin.MouseState.HOVER;
+            materialDivider1.Name = "materialDivider1";
+            materialDivider1.Size = new System.Drawing.Size(792, 4);
+            materialDivider1.TabIndex = 4;
+            materialDivider1.Text = "materialDivider1";
             // 
-            // groupBox2
+            // materialDivider2
             // 
-            this.groupBox2.Controls.Add(this.test);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(0, 318);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(792, 148);
-            this.groupBox2.TabIndex = 2;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Summary";
+            materialDivider2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            materialDivider2.Depth = 0;
+            materialDivider2.Dock = System.Windows.Forms.DockStyle.Top;
+            materialDivider2.Location = new System.Drawing.Point(0, 267);
+            materialDivider2.MouseState = MaterialSkin.MouseState.HOVER;
+            materialDivider2.Name = "materialDivider2";
+            materialDivider2.Size = new System.Drawing.Size(792, 4);
+            materialDivider2.TabIndex = 6;
+            materialDivider2.Text = "materialDivider2";
+            // 
+            // materialDivider4
+            // 
+            materialDivider4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            materialDivider4.Depth = 0;
+            materialDivider4.Dock = System.Windows.Forms.DockStyle.Top;
+            materialDivider4.Location = new System.Drawing.Point(0, 331);
+            materialDivider4.MouseState = MaterialSkin.MouseState.HOVER;
+            materialDivider4.Name = "materialDivider4";
+            materialDivider4.Size = new System.Drawing.Size(792, 4);
+            materialDivider4.TabIndex = 13;
+            materialDivider4.Text = "materialDivider4";
+            // 
+            // materialLabel2
+            // 
+            this.materialLabel2.Depth = 0;
+            this.materialLabel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel2.Location = new System.Drawing.Point(0, 335);
+            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel2.Name = "materialLabel2";
+            this.materialLabel2.Size = new System.Drawing.Size(792, 19);
+            this.materialLabel2.TabIndex = 12;
+            this.materialLabel2.Text = "Summary";
+            // 
+            // materialDivider3
+            // 
+            materialDivider3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            materialDivider3.Depth = 0;
+            materialDivider3.Dock = System.Windows.Forms.DockStyle.Top;
+            materialDivider3.Location = new System.Drawing.Point(0, 354);
+            materialDivider3.MouseState = MaterialSkin.MouseState.HOVER;
+            materialDivider3.Name = "materialDivider3";
+            materialDivider3.Size = new System.Drawing.Size(792, 4);
+            materialDivider3.TabIndex = 11;
+            materialDivider3.Text = "materialDivider3";
             // 
             // test
             // 
@@ -845,21 +883,77 @@ namespace RiichiCalc
             this.test.Depth = 0;
             this.test.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.test.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.test.Location = new System.Drawing.Point(40, 57);
+            this.test.Location = new System.Drawing.Point(12, 394);
             this.test.MouseState = MaterialSkin.MouseState.HOVER;
             this.test.Name = "test";
             this.test.Size = new System.Drawing.Size(49, 19);
-            this.test.TabIndex = 0;
+            this.test.TabIndex = 14;
             this.test.Text = "label5";
+            // 
+            // handCont
+            // 
+            this.handCont.Dock = System.Windows.Forms.DockStyle.Top;
+            this.handCont.Location = new System.Drawing.Point(0, 271);
+            this.handCont.Name = "handCont";
+            this.handCont.Size = new System.Drawing.Size(792, 60);
+            this.handCont.TabIndex = 17;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.Controls.Add(this.materialLabel1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.clearHandBtn, 1, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 240);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(792, 27);
+            this.tableLayoutPanel1.TabIndex = 18;
+            // 
+            // materialLabel1
+            // 
+            this.materialLabel1.Depth = 0;
+            this.materialLabel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel1.Location = new System.Drawing.Point(3, 0);
+            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel1.Name = "materialLabel1";
+            this.materialLabel1.Size = new System.Drawing.Size(675, 19);
+            this.materialLabel1.TabIndex = 6;
+            this.materialLabel1.Text = "Hand";
+            // 
+            // clearHandBtn
+            // 
+            this.clearHandBtn.AutoSize = true;
+            this.clearHandBtn.Depth = 0;
+            this.clearHandBtn.Location = new System.Drawing.Point(684, 3);
+            this.clearHandBtn.MouseState = MaterialSkin.MouseState.HOVER;
+            this.clearHandBtn.Name = "clearHandBtn";
+            this.clearHandBtn.Primary = false;
+            this.clearHandBtn.Size = new System.Drawing.Size(105, 21);
+            this.clearHandBtn.TabIndex = 7;
+            this.clearHandBtn.Text = "Clear hand";
+            this.clearHandBtn.UseVisualStyleBackColor = true;
+            this.clearHandBtn.Click += new System.EventHandler(this.clearHandBtn_Click);
             // 
             // MainWnd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(792, 466);
+            this.Controls.Add(materialDivider3);
+            this.Controls.Add(this.materialLabel2);
+            this.Controls.Add(materialDivider4);
+            this.Controls.Add(this.handCont);
+            this.Controls.Add(this.test);
+            this.Controls.Add(materialDivider2);
             this.Controls.Add(statusBar);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(materialDivider1);
             this.Controls.Add(this.deck);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -870,13 +964,11 @@ namespace RiichiCalc
             statusBar.ResumeLayout(false);
             statusBar.PerformLayout();
             this.deck.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -896,12 +988,18 @@ namespace RiichiCalc
         private CheckBtn checkBtn2;
         private CheckBtn checkBtn3;
         private CheckBtn checkBtn4;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ToolStripStatusLabel versionInfo;
+        private Numeric numeric1;
+        private MaterialDivider materialDivider1;
+        private MaterialDivider materialDivider2;
+        private MaterialDivider materialDivider4;
+        private MaterialLabel materialLabel2;
+        private MaterialDivider materialDivider3;
         private MaterialLabel test;
         private MahjongTileSet handCont;
-        private Numeric numeric1;
+        private TableLayoutPanel tableLayoutPanel1;
+        private MaterialLabel materialLabel1;
+        private MaterialSkin.Controls.MaterialRaisedButton clearHandBtn;
     }
 }
 

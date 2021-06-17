@@ -37,18 +37,16 @@ namespace RiichiCalc.Controls
             this.tilesSet.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tilesSet.Location = new System.Drawing.Point(0, 0);
             this.tilesSet.Name = "tilesSet";
-            this.tilesSet.Size = new System.Drawing.Size(0, 0);
+            this.tilesSet.Size = new System.Drawing.Size(792, 60);
             this.tilesSet.TabIndex = 0;
             // 
             // MahjongTileSet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
-            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Controls.Add(this.tilesSet);
             this.Name = "MahjongTileSet";
-            this.Size = new System.Drawing.Size(0, 0);
+            this.Size = new System.Drawing.Size(792, 60);
             this.ResumeLayout(false);
 
         }

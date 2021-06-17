@@ -127,5 +127,10 @@ namespace RiichiCalc
         {
             _tableCtx.PlayerWind = seatWindBtn.Value;
         }
+
+        private void clearHandBtn_Click(object sender, EventArgs e)
+        {
+            _tableCtx.Hand.SetState(new EmptyHandState());
+        }
     }
 }
