@@ -29,12 +29,19 @@ namespace RiichiCalc.Controls
             _handCtx = ctx;
             _handCtx.TileAdded += TileAdded;
             _handCtx.TileRemoved += TileRemoved;
+            _handCtx.StateChanged += StateChanged;
         }
-        
+
+        private void StateChanged(object? sender, IHandState e)
+        {
+            if (e is EmptyHandState)
+            {
+                tilesSet.Controls.Clear();
+            }
+        }
+
         private void TileAdded(object? sender, MahjongTile tile)
         {
-            // for (int i = tilesSet.Controls.Count; i < items.Count; i++)
-            // {
             var tileBtn = new MahjongTileBtn(tile);
             tileBtn.Click += TileBtn_Click;
         
@@ -42,12 +49,10 @@ namespace RiichiCalc.Controls
             List<MahjongTileBtn> ctrls = new(tilesSet.Controls.Count);
             ctrls.AddRange(tilesSet.Controls.Cast<MahjongTileBtn>());
 
+            tilesSet.SuspendLayout();
             tilesSet.Controls.Clear();
             tilesSet.Controls.AddRange(ctrls.OrderBy(x => x.Tile).ToArray());
-
-            // }
-            
-            tilesSet.Invalidate();
+            tilesSet.ResumeLayout();
         }
 
         private void TileRemoved(object? sender, int tile)
@@ -61,8 +66,8 @@ namespace RiichiCalc.Controls
 
             var pos = tilesSet.Controls.IndexOf(tileBtn);
 
-            _handCtx.RemoveTile(pos);
             tilesSet.Controls.RemoveAt(pos);
+            _handCtx.RemoveTile(pos);
         }
     }
 }
