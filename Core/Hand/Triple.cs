@@ -11,7 +11,7 @@ namespace RiichiCalc.Core.Hand
     {
         public Triple(IReadOnlyList<MahjongTile> tiles) : base(tiles)
         {
-            if (tiles.Count != 3 || tiles.GroupBy(x => x).Count() != 1)
+            if (tiles.Count != 3 || tiles.GroupBy(x => x).Count() != 1 || tiles.Any(x => x.IsHonor()))
             {
                 throw new InvalidGroupException(this);
             }

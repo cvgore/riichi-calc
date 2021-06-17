@@ -16,8 +16,8 @@ namespace RiichiCalc.Core.States
 
         public bool AddTile(HandContext ctx, MahjongTile tile)
         {
-            // Allow adding no more than 4 tiles per variant
-            if (_collection.Count(x => x == tile) > 3) // 3 because we'll add 4th tile
+            // Allow adding no more than 3 tiles per variant
+            if (_collection.Count(x => x == tile) > 2)
             {
                 return false;
             }

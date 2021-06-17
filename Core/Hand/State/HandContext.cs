@@ -7,7 +7,7 @@ namespace RiichiCalc.Core.States
 {
     public class HandContext
     {
-        public readonly int MaxHandLen = 14;
+        public int MaxHandLen = 14;
 
         public event EventHandler<MahjongTile> TileAdded;
         public event EventHandler<int> TileRemoved;

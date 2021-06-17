@@ -20,7 +20,7 @@ namespace RiichiCalc.Core.Hand
 
             ParseTiles();
 
-            IsRegularCompleteHand = Groups.Count(x => x is Sequence || x is Triple) == 4 && Groups.Any(x => x is Pair);
+            IsRegularCompleteHand = Groups.Count(x => x is Sequence || x is Triple || x is Quadruple) == 4 && Groups.Any(x => x is Pair);
         }
 
         private void ParseTiles()
@@ -37,20 +37,28 @@ namespace RiichiCalc.Core.Hand
                     // Definitely pair (out of range next index)
                     if (i + 2 >= Tiles.Count)
                     {
-                        Groups.Add(new Pair(new []{ tileC, tileN}));
+                        Groups.Add(new Pair(new[] { tileC, tileN }));
                         i += 2;
                     }
-                    // Got a triple?
+                    // Got a triple/quadruple?
                     else if (tileC == Tiles[i + 2])
                     {
-                        Groups.Add(new Triple(new []{ tileC, tileN, Tiles[i+2]}));
-                        i += 3;
+                        if (i + 3 >= Tiles.Count && tileC == Tiles[i + 3])
+                        {
+                            Groups.Add(new Quadruple(new[] { tileC, tileN, Tiles[i + 2], Tiles[i + 3] }));
+                            i += 4;
+                        }
+                        else
+                        {
+                            Groups.Add(new Triple(new[] { tileC, tileN, Tiles[i + 2] }));
+                            i += 3;
+                        }
                     }
                     // Nah, only pair - what a pity
                     else
                     {
                         i += 2;
-                        Groups.Add(new Pair(new []{ tileC, tileN}));
+                        Groups.Add(new Pair(new[] { tileC, tileN }));
                     }
                 }
                 // Definitely not pair or triple, maybe a sequence?
@@ -78,9 +86,9 @@ namespace RiichiCalc.Core.Hand
                         continue;
                     }
                     // Finally, check if valid
-                    else if (Sequence.IsValidSequence(new[] {tileC, tileN, Tiles[i + 2]}))
+                    else if (Sequence.IsValidSequence(new[] { tileC, tileN, Tiles[i + 2] }))
                     {
-                        Groups.Add(new Sequence(new []{ tileC, tileN, Tiles[i+2]}));
+                        Groups.Add(new Sequence(new[] { tileC, tileN, Tiles[i + 2] }));
                         i += 3;
 
                         continue;
