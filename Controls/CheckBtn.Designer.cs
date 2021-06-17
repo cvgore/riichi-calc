@@ -29,23 +29,27 @@ namespace RiichiCalc.Controls
         /// </summary>
         private void InitializeComponent()
         {
-            this.btn = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.btn = new MaterialSkin.Controls.MaterialButton();
             this.SuspendLayout();
             // 
             // btn
             // 
-            this.btn.AutoSize = true;
+            this.btn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btn.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             this.btn.Depth = 0;
             this.btn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn.HighEmphasis = true;
+            this.btn.Icon = null;
             this.btn.Location = new System.Drawing.Point(0, 0);
             this.btn.Margin = new System.Windows.Forms.Padding(0);
             this.btn.MouseState = MaterialSkin.MouseState.HOVER;
             this.btn.Name = "btn";
             this.btn.Padding = new System.Windows.Forms.Padding(16, 0, 0, 0);
-            this.btn.Primary = true;
-            this.btn.Size = new System.Drawing.Size(75, 47);
+            this.btn.Size = new System.Drawing.Size(87, 36);
             this.btn.TabIndex = 0;
             this.btn.Text = "button1";
+            this.btn.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btn.UseAccentColor = false;
             this.btn.UseVisualStyleBackColor = true;
             this.btn.Click += new System.EventHandler(this.btn_Click);
             // 
@@ -58,7 +62,7 @@ namespace RiichiCalc.Controls
             this.Controls.Add(this.btn);
             this.MinimumSize = new System.Drawing.Size(75, 25);
             this.Name = "CheckBtn";
-            this.Size = new System.Drawing.Size(75, 47);
+            this.Size = new System.Drawing.Size(87, 36);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -66,6 +70,6 @@ namespace RiichiCalc.Controls
 
         #endregion
 
-        private MaterialSkin.Controls.MaterialRaisedButton btn;
+        private MaterialSkin.Controls.MaterialButton btn;
     }
 }

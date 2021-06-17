@@ -42,10 +42,9 @@ namespace RiichiCalc
                 Primary.Amber600,
                 Primary.BlueGrey900,
                 Primary.BlueGrey100,
-                Accent.LightBlue700,
+                Accent.DeepOrange400,
                 TextShade.WHITE
             );
-
         }
 
         private void Hand_StateChanged(object? sender, IHandState e)
@@ -54,7 +53,13 @@ namespace RiichiCalc
 
             if (e is InvalidFullHandState)
             {
-                test.Text = "Invalid";
+                summaryBox.BeginUpdate();
+                summaryBox.Clear();
+                summaryBox.Items.Add(new MaterialListBoxItem
+                {
+                    Text = "Invalid hand composition - 0 han"
+                });
+                summaryBox.EndUpdate();
                 deck.Enabled = false;
             }
             else if (e is FullHandState fhs)
@@ -68,7 +73,18 @@ namespace RiichiCalc
                     return;
                 }
 
-                test.Text = string.Join(',', fhs.FullHand.MatchedPatterns.Select(x => x.Name()));
+                summaryBox.BeginUpdate();
+                summaryBox.Clear();
+                summaryBox.Items.Add(new MaterialListBoxItem
+                {
+                    Text = $"Matched: {string.Join(", ", fhs.FullHand.MatchedPatterns.Select(x => x.Name()))}"
+                });
+                summaryBox.Items.Add(new MaterialListBoxItem
+                {
+                    Text = $"Han: {fhs.FullHand.BigPoints}"
+                });
+                summaryBox.EndUpdate();
+
                 deck.Enabled = false;
             }
         }

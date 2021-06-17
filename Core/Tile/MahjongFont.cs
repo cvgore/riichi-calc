@@ -40,13 +40,10 @@ namespace RiichiCalc.Tiles
                 MainRes.MahjongTiles.Length
             );
 
-            // if (!InDesignMode())
-            // {
-                // https://stackoverflow.com/a/1956043
-                uint cFonts = 0;
-                AddFontMemResourceEx(_fontPtr, (uint)MainRes.MahjongTiles.Length, IntPtr.Zero, ref cFonts);
-            // }
-
+            // https://stackoverflow.com/a/1956043
+            uint cFonts = 0;
+            AddFontMemResourceEx(_fontPtr, (uint)MainRes.MahjongTiles.Length, IntPtr.Zero, ref cFonts);
+            
             _fontCollection.AddMemoryFont(_fontPtr, MainRes.MahjongTiles.Length);
         }
 

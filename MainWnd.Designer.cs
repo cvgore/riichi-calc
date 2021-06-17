@@ -77,12 +77,12 @@ namespace RiichiCalc
             System.Windows.Forms.StatusStrip statusBar;
             System.Windows.Forms.ToolStripStatusLabel copyrightNotice;
             MaterialSkin.Controls.MaterialDivider materialDivider1;
-            MaterialSkin.Controls.MaterialDivider materialDivider2;
             MaterialSkin.Controls.MaterialDivider materialDivider4;
-            MaterialSkin.Controls.MaterialDivider materialDivider3;
             System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
             this.numeric1 = new RiichiCalc.Controls.Numeric();
             this.versionInfo = new System.Windows.Forms.ToolStripStatusLabel();
+            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
+            this.clearHandBtn = new MaterialSkin.Controls.MaterialButton();
             this.deck = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableWindBtn = new RiichiCalc.Controls.WindSelBtn();
@@ -98,8 +98,7 @@ namespace RiichiCalc
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.test = new MaterialSkin.Controls.MaterialLabel();
             this.handCont = new RiichiCalc.Controls.MahjongTileSet();
-            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
-            this.clearHandBtn = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.summaryBox = new MaterialSkin.Controls.MaterialListBox();
             label1 = new MaterialSkin.Controls.MaterialLabel();
             label2 = new MaterialSkin.Controls.MaterialLabel();
             label3 = new MaterialSkin.Controls.MaterialLabel();
@@ -142,16 +141,14 @@ namespace RiichiCalc
             statusBar = new System.Windows.Forms.StatusStrip();
             copyrightNotice = new System.Windows.Forms.ToolStripStatusLabel();
             materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
-            materialDivider2 = new MaterialSkin.Controls.MaterialDivider();
             materialDivider4 = new MaterialSkin.Controls.MaterialDivider();
-            materialDivider3 = new MaterialSkin.Controls.MaterialDivider();
             tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             panel1.SuspendLayout();
             statusBar.SuspendLayout();
+            tableLayoutPanel1.SuspendLayout();
             this.deck.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -159,12 +156,12 @@ namespace RiichiCalc
             label1.AutoSize = true;
             label1.Depth = 0;
             label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            label1.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            label1.Location = new System.Drawing.Point(3, 171);
+            label1.Location = new System.Drawing.Point(3, 168);
             label1.MouseState = MaterialSkin.MouseState.HOVER;
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(91, 59);
+            label1.Size = new System.Drawing.Size(105, 56);
             label1.TabIndex = 7;
             label1.Text = "Table wind";
             label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -174,12 +171,12 @@ namespace RiichiCalc
             label2.AutoSize = true;
             label2.Depth = 0;
             label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            label2.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label2.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            label2.Location = new System.Drawing.Point(197, 171);
+            label2.Location = new System.Drawing.Point(225, 168);
             label2.MouseState = MaterialSkin.MouseState.HOVER;
             label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(91, 59);
+            label2.Size = new System.Drawing.Size(105, 56);
             label2.TabIndex = 8;
             label2.Text = "Seat wind";
             label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -189,12 +186,12 @@ namespace RiichiCalc
             label3.AutoSize = true;
             label3.Depth = 0;
             label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            label3.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label3.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            label3.Location = new System.Drawing.Point(197, 57);
+            label3.Location = new System.Drawing.Point(225, 56);
             label3.MouseState = MaterialSkin.MouseState.HOVER;
             label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(91, 57);
+            label3.Size = new System.Drawing.Size(105, 56);
             label3.TabIndex = 12;
             label3.Text = "Extra yaku";
             label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -204,12 +201,12 @@ namespace RiichiCalc
             label4.AutoSize = true;
             label4.Depth = 0;
             label4.Dock = System.Windows.Forms.DockStyle.Fill;
-            label4.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label4.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            label4.Location = new System.Drawing.Point(197, 114);
+            label4.Location = new System.Drawing.Point(225, 112);
             label4.MouseState = MaterialSkin.MouseState.HOVER;
             label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(91, 57);
+            label4.Size = new System.Drawing.Size(105, 56);
             label4.TabIndex = 13;
             label4.Text = "Dora";
             label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -218,10 +215,10 @@ namespace RiichiCalc
             // 
             panel1.Controls.Add(this.numeric1);
             panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            panel1.Location = new System.Drawing.Point(291, 114);
+            panel1.Location = new System.Drawing.Point(333, 112);
             panel1.Margin = new System.Windows.Forms.Padding(0);
             panel1.Name = "panel1";
-            panel1.Size = new System.Drawing.Size(99, 57);
+            panel1.Size = new System.Drawing.Size(114, 56);
             panel1.TabIndex = 14;
             // 
             // numeric1
@@ -231,7 +228,7 @@ namespace RiichiCalc
             this.numeric1.MaxValue = 10;
             this.numeric1.MinValue = 0;
             this.numeric1.Name = "numeric1";
-            this.numeric1.Size = new System.Drawing.Size(99, 57);
+            this.numeric1.Size = new System.Drawing.Size(114, 56);
             this.numeric1.TabIndex = 0;
             this.numeric1.Value = 0;
             // 
@@ -308,7 +305,7 @@ namespace RiichiCalc
             // pinzu1MahjongTileBtn
             // 
             pinzu1MahjongTileBtn.ForeColor = System.Drawing.Color.MediumVioletRed;
-            pinzu1MahjongTileBtn.Location = new System.Drawing.Point(3, 60);
+            pinzu1MahjongTileBtn.Location = new System.Drawing.Point(3, 59);
             pinzu1MahjongTileBtn.Name = "pinzu1MahjongTileBtn";
             pinzu1MahjongTileBtn.Size = new System.Drawing.Size(35, 50);
             pinzu1MahjongTileBtn.TabIndex = 7;
@@ -318,7 +315,7 @@ namespace RiichiCalc
             // pinzu2MahjongTileBtn
             // 
             pinzu2MahjongTileBtn.ForeColor = System.Drawing.Color.MediumVioletRed;
-            pinzu2MahjongTileBtn.Location = new System.Drawing.Point(46, 60);
+            pinzu2MahjongTileBtn.Location = new System.Drawing.Point(46, 59);
             pinzu2MahjongTileBtn.Name = "pinzu2MahjongTileBtn";
             pinzu2MahjongTileBtn.Size = new System.Drawing.Size(35, 50);
             pinzu2MahjongTileBtn.TabIndex = 8;
@@ -328,7 +325,7 @@ namespace RiichiCalc
             // pinzu3MahjongTileBtn
             // 
             pinzu3MahjongTileBtn.ForeColor = System.Drawing.Color.MediumVioletRed;
-            pinzu3MahjongTileBtn.Location = new System.Drawing.Point(89, 60);
+            pinzu3MahjongTileBtn.Location = new System.Drawing.Point(89, 59);
             pinzu3MahjongTileBtn.Name = "pinzu3MahjongTileBtn";
             pinzu3MahjongTileBtn.Size = new System.Drawing.Size(35, 50);
             pinzu3MahjongTileBtn.TabIndex = 9;
@@ -338,7 +335,7 @@ namespace RiichiCalc
             // pinzu4MahjongTileBtn
             // 
             pinzu4MahjongTileBtn.ForeColor = System.Drawing.Color.MediumVioletRed;
-            pinzu4MahjongTileBtn.Location = new System.Drawing.Point(132, 60);
+            pinzu4MahjongTileBtn.Location = new System.Drawing.Point(132, 59);
             pinzu4MahjongTileBtn.Name = "pinzu4MahjongTileBtn";
             pinzu4MahjongTileBtn.Size = new System.Drawing.Size(35, 50);
             pinzu4MahjongTileBtn.TabIndex = 10;
@@ -348,7 +345,7 @@ namespace RiichiCalc
             // pinzu5MahjongTileBtn
             // 
             pinzu5MahjongTileBtn.ForeColor = System.Drawing.Color.MediumVioletRed;
-            pinzu5MahjongTileBtn.Location = new System.Drawing.Point(175, 60);
+            pinzu5MahjongTileBtn.Location = new System.Drawing.Point(175, 59);
             pinzu5MahjongTileBtn.Name = "pinzu5MahjongTileBtn";
             pinzu5MahjongTileBtn.Size = new System.Drawing.Size(35, 50);
             pinzu5MahjongTileBtn.TabIndex = 11;
@@ -358,7 +355,7 @@ namespace RiichiCalc
             // pinzu6MahjongTileBtn
             // 
             pinzu6MahjongTileBtn.ForeColor = System.Drawing.Color.MediumVioletRed;
-            pinzu6MahjongTileBtn.Location = new System.Drawing.Point(218, 60);
+            pinzu6MahjongTileBtn.Location = new System.Drawing.Point(218, 59);
             pinzu6MahjongTileBtn.Name = "pinzu6MahjongTileBtn";
             pinzu6MahjongTileBtn.Size = new System.Drawing.Size(35, 50);
             pinzu6MahjongTileBtn.TabIndex = 12;
@@ -368,7 +365,7 @@ namespace RiichiCalc
             // pinzu7MahjongTileBtn
             // 
             pinzu7MahjongTileBtn.ForeColor = System.Drawing.Color.MediumVioletRed;
-            pinzu7MahjongTileBtn.Location = new System.Drawing.Point(261, 60);
+            pinzu7MahjongTileBtn.Location = new System.Drawing.Point(261, 59);
             pinzu7MahjongTileBtn.Name = "pinzu7MahjongTileBtn";
             pinzu7MahjongTileBtn.Size = new System.Drawing.Size(35, 50);
             pinzu7MahjongTileBtn.TabIndex = 13;
@@ -378,7 +375,7 @@ namespace RiichiCalc
             // pinzu8MahjongTileBtn
             // 
             pinzu8MahjongTileBtn.ForeColor = System.Drawing.Color.MediumVioletRed;
-            pinzu8MahjongTileBtn.Location = new System.Drawing.Point(304, 60);
+            pinzu8MahjongTileBtn.Location = new System.Drawing.Point(304, 59);
             pinzu8MahjongTileBtn.Name = "pinzu8MahjongTileBtn";
             pinzu8MahjongTileBtn.Size = new System.Drawing.Size(35, 50);
             pinzu8MahjongTileBtn.TabIndex = 14;
@@ -388,7 +385,7 @@ namespace RiichiCalc
             // pinzu9MahjongTileBtn
             // 
             pinzu9MahjongTileBtn.ForeColor = System.Drawing.Color.MediumVioletRed;
-            pinzu9MahjongTileBtn.Location = new System.Drawing.Point(347, 60);
+            pinzu9MahjongTileBtn.Location = new System.Drawing.Point(347, 59);
             pinzu9MahjongTileBtn.Name = "pinzu9MahjongTileBtn";
             pinzu9MahjongTileBtn.Size = new System.Drawing.Size(35, 50);
             pinzu9MahjongTileBtn.TabIndex = 15;
@@ -398,7 +395,7 @@ namespace RiichiCalc
             // souzu1MahjongTileBtn
             // 
             souzu1MahjongTileBtn.ForeColor = System.Drawing.Color.DarkGreen;
-            souzu1MahjongTileBtn.Location = new System.Drawing.Point(3, 117);
+            souzu1MahjongTileBtn.Location = new System.Drawing.Point(3, 115);
             souzu1MahjongTileBtn.Name = "souzu1MahjongTileBtn";
             souzu1MahjongTileBtn.Size = new System.Drawing.Size(35, 50);
             souzu1MahjongTileBtn.TabIndex = 16;
@@ -408,7 +405,7 @@ namespace RiichiCalc
             // souzu2MahjongTileBtn
             // 
             souzu2MahjongTileBtn.ForeColor = System.Drawing.Color.DarkGreen;
-            souzu2MahjongTileBtn.Location = new System.Drawing.Point(46, 117);
+            souzu2MahjongTileBtn.Location = new System.Drawing.Point(46, 115);
             souzu2MahjongTileBtn.Name = "souzu2MahjongTileBtn";
             souzu2MahjongTileBtn.Size = new System.Drawing.Size(35, 50);
             souzu2MahjongTileBtn.TabIndex = 17;
@@ -418,7 +415,7 @@ namespace RiichiCalc
             // souzu3MahjongTileBtn
             // 
             souzu3MahjongTileBtn.ForeColor = System.Drawing.Color.DarkGreen;
-            souzu3MahjongTileBtn.Location = new System.Drawing.Point(89, 117);
+            souzu3MahjongTileBtn.Location = new System.Drawing.Point(89, 115);
             souzu3MahjongTileBtn.Name = "souzu3MahjongTileBtn";
             souzu3MahjongTileBtn.Size = new System.Drawing.Size(35, 50);
             souzu3MahjongTileBtn.TabIndex = 18;
@@ -428,7 +425,7 @@ namespace RiichiCalc
             // souzu4MahjongTileBtn
             // 
             souzu4MahjongTileBtn.ForeColor = System.Drawing.Color.DarkGreen;
-            souzu4MahjongTileBtn.Location = new System.Drawing.Point(132, 117);
+            souzu4MahjongTileBtn.Location = new System.Drawing.Point(132, 115);
             souzu4MahjongTileBtn.Name = "souzu4MahjongTileBtn";
             souzu4MahjongTileBtn.Size = new System.Drawing.Size(35, 50);
             souzu4MahjongTileBtn.TabIndex = 19;
@@ -438,7 +435,7 @@ namespace RiichiCalc
             // souzu5MahjongTileBtn
             // 
             souzu5MahjongTileBtn.ForeColor = System.Drawing.Color.DarkGreen;
-            souzu5MahjongTileBtn.Location = new System.Drawing.Point(175, 117);
+            souzu5MahjongTileBtn.Location = new System.Drawing.Point(175, 115);
             souzu5MahjongTileBtn.Name = "souzu5MahjongTileBtn";
             souzu5MahjongTileBtn.Size = new System.Drawing.Size(35, 50);
             souzu5MahjongTileBtn.TabIndex = 20;
@@ -448,7 +445,7 @@ namespace RiichiCalc
             // souzu6MahjongTileBtn
             // 
             souzu6MahjongTileBtn.ForeColor = System.Drawing.Color.DarkGreen;
-            souzu6MahjongTileBtn.Location = new System.Drawing.Point(218, 117);
+            souzu6MahjongTileBtn.Location = new System.Drawing.Point(218, 115);
             souzu6MahjongTileBtn.Name = "souzu6MahjongTileBtn";
             souzu6MahjongTileBtn.Size = new System.Drawing.Size(35, 50);
             souzu6MahjongTileBtn.TabIndex = 21;
@@ -458,7 +455,7 @@ namespace RiichiCalc
             // souzu7MahjongTileBtn
             // 
             souzu7MahjongTileBtn.ForeColor = System.Drawing.Color.DarkGreen;
-            souzu7MahjongTileBtn.Location = new System.Drawing.Point(261, 117);
+            souzu7MahjongTileBtn.Location = new System.Drawing.Point(261, 115);
             souzu7MahjongTileBtn.Name = "souzu7MahjongTileBtn";
             souzu7MahjongTileBtn.Size = new System.Drawing.Size(35, 50);
             souzu7MahjongTileBtn.TabIndex = 22;
@@ -468,7 +465,7 @@ namespace RiichiCalc
             // souzu8MahjongTileBtn
             // 
             souzu8MahjongTileBtn.ForeColor = System.Drawing.Color.DarkGreen;
-            souzu8MahjongTileBtn.Location = new System.Drawing.Point(304, 117);
+            souzu8MahjongTileBtn.Location = new System.Drawing.Point(304, 115);
             souzu8MahjongTileBtn.Name = "souzu8MahjongTileBtn";
             souzu8MahjongTileBtn.Size = new System.Drawing.Size(35, 50);
             souzu8MahjongTileBtn.TabIndex = 23;
@@ -478,7 +475,7 @@ namespace RiichiCalc
             // souzu9MahjongTileBtn
             // 
             souzu9MahjongTileBtn.ForeColor = System.Drawing.Color.DarkGreen;
-            souzu9MahjongTileBtn.Location = new System.Drawing.Point(347, 117);
+            souzu9MahjongTileBtn.Location = new System.Drawing.Point(347, 115);
             souzu9MahjongTileBtn.Name = "souzu9MahjongTileBtn";
             souzu9MahjongTileBtn.Size = new System.Drawing.Size(35, 50);
             souzu9MahjongTileBtn.TabIndex = 24;
@@ -488,7 +485,7 @@ namespace RiichiCalc
             // manzu1MahjongTileBtn
             // 
             manzu1MahjongTileBtn.ForeColor = System.Drawing.Color.DarkBlue;
-            manzu1MahjongTileBtn.Location = new System.Drawing.Point(3, 174);
+            manzu1MahjongTileBtn.Location = new System.Drawing.Point(3, 171);
             manzu1MahjongTileBtn.Name = "manzu1MahjongTileBtn";
             manzu1MahjongTileBtn.Size = new System.Drawing.Size(35, 50);
             manzu1MahjongTileBtn.TabIndex = 25;
@@ -498,7 +495,7 @@ namespace RiichiCalc
             // manzu2MahjongTileBtn
             // 
             manzu2MahjongTileBtn.ForeColor = System.Drawing.Color.DarkBlue;
-            manzu2MahjongTileBtn.Location = new System.Drawing.Point(46, 174);
+            manzu2MahjongTileBtn.Location = new System.Drawing.Point(46, 171);
             manzu2MahjongTileBtn.Name = "manzu2MahjongTileBtn";
             manzu2MahjongTileBtn.Size = new System.Drawing.Size(35, 50);
             manzu2MahjongTileBtn.TabIndex = 26;
@@ -508,7 +505,7 @@ namespace RiichiCalc
             // manzu3MahjongTileBtn
             // 
             manzu3MahjongTileBtn.ForeColor = System.Drawing.Color.DarkBlue;
-            manzu3MahjongTileBtn.Location = new System.Drawing.Point(89, 174);
+            manzu3MahjongTileBtn.Location = new System.Drawing.Point(89, 171);
             manzu3MahjongTileBtn.Name = "manzu3MahjongTileBtn";
             manzu3MahjongTileBtn.Size = new System.Drawing.Size(35, 50);
             manzu3MahjongTileBtn.TabIndex = 27;
@@ -518,7 +515,7 @@ namespace RiichiCalc
             // manzu4MahjongTileBtn
             // 
             manzu4MahjongTileBtn.ForeColor = System.Drawing.Color.DarkBlue;
-            manzu4MahjongTileBtn.Location = new System.Drawing.Point(132, 174);
+            manzu4MahjongTileBtn.Location = new System.Drawing.Point(132, 171);
             manzu4MahjongTileBtn.Name = "manzu4MahjongTileBtn";
             manzu4MahjongTileBtn.Size = new System.Drawing.Size(35, 50);
             manzu4MahjongTileBtn.TabIndex = 28;
@@ -528,7 +525,7 @@ namespace RiichiCalc
             // manzu5MahjongTileBtn
             // 
             manzu5MahjongTileBtn.ForeColor = System.Drawing.Color.DarkBlue;
-            manzu5MahjongTileBtn.Location = new System.Drawing.Point(175, 174);
+            manzu5MahjongTileBtn.Location = new System.Drawing.Point(175, 171);
             manzu5MahjongTileBtn.Name = "manzu5MahjongTileBtn";
             manzu5MahjongTileBtn.Size = new System.Drawing.Size(35, 50);
             manzu5MahjongTileBtn.TabIndex = 29;
@@ -538,7 +535,7 @@ namespace RiichiCalc
             // manzu6MahjongTileBtn
             // 
             manzu6MahjongTileBtn.ForeColor = System.Drawing.Color.DarkBlue;
-            manzu6MahjongTileBtn.Location = new System.Drawing.Point(218, 174);
+            manzu6MahjongTileBtn.Location = new System.Drawing.Point(218, 171);
             manzu6MahjongTileBtn.Name = "manzu6MahjongTileBtn";
             manzu6MahjongTileBtn.Size = new System.Drawing.Size(35, 50);
             manzu6MahjongTileBtn.TabIndex = 30;
@@ -548,7 +545,7 @@ namespace RiichiCalc
             // manzu7MahjongTileBtn
             // 
             manzu7MahjongTileBtn.ForeColor = System.Drawing.Color.DarkBlue;
-            manzu7MahjongTileBtn.Location = new System.Drawing.Point(261, 174);
+            manzu7MahjongTileBtn.Location = new System.Drawing.Point(261, 171);
             manzu7MahjongTileBtn.Name = "manzu7MahjongTileBtn";
             manzu7MahjongTileBtn.Size = new System.Drawing.Size(35, 50);
             manzu7MahjongTileBtn.TabIndex = 31;
@@ -558,7 +555,7 @@ namespace RiichiCalc
             // manzu8MahjongTileBtn
             // 
             manzu8MahjongTileBtn.ForeColor = System.Drawing.Color.DarkBlue;
-            manzu8MahjongTileBtn.Location = new System.Drawing.Point(304, 174);
+            manzu8MahjongTileBtn.Location = new System.Drawing.Point(304, 171);
             manzu8MahjongTileBtn.Name = "manzu8MahjongTileBtn";
             manzu8MahjongTileBtn.Size = new System.Drawing.Size(35, 50);
             manzu8MahjongTileBtn.TabIndex = 32;
@@ -568,7 +565,7 @@ namespace RiichiCalc
             // manzu9MahjongTileBtn
             // 
             manzu9MahjongTileBtn.ForeColor = System.Drawing.Color.DarkBlue;
-            manzu9MahjongTileBtn.Location = new System.Drawing.Point(347, 174);
+            manzu9MahjongTileBtn.Location = new System.Drawing.Point(347, 171);
             manzu9MahjongTileBtn.Name = "manzu9MahjongTileBtn";
             manzu9MahjongTileBtn.Size = new System.Drawing.Size(35, 50);
             manzu9MahjongTileBtn.TabIndex = 33;
@@ -580,30 +577,107 @@ namespace RiichiCalc
             statusBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.versionInfo,
             copyrightNotice});
-            statusBar.Location = new System.Drawing.Point(0, 444);
+            statusBar.Location = new System.Drawing.Point(3, 511);
             statusBar.Name = "statusBar";
-            statusBar.Size = new System.Drawing.Size(792, 22);
+            statusBar.Size = new System.Drawing.Size(849, 22);
             statusBar.TabIndex = 3;
             statusBar.Text = "RiichiCalc v.";
             statusBar.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.statusBar_ItemClicked);
             // 
             // versionInfo
             // 
+            this.versionInfo.ActiveLinkColor = System.Drawing.Color.Black;
+            this.versionInfo.IsLink = true;
+            this.versionInfo.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.versionInfo.LinkColor = System.Drawing.Color.Black;
             this.versionInfo.Name = "versionInfo";
             this.versionInfo.Size = new System.Drawing.Size(71, 17);
             this.versionInfo.Tag = "version_info";
             this.versionInfo.Text = "RiichiCalc v.";
+            this.versionInfo.VisitedLinkColor = System.Drawing.Color.Black;
             // 
             // copyrightNotice
             // 
             copyrightNotice.Enabled = false;
             copyrightNotice.Name = "copyrightNotice";
-            copyrightNotice.Size = new System.Drawing.Size(706, 17);
+            copyrightNotice.Size = new System.Drawing.Size(763, 17);
             copyrightNotice.Spring = true;
             copyrightNotice.Tag = "copyright_notice";
             copyrightNotice.Text = "Kacper Palka 2021";
             copyrightNotice.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             copyrightNotice.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
+            // 
+            // materialDivider1
+            // 
+            materialDivider1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            materialDivider1.Depth = 0;
+            materialDivider1.Dock = System.Windows.Forms.DockStyle.Top;
+            materialDivider1.Location = new System.Drawing.Point(3, 295);
+            materialDivider1.MouseState = MaterialSkin.MouseState.HOVER;
+            materialDivider1.Name = "materialDivider1";
+            materialDivider1.Size = new System.Drawing.Size(849, 4);
+            materialDivider1.TabIndex = 4;
+            materialDivider1.Text = "materialDivider1";
+            // 
+            // materialDivider4
+            // 
+            materialDivider4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            materialDivider4.Depth = 0;
+            materialDivider4.Dock = System.Windows.Forms.DockStyle.Top;
+            materialDivider4.Location = new System.Drawing.Point(3, 391);
+            materialDivider4.MouseState = MaterialSkin.MouseState.HOVER;
+            materialDivider4.Name = "materialDivider4";
+            materialDivider4.Size = new System.Drawing.Size(849, 4);
+            materialDivider4.TabIndex = 13;
+            materialDivider4.Text = "materialDivider4";
+            // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.ColumnCount = 2;
+            tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            tableLayoutPanel1.Controls.Add(this.materialLabel1, 0, 0);
+            tableLayoutPanel1.Controls.Add(this.clearHandBtn, 1, 0);
+            tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            tableLayoutPanel1.Location = new System.Drawing.Point(3, 299);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 1;
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            tableLayoutPanel1.Size = new System.Drawing.Size(849, 32);
+            tableLayoutPanel1.TabIndex = 18;
+            // 
+            // materialLabel1
+            // 
+            this.materialLabel1.Depth = 0;
+            this.materialLabel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel1.Location = new System.Drawing.Point(3, 0);
+            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel1.Name = "materialLabel1";
+            this.materialLabel1.Size = new System.Drawing.Size(725, 32);
+            this.materialLabel1.TabIndex = 6;
+            this.materialLabel1.Text = "Hand";
+            this.materialLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // clearHandBtn
+            // 
+            this.clearHandBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.clearHandBtn.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.clearHandBtn.Depth = 0;
+            this.clearHandBtn.HighEmphasis = false;
+            this.clearHandBtn.Icon = null;
+            this.clearHandBtn.Location = new System.Drawing.Point(735, 6);
+            this.clearHandBtn.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.clearHandBtn.MouseState = MaterialSkin.MouseState.HOVER;
+            this.clearHandBtn.Name = "clearHandBtn";
+            this.clearHandBtn.Size = new System.Drawing.Size(110, 20);
+            this.clearHandBtn.TabIndex = 7;
+            this.clearHandBtn.Text = "Clear hand";
+            this.clearHandBtn.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.clearHandBtn.UseAccentColor = false;
+            this.clearHandBtn.UseVisualStyleBackColor = true;
+            this.clearHandBtn.Click += new System.EventHandler(this.clearHandBtn_Click);
             // 
             // deck
             // 
@@ -613,11 +687,11 @@ namespace RiichiCalc
             this.deck.Controls.Add(this.tableLayoutPanel3, 1, 0);
             this.deck.Controls.Add(this.tableLayoutPanel2, 0, 0);
             this.deck.Dock = System.Windows.Forms.DockStyle.Top;
-            this.deck.Location = new System.Drawing.Point(0, 0);
+            this.deck.Location = new System.Drawing.Point(3, 65);
             this.deck.Name = "deck";
             this.deck.RowCount = 1;
             this.deck.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.deck.Size = new System.Drawing.Size(792, 236);
+            this.deck.Size = new System.Drawing.Size(849, 230);
             this.deck.TabIndex = 0;
             // 
             // tableLayoutPanel3
@@ -649,7 +723,7 @@ namespace RiichiCalc
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(390, 230);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(447, 224);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // tableWindBtn
@@ -658,9 +732,9 @@ namespace RiichiCalc
             this.tableWindBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.tableWindBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableWindBtn.ForeColor = System.Drawing.Color.Blue;
-            this.tableWindBtn.Location = new System.Drawing.Point(100, 174);
+            this.tableWindBtn.Location = new System.Drawing.Point(114, 171);
             this.tableWindBtn.Name = "tableWindBtn";
-            this.tableWindBtn.Size = new System.Drawing.Size(91, 53);
+            this.tableWindBtn.Size = new System.Drawing.Size(105, 50);
             this.tableWindBtn.TabIndex = 5;
             this.tableWindBtn.Value = RiichiCalc.Tiles.MahjongWindTile.WindEast;
             this.tableWindBtn.ValueChanged += new System.EventHandler(this.tableWindBtn_ValueChanged);
@@ -671,9 +745,9 @@ namespace RiichiCalc
             this.seatWindBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.seatWindBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.seatWindBtn.ForeColor = System.Drawing.Color.Blue;
-            this.seatWindBtn.Location = new System.Drawing.Point(294, 174);
+            this.seatWindBtn.Location = new System.Drawing.Point(336, 171);
             this.seatWindBtn.Name = "seatWindBtn";
-            this.seatWindBtn.Size = new System.Drawing.Size(93, 53);
+            this.seatWindBtn.Size = new System.Drawing.Size(108, 50);
             this.seatWindBtn.TabIndex = 6;
             this.seatWindBtn.Value = RiichiCalc.Tiles.MahjongWindTile.WindEast;
             this.seatWindBtn.ValueChanged += new System.EventHandler(this.seatWindBtn_ValueChanged);
@@ -682,9 +756,9 @@ namespace RiichiCalc
             // 
             this.winMethodEnumBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.winMethodEnumBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.winMethodEnumBtn.Location = new System.Drawing.Point(3, 60);
+            this.winMethodEnumBtn.Location = new System.Drawing.Point(3, 59);
             this.winMethodEnumBtn.Name = "winMethodEnumBtn";
-            this.winMethodEnumBtn.Size = new System.Drawing.Size(91, 51);
+            this.winMethodEnumBtn.Size = new System.Drawing.Size(105, 50);
             this.winMethodEnumBtn.TabIndex = 9;
             this.winMethodEnumBtn.Value = RiichiCalc.Tiles.WinMethod.Tsumo;
             // 
@@ -692,9 +766,9 @@ namespace RiichiCalc
             // 
             this.betYakuEnumBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.betYakuEnumBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.betYakuEnumBtn.Location = new System.Drawing.Point(100, 60);
+            this.betYakuEnumBtn.Location = new System.Drawing.Point(114, 59);
             this.betYakuEnumBtn.Name = "betYakuEnumBtn";
-            this.betYakuEnumBtn.Size = new System.Drawing.Size(91, 51);
+            this.betYakuEnumBtn.Size = new System.Drawing.Size(105, 50);
             this.betYakuEnumBtn.TabIndex = 10;
             this.betYakuEnumBtn.Value = RiichiCalc.Tiles.BetYaku.NoRiichi;
             // 
@@ -702,9 +776,9 @@ namespace RiichiCalc
             // 
             this.extraYakuEnumBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.extraYakuEnumBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.extraYakuEnumBtn.Location = new System.Drawing.Point(294, 60);
+            this.extraYakuEnumBtn.Location = new System.Drawing.Point(336, 59);
             this.extraYakuEnumBtn.Name = "extraYakuEnumBtn";
-            this.extraYakuEnumBtn.Size = new System.Drawing.Size(93, 51);
+            this.extraYakuEnumBtn.Size = new System.Drawing.Size(108, 50);
             this.extraYakuEnumBtn.TabIndex = 11;
             this.extraYakuEnumBtn.Value = RiichiCalc.Tiles.ExtraYaku.None;
             // 
@@ -718,7 +792,7 @@ namespace RiichiCalc
             this.checkBtn1.Location = new System.Drawing.Point(3, 3);
             this.checkBtn1.MinimumSize = new System.Drawing.Size(75, 25);
             this.checkBtn1.Name = "checkBtn1";
-            this.checkBtn1.Size = new System.Drawing.Size(91, 51);
+            this.checkBtn1.Size = new System.Drawing.Size(105, 50);
             this.checkBtn1.TabIndex = 15;
             // 
             // checkBtn2
@@ -728,10 +802,10 @@ namespace RiichiCalc
             this.checkBtn2.Checked = false;
             this.checkBtn2.Content = "Chi";
             this.checkBtn2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkBtn2.Location = new System.Drawing.Point(100, 3);
+            this.checkBtn2.Location = new System.Drawing.Point(114, 3);
             this.checkBtn2.MinimumSize = new System.Drawing.Size(75, 25);
             this.checkBtn2.Name = "checkBtn2";
-            this.checkBtn2.Size = new System.Drawing.Size(91, 51);
+            this.checkBtn2.Size = new System.Drawing.Size(105, 50);
             this.checkBtn2.TabIndex = 16;
             // 
             // checkBtn3
@@ -741,10 +815,10 @@ namespace RiichiCalc
             this.checkBtn3.Checked = false;
             this.checkBtn3.Content = "Kan";
             this.checkBtn3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkBtn3.Location = new System.Drawing.Point(197, 3);
+            this.checkBtn3.Location = new System.Drawing.Point(225, 3);
             this.checkBtn3.MinimumSize = new System.Drawing.Size(75, 25);
             this.checkBtn3.Name = "checkBtn3";
-            this.checkBtn3.Size = new System.Drawing.Size(91, 51);
+            this.checkBtn3.Size = new System.Drawing.Size(105, 50);
             this.checkBtn3.TabIndex = 17;
             // 
             // checkBtn4
@@ -754,10 +828,10 @@ namespace RiichiCalc
             this.checkBtn4.Checked = false;
             this.checkBtn4.Content = "Closed Kan";
             this.checkBtn4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkBtn4.Location = new System.Drawing.Point(294, 3);
+            this.checkBtn4.Location = new System.Drawing.Point(336, 3);
             this.checkBtn4.MinimumSize = new System.Drawing.Size(75, 25);
             this.checkBtn4.Name = "checkBtn4";
-            this.checkBtn4.Size = new System.Drawing.Size(93, 51);
+            this.checkBtn4.Size = new System.Drawing.Size(108, 50);
             this.checkBtn4.TabIndex = 18;
             // 
             // tableLayoutPanel2
@@ -814,163 +888,90 @@ namespace RiichiCalc
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(390, 230);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(390, 224);
             this.tableLayoutPanel2.TabIndex = 0;
-            // 
-            // materialDivider1
-            // 
-            materialDivider1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            materialDivider1.Depth = 0;
-            materialDivider1.Dock = System.Windows.Forms.DockStyle.Top;
-            materialDivider1.Location = new System.Drawing.Point(0, 236);
-            materialDivider1.MouseState = MaterialSkin.MouseState.HOVER;
-            materialDivider1.Name = "materialDivider1";
-            materialDivider1.Size = new System.Drawing.Size(792, 4);
-            materialDivider1.TabIndex = 4;
-            materialDivider1.Text = "materialDivider1";
-            // 
-            // materialDivider2
-            // 
-            materialDivider2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            materialDivider2.Depth = 0;
-            materialDivider2.Dock = System.Windows.Forms.DockStyle.Top;
-            materialDivider2.Location = new System.Drawing.Point(0, 261);
-            materialDivider2.MouseState = MaterialSkin.MouseState.HOVER;
-            materialDivider2.Name = "materialDivider2";
-            materialDivider2.Size = new System.Drawing.Size(792, 4);
-            materialDivider2.TabIndex = 6;
-            materialDivider2.Text = "materialDivider2";
-            // 
-            // materialDivider4
-            // 
-            materialDivider4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            materialDivider4.Depth = 0;
-            materialDivider4.Dock = System.Windows.Forms.DockStyle.Top;
-            materialDivider4.Location = new System.Drawing.Point(0, 325);
-            materialDivider4.MouseState = MaterialSkin.MouseState.HOVER;
-            materialDivider4.Name = "materialDivider4";
-            materialDivider4.Size = new System.Drawing.Size(792, 4);
-            materialDivider4.TabIndex = 13;
-            materialDivider4.Text = "materialDivider4";
             // 
             // materialLabel2
             // 
             this.materialLabel2.Depth = 0;
             this.materialLabel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel2.Location = new System.Drawing.Point(0, 329);
+            this.materialLabel2.Location = new System.Drawing.Point(3, 395);
             this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel2.Name = "materialLabel2";
-            this.materialLabel2.Size = new System.Drawing.Size(792, 19);
+            this.materialLabel2.Size = new System.Drawing.Size(849, 32);
             this.materialLabel2.TabIndex = 12;
             this.materialLabel2.Text = "Summary";
-            // 
-            // materialDivider3
-            // 
-            materialDivider3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            materialDivider3.Depth = 0;
-            materialDivider3.Dock = System.Windows.Forms.DockStyle.Top;
-            materialDivider3.Location = new System.Drawing.Point(0, 348);
-            materialDivider3.MouseState = MaterialSkin.MouseState.HOVER;
-            materialDivider3.Name = "materialDivider3";
-            materialDivider3.Size = new System.Drawing.Size(792, 4);
-            materialDivider3.TabIndex = 11;
-            materialDivider3.Text = "materialDivider3";
+            this.materialLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // test
             // 
             this.test.AutoSize = true;
             this.test.Depth = 0;
-            this.test.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.test.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.test.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.test.Location = new System.Drawing.Point(12, 394);
+            this.test.Location = new System.Drawing.Point(12, 456);
             this.test.MouseState = MaterialSkin.MouseState.HOVER;
             this.test.Name = "test";
-            this.test.Size = new System.Drawing.Size(49, 19);
+            this.test.Size = new System.Drawing.Size(44, 19);
             this.test.TabIndex = 14;
             this.test.Text = "label5";
             // 
             // handCont
             // 
             this.handCont.Dock = System.Windows.Forms.DockStyle.Top;
-            this.handCont.Location = new System.Drawing.Point(0, 265);
+            this.handCont.Location = new System.Drawing.Point(3, 331);
             this.handCont.Name = "handCont";
-            this.handCont.Size = new System.Drawing.Size(792, 60);
+            this.handCont.Size = new System.Drawing.Size(849, 60);
             this.handCont.TabIndex = 17;
             // 
-            // tableLayoutPanel1
+            // summaryBox
             // 
-            tableLayoutPanel1.ColumnCount = 2;
-            tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            tableLayoutPanel1.Controls.Add(this.materialLabel1, 0, 0);
-            tableLayoutPanel1.Controls.Add(this.clearHandBtn, 1, 0);
-            tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            tableLayoutPanel1.Location = new System.Drawing.Point(0, 240);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 1;
-            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new System.Drawing.Size(792, 21);
-            tableLayoutPanel1.TabIndex = 18;
-            // 
-            // materialLabel1
-            // 
-            this.materialLabel1.Depth = 0;
-            this.materialLabel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel1.Location = new System.Drawing.Point(3, 0);
-            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(675, 19);
-            this.materialLabel1.TabIndex = 6;
-            this.materialLabel1.Text = "Hand";
-            this.materialLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // clearHandBtn
-            // 
-            this.clearHandBtn.AutoSize = true;
-            this.clearHandBtn.Depth = 0;
-            this.clearHandBtn.Location = new System.Drawing.Point(684, 3);
-            this.clearHandBtn.MouseState = MaterialSkin.MouseState.HOVER;
-            this.clearHandBtn.Name = "clearHandBtn";
-            this.clearHandBtn.Primary = false;
-            this.clearHandBtn.Size = new System.Drawing.Size(105, 15);
-            this.clearHandBtn.TabIndex = 7;
-            this.clearHandBtn.Text = "Clear hand";
-            this.clearHandBtn.UseVisualStyleBackColor = true;
-            this.clearHandBtn.Click += new System.EventHandler(this.clearHandBtn_Click);
+            this.summaryBox.BackColor = System.Drawing.Color.White;
+            this.summaryBox.BorderColor = System.Drawing.Color.LightGray;
+            this.summaryBox.Depth = 0;
+            this.summaryBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.summaryBox.Enabled = false;
+            this.summaryBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.summaryBox.Location = new System.Drawing.Point(3, 427);
+            this.summaryBox.MouseState = MaterialSkin.MouseState.HOVER;
+            this.summaryBox.Name = "summaryBox";
+            this.summaryBox.SelectedIndex = -1;
+            this.summaryBox.SelectedItem = null;
+            this.summaryBox.SelectedValue = null;
+            this.summaryBox.Size = new System.Drawing.Size(849, 84);
+            this.summaryBox.TabIndex = 19;
             // 
             // MainWnd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(792, 466);
-            this.Controls.Add(materialDivider3);
+            this.ClientSize = new System.Drawing.Size(855, 536);
+            this.Controls.Add(this.summaryBox);
             this.Controls.Add(this.materialLabel2);
             this.Controls.Add(materialDivider4);
             this.Controls.Add(this.handCont);
             this.Controls.Add(this.test);
-            this.Controls.Add(materialDivider2);
             this.Controls.Add(statusBar);
             this.Controls.Add(tableLayoutPanel1);
             this.Controls.Add(materialDivider1);
             this.Controls.Add(this.deck);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.DoubleBuffered = false;
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(720, 500);
             this.Name = "MainWnd";
+            this.Padding = new System.Windows.Forms.Padding(3, 65, 3, 3);
             this.Text = "RiichiCalc";
             panel1.ResumeLayout(false);
             statusBar.ResumeLayout(false);
             statusBar.PerformLayout();
+            tableLayoutPanel1.ResumeLayout(false);
+            tableLayoutPanel1.PerformLayout();
             this.deck.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
-            tableLayoutPanel1.ResumeLayout(false);
-            tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -993,15 +994,14 @@ namespace RiichiCalc
         private System.Windows.Forms.ToolStripStatusLabel versionInfo;
         private Numeric numeric1;
         private MaterialDivider materialDivider1;
-        private MaterialDivider materialDivider2;
         private MaterialDivider materialDivider4;
         private MaterialLabel materialLabel2;
-        private MaterialDivider materialDivider3;
         private MaterialLabel test;
         private MahjongTileSet handCont;
         private TableLayoutPanel tableLayoutPanel1;
         private MaterialLabel materialLabel1;
-        private MaterialSkin.Controls.MaterialRaisedButton clearHandBtn;
+        private MaterialSkin.Controls.MaterialButton clearHandBtn;
+        private MaterialListBox summaryBox;
     }
 }
 

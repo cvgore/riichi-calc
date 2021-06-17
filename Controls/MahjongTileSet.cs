@@ -49,10 +49,8 @@ namespace RiichiCalc.Controls
             List<MahjongTileBtn> ctrls = new(tilesSet.Controls.Count);
             ctrls.AddRange(tilesSet.Controls.Cast<MahjongTileBtn>());
 
-            tilesSet.SuspendLayout();
             tilesSet.Controls.Clear();
             tilesSet.Controls.AddRange(ctrls.OrderBy(x => x.Tile).ToArray());
-            tilesSet.ResumeLayout();
         }
 
         private void TileRemoved(object? sender, int tile)

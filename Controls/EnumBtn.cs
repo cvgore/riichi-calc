@@ -46,7 +46,7 @@ namespace RiichiCalc.Controls
 
             SetValue(_value);
 
-            toggleBtn.Primary = false;
+            toggleBtn.HighEmphasis = false;
         }
 
         protected void SetValue(T value)

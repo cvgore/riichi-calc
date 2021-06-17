@@ -17,12 +17,12 @@ namespace RiichiCalc.Controls
         {
             InitializeComponent();
 
-            btn.Primary = Checked;
+            btn.UseAccentColor = Checked;
         }
 
         private void btn_Click(object? sender, System.EventArgs e)
         {
-            Checked = btn.Primary = !Checked;
+            Checked = btn.UseAccentColor = !Checked;
         }
     }
 }

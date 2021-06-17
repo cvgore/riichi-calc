@@ -29,23 +29,29 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.tileBtn = new MaterialRaisedButton();
+            this.tileBtn = new RiichiCalc.Controls.MaterialButton();
             this.tileTip = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // tileBtn
             // 
-            this.tileBtn.AutoSize = true;
             this.tileBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.tileBtn.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.tileBtn.Depth = 0;
             this.tileBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tileBtn.FlatAppearance.BorderSize = 0;
             this.tileBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.tileBtn.Font = new System.Drawing.Font("Segoe UI", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tileBtn.HighEmphasis = true;
+            this.tileBtn.Icon = null;
             this.tileBtn.Location = new System.Drawing.Point(0, 0);
             this.tileBtn.Margin = new System.Windows.Forms.Padding(0);
+            this.tileBtn.MouseState = MaterialSkin.MouseState.HOVER;
             this.tileBtn.Name = "tileBtn";
             this.tileBtn.Size = new System.Drawing.Size(35, 50);
             this.tileBtn.TabIndex = 0;
+            this.tileBtn.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.tileBtn.UseAccentColor = false;
             this.tileBtn.UseVisualStyleBackColor = true;
             this.tileBtn.Paint += new System.Windows.Forms.PaintEventHandler(this.tileBtn_Paint);
             // 
@@ -71,7 +77,7 @@
 
         #endregion
 
-        private MaterialRaisedButton tileBtn;
+        private MaterialButton tileBtn;
         private System.Windows.Forms.ToolTip tileTip;
     }
 }
