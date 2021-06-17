@@ -5,11 +5,7 @@ namespace RiichiCalc.Controls
 {
     public partial class CheckBtn : UserControl
     {
-        public bool Checked
-        {
-            get => stateIndicatorCheckbox.Checked; 
-            set => stateIndicatorCheckbox.Checked = value;
-        }
+        public bool Checked { get; set; }
 
         public string Content
         {
@@ -20,11 +16,13 @@ namespace RiichiCalc.Controls
         public CheckBtn()
         {
             InitializeComponent();
+
+            btn.Primary = Checked;
         }
 
-        private void btn_Click([NotNull] object? sender, System.EventArgs e)
+        private void btn_Click(object? sender, System.EventArgs e)
         {
-            Checked = !Checked;
+            Checked = btn.Primary = !Checked;
         }
     }
 }

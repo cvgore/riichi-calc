@@ -19,7 +19,7 @@ namespace RiichiCalc.Core.Pattern
             }
 
             var tableWind = ctx.TableWind.ToMahjongTile();
-            var ownWind = ctx.TableWind.ToMahjongTile();
+            var ownWind = ctx.PlayerWind.ToMahjongTile();
             int occurrences = 0;
 
             if (hand.Groups.Any(x => x.FirstTile == tableWind && x is Triple))

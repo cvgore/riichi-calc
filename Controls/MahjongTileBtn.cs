@@ -49,22 +49,22 @@ namespace RiichiCalc.Controls
             tileBtn.Invalidate();
         }
 
-        private void tileBtn_Paint([NotNull] object? sender, PaintEventArgs e)
+        private void tileBtn_Paint(object? sender, PaintEventArgs e)
         {
             _mfi.PaintText(e.Graphics, Tile);
         }
 
-        private void MahjongTileBtn_Load([NotNull] object? sender, System.EventArgs e)
+        private void MahjongTileBtn_Load(object? sender, System.EventArgs e)
         {
             tileBtn.Click += MahjongTileBtn_Click;
         }
 
-        private void MahjongTileBtn_Click([NotNull] object? sender, System.EventArgs e)
+        private void MahjongTileBtn_Click(object? sender, System.EventArgs e)
         {
             OnClick(e);
         }
 
-        private void MahjongTileBtn_EnabledChanged([NotNull] object? sender, System.EventArgs e)
+        private void MahjongTileBtn_EnabledChanged(object? sender, System.EventArgs e)
         {
             if (Enabled)
             {

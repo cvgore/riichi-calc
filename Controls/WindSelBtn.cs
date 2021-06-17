@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Drawing;
 using System.Windows.Forms;
 using RiichiCalc.Tiles;
 
@@ -18,12 +19,25 @@ namespace RiichiCalc.Controls
             ValueChanged += WindSelBtn_ValueChanged;
         }
 
-        private void WindSelBtn_ValueChanged([NotNull] object? sender, EventArgs e)
+        protected override void OnEnabledChanged(EventArgs e)
+        {
+            if (Enabled)
+            {
+                SetValue(Value); // noop assignment literally, just hack to invoke call tree
+            }
+            else
+            {
+                ForeColor = Color.DimGray;
+                toggleBtn.Invalidate();
+            }
+        }
+
+        private void WindSelBtn_ValueChanged(object? sender, EventArgs e)
         {
             MahjongFont.Colorize(this, Value.ToMahjongTile());
         }
 
-        private void toggleBtn_Paint([NotNull] object? sender, PaintEventArgs e)
+        private void toggleBtn_Paint(object? sender, PaintEventArgs e)
         {
             _mfi.PaintText(e.Graphics, (MahjongTile)Value);
         }

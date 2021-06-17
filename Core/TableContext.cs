@@ -16,6 +16,7 @@ namespace RiichiCalc.Core
         public BetYaku BetYaku { get; set; }
         public ExtraYaku ExtraYaku { get; set; }
         public HandContext Hand { get; }
+        public uint DoraCount { get; set; }
 
         public TableContext()
         {

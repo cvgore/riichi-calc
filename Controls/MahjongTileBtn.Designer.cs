@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.tileBtn = new System.Windows.Forms.Button();
+            this.tileBtn = new MaterialRaisedButton();
             this.tileTip = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
@@ -71,7 +71,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button tileBtn;
+        private MaterialRaisedButton tileBtn;
         private System.Windows.Forms.ToolTip tileTip;
     }
 }

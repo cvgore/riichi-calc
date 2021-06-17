@@ -30,37 +30,24 @@ namespace RiichiCalc.Controls
         private void InitializeComponent()
         {
             this.btn = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.stateIndicatorCheckbox = new MaterialSkin.Controls.MaterialCheckBox();
             this.SuspendLayout();
             // 
             // btn
             // 
             this.btn.AutoSize = true;
+            this.btn.Depth = 0;
             this.btn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn.Location = new System.Drawing.Point(0, 0);
             this.btn.Margin = new System.Windows.Forms.Padding(0);
+            this.btn.MouseState = MaterialSkin.MouseState.HOVER;
             this.btn.Name = "btn";
             this.btn.Padding = new System.Windows.Forms.Padding(16, 0, 0, 0);
-            this.btn.Size = new System.Drawing.Size(75, 25);
+            this.btn.Primary = true;
+            this.btn.Size = new System.Drawing.Size(75, 47);
             this.btn.TabIndex = 0;
             this.btn.Text = "button1";
             this.btn.UseVisualStyleBackColor = true;
             this.btn.Click += new System.EventHandler(this.btn_Click);
-            // 
-            // stateIndicatorCheckbox
-            // 
-            this.stateIndicatorCheckbox.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.stateIndicatorCheckbox.AutoSize = true;
-            this.stateIndicatorCheckbox.BackColor = System.Drawing.Color.Transparent;
-            this.stateIndicatorCheckbox.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.stateIndicatorCheckbox.Enabled = false;
-            this.stateIndicatorCheckbox.Location = new System.Drawing.Point(6, 6);
-            this.stateIndicatorCheckbox.Margin = new System.Windows.Forms.Padding(0);
-            this.stateIndicatorCheckbox.Name = "stateIndicatorCheckbox";
-            this.stateIndicatorCheckbox.Size = new System.Drawing.Size(15, 14);
-            this.stateIndicatorCheckbox.TabIndex = 1;
-            this.stateIndicatorCheckbox.TabStop = false;
-            this.stateIndicatorCheckbox.UseVisualStyleBackColor = false;
             // 
             // CheckBtn
             // 
@@ -68,11 +55,10 @@ namespace RiichiCalc.Controls
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.Controls.Add(this.stateIndicatorCheckbox);
             this.Controls.Add(this.btn);
             this.MinimumSize = new System.Drawing.Size(75, 25);
             this.Name = "CheckBtn";
-            this.Size = new System.Drawing.Size(75, 25);
+            this.Size = new System.Drawing.Size(75, 47);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -81,6 +67,5 @@ namespace RiichiCalc.Controls
         #endregion
 
         private MaterialSkin.Controls.MaterialRaisedButton btn;
-        private MaterialSkin.Controls.MaterialCheckBox stateIndicatorCheckbox;
     }
 }

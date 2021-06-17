@@ -55,7 +55,7 @@ namespace RiichiCalc.Controls
             tilesSet.Invalidate();
         }
 
-        private void TileBtn_Click([NotNull] object? sender, EventArgs e)
+        private void TileBtn_Click(object? sender, EventArgs e)
         {
             var tileBtn = (MahjongTileBtn)sender!;
 

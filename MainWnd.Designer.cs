@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Forms;
+using MaterialSkin.Controls;
 using RiichiCalc.Controls;
 using RiichiCalc.Tiles;
 
@@ -33,10 +35,10 @@ namespace RiichiCalc
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.Label label1;
-            System.Windows.Forms.Label label2;
-            System.Windows.Forms.Label label3;
-            System.Windows.Forms.Label label4;
+            MaterialSkin.Controls.MaterialLabel label1;
+            MaterialSkin.Controls.MaterialLabel label2;
+            MaterialSkin.Controls.MaterialLabel label3;
+            MaterialSkin.Controls.MaterialLabel label4;
             System.Windows.Forms.Panel panel1;
             RiichiCalc.Controls.MahjongTileBtn windEastMahjongTileBtn;
             RiichiCalc.Controls.MahjongTileBtn windSouthMahjongTileBtn;
@@ -74,7 +76,7 @@ namespace RiichiCalc
             RiichiCalc.Controls.MahjongTileBtn manzu9MahjongTileBtn;
             System.Windows.Forms.StatusStrip statusBar;
             System.Windows.Forms.ToolStripStatusLabel copyrightNotice;
-            this.doraCounter = new System.Windows.Forms.NumericUpDown();
+            this.numeric1 = new RiichiCalc.Controls.Numeric();
             this.versionInfo = new System.Windows.Forms.ToolStripStatusLabel();
             this.deck = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -91,11 +93,11 @@ namespace RiichiCalc
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.handCont = new RiichiCalc.Controls.MahjongTileSet();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.test = new System.Windows.Forms.Label();
-            label1 = new System.Windows.Forms.Label();
-            label2 = new System.Windows.Forms.Label();
-            label3 = new System.Windows.Forms.Label();
-            label4 = new System.Windows.Forms.Label();
+            this.test = new MaterialSkin.Controls.MaterialLabel();
+            label1 = new MaterialSkin.Controls.MaterialLabel();
+            label2 = new MaterialSkin.Controls.MaterialLabel();
+            label3 = new MaterialSkin.Controls.MaterialLabel();
+            label4 = new MaterialSkin.Controls.MaterialLabel();
             panel1 = new System.Windows.Forms.Panel();
             windEastMahjongTileBtn = new RiichiCalc.Controls.MahjongTileBtn();
             windSouthMahjongTileBtn = new RiichiCalc.Controls.MahjongTileBtn();
@@ -134,7 +136,6 @@ namespace RiichiCalc
             statusBar = new System.Windows.Forms.StatusStrip();
             copyrightNotice = new System.Windows.Forms.ToolStripStatusLabel();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.doraCounter)).BeginInit();
             statusBar.SuspendLayout();
             this.deck.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -146,8 +147,12 @@ namespace RiichiCalc
             // label1
             // 
             label1.AutoSize = true;
+            label1.Depth = 0;
             label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            label1.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             label1.Location = new System.Drawing.Point(3, 171);
+            label1.MouseState = MaterialSkin.MouseState.HOVER;
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(91, 59);
             label1.TabIndex = 7;
@@ -157,8 +162,12 @@ namespace RiichiCalc
             // label2
             // 
             label2.AutoSize = true;
+            label2.Depth = 0;
             label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            label2.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             label2.Location = new System.Drawing.Point(197, 171);
+            label2.MouseState = MaterialSkin.MouseState.HOVER;
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(91, 59);
             label2.TabIndex = 8;
@@ -168,8 +177,12 @@ namespace RiichiCalc
             // label3
             // 
             label3.AutoSize = true;
+            label3.Depth = 0;
             label3.Dock = System.Windows.Forms.DockStyle.Fill;
+            label3.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             label3.Location = new System.Drawing.Point(197, 57);
+            label3.MouseState = MaterialSkin.MouseState.HOVER;
             label3.Name = "label3";
             label3.Size = new System.Drawing.Size(91, 57);
             label3.TabIndex = 12;
@@ -179,8 +192,12 @@ namespace RiichiCalc
             // label4
             // 
             label4.AutoSize = true;
+            label4.Depth = 0;
             label4.Dock = System.Windows.Forms.DockStyle.Fill;
+            label4.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             label4.Location = new System.Drawing.Point(197, 114);
+            label4.MouseState = MaterialSkin.MouseState.HOVER;
             label4.Name = "label4";
             label4.Size = new System.Drawing.Size(91, 57);
             label4.TabIndex = 13;
@@ -189,7 +206,7 @@ namespace RiichiCalc
             // 
             // panel1
             // 
-            panel1.Controls.Add(this.doraCounter);
+            panel1.Controls.Add(this.numeric1);
             panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             panel1.Location = new System.Drawing.Point(291, 114);
             panel1.Margin = new System.Windows.Forms.Padding(0);
@@ -197,15 +214,16 @@ namespace RiichiCalc
             panel1.Size = new System.Drawing.Size(99, 57);
             panel1.TabIndex = 14;
             // 
-            // doraCounter
+            // numeric1
             // 
-            this.doraCounter.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.doraCounter.Location = new System.Drawing.Point(3, 17);
-            this.doraCounter.Name = "doraCounter";
-            this.doraCounter.Size = new System.Drawing.Size(93, 23);
-            this.doraCounter.TabIndex = 0;
+            this.numeric1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.numeric1.Location = new System.Drawing.Point(0, 0);
+            this.numeric1.MaxValue = 10;
+            this.numeric1.MinValue = 0;
+            this.numeric1.Name = "numeric1";
+            this.numeric1.Size = new System.Drawing.Size(99, 57);
+            this.numeric1.TabIndex = 0;
+            this.numeric1.Value = 0;
             // 
             // windEastMahjongTileBtn
             // 
@@ -686,22 +704,26 @@ namespace RiichiCalc
             this.tableWindBtn.AutoSize = true;
             this.tableWindBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.tableWindBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableWindBtn.ForeColor = System.Drawing.Color.Blue;
             this.tableWindBtn.Location = new System.Drawing.Point(100, 174);
             this.tableWindBtn.Name = "tableWindBtn";
             this.tableWindBtn.Size = new System.Drawing.Size(91, 53);
             this.tableWindBtn.TabIndex = 5;
             this.tableWindBtn.Value = RiichiCalc.Tiles.MahjongWindTile.WindEast;
+            this.tableWindBtn.ValueChanged += new System.EventHandler(this.tableWindBtn_ValueChanged);
             // 
             // seatWindBtn
             // 
             this.seatWindBtn.AutoSize = true;
             this.seatWindBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.seatWindBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.seatWindBtn.ForeColor = System.Drawing.Color.Blue;
             this.seatWindBtn.Location = new System.Drawing.Point(294, 174);
             this.seatWindBtn.Name = "seatWindBtn";
             this.seatWindBtn.Size = new System.Drawing.Size(93, 53);
             this.seatWindBtn.TabIndex = 6;
             this.seatWindBtn.Value = RiichiCalc.Tiles.MahjongWindTile.WindEast;
+            this.seatWindBtn.ValueChanged += new System.EventHandler(this.seatWindBtn_ValueChanged);
             // 
             // winMethodEnumBtn
             // 
@@ -820,9 +842,13 @@ namespace RiichiCalc
             // test
             // 
             this.test.AutoSize = true;
+            this.test.Depth = 0;
+            this.test.Font = new System.Drawing.Font("Roboto", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.test.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.test.Location = new System.Drawing.Point(40, 57);
+            this.test.MouseState = MaterialSkin.MouseState.HOVER;
             this.test.Name = "test";
-            this.test.Size = new System.Drawing.Size(38, 15);
+            this.test.Size = new System.Drawing.Size(49, 19);
             this.test.TabIndex = 0;
             this.test.Text = "label5";
             // 
@@ -841,7 +867,6 @@ namespace RiichiCalc
             this.Name = "MainWnd";
             this.Text = "RiichiCalc";
             panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.doraCounter)).EndInit();
             statusBar.ResumeLayout(false);
             statusBar.PerformLayout();
             this.deck.ResumeLayout(false);
@@ -867,7 +892,6 @@ namespace RiichiCalc
         private WinMethodEnumBtn winMethodEnumBtn;
         private BetYakuEnumBtn betYakuEnumBtn;
         private ExtraYakuEnumBtn extraYakuEnumBtn;
-        private System.Windows.Forms.NumericUpDown doraCounter;
         private CheckBtn checkBtn1;
         private CheckBtn checkBtn2;
         private CheckBtn checkBtn3;
@@ -875,8 +899,9 @@ namespace RiichiCalc
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ToolStripStatusLabel versionInfo;
-        private System.Windows.Forms.Label test;
+        private MaterialLabel test;
         private MahjongTileSet handCont;
+        private Numeric numeric1;
     }
 }
 

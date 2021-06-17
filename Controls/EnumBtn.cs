@@ -45,9 +45,11 @@ namespace RiichiCalc.Controls
             }
 
             SetValue(_value);
+
+            toggleBtn.Primary = false;
         }
 
-        private void SetValue(T value)
+        protected void SetValue(T value)
         {
             _value = value;
 
@@ -83,7 +85,7 @@ namespace RiichiCalc.Controls
             Value = (T)_enumValues.GetValue(_enumIdx)!;
         }
 
-        private void toggleBtn_MouseClick([NotNull] object? sender, MouseEventArgs e)
+        private void toggleBtn_MouseClick(object? sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {

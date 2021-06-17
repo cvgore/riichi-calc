@@ -29,7 +29,7 @@ namespace RiichiCalc.Controls
         /// </summary>
         private void InitializeComponent()
         {
-            this.toggleBtn = new System.Windows.Forms.Button();
+            this.toggleBtn = new MaterialRaisedButton();
             this.SuspendLayout();
             // 
             // toggleBtn
@@ -56,6 +56,6 @@ namespace RiichiCalc.Controls
 
         #endregion
 
-        protected System.Windows.Forms.Button toggleBtn;
+        protected MaterialRaisedButton toggleBtn;
     }
 }

@@ -37,18 +37,18 @@ namespace RiichiCalc
 
             var materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
-            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
+            materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
             materialSkinManager.ColorScheme = new ColorScheme(
-                Primary.BlueGrey800,
+                Primary.Amber600,
                 Primary.BlueGrey900,
-                Primary.BlueGrey500,
-                Accent.LightBlue200,
+                Primary.BlueGrey100,
+                Accent.LightBlue700,
                 TextShade.WHITE
             );
 
         }
 
-        private void Hand_StateChanged([NotNull] object? sender, IHandState e)
+        private void Hand_StateChanged(object? sender, IHandState e)
         {
             deck.Enabled = true;
 
@@ -73,7 +73,7 @@ namespace RiichiCalc
             }
         }
 
-        private void statusBar_ItemClicked([NotNull] object? sender, ToolStripItemClickedEventArgs e)
+        private void statusBar_ItemClicked(object? sender, ToolStripItemClickedEventArgs e)
         {
             var item = (string) e.ClickedItem.Tag;
 
@@ -111,11 +111,21 @@ namespace RiichiCalc
             }
         }
 
-        private void MahjongTileBtn_Click([NotNull] object? sender, EventArgs e)
+        private void MahjongTileBtn_Click(object? sender, EventArgs e)
         {
             var btn = (MahjongTileBtn) sender!;
 
             _tableCtx.Hand.AddTile(btn.Tile);
+        }
+
+        private void tableWindBtn_ValueChanged(object sender, EventArgs e)
+        {
+            _tableCtx.TableWind = tableWindBtn.Value;
+        }
+
+        private void seatWindBtn_ValueChanged(object sender, EventArgs e)
+        {
+            _tableCtx.PlayerWind = seatWindBtn.Value;
         }
     }
 }
