@@ -18,9 +18,9 @@ namespace RiichiCalc.Tiles
 
         private static PrivateFontCollection _fontCollection = null!;
         private static IntPtr _fontPtr = IntPtr.Zero;
-        private const float FontYMargin = 2f;
+        private const float FontYMargin = 4f;
         private const float FontXMargin = 5f;
-        private static uint _counter = 0;
+        private static uint _counter;
 
         private static void EnsureFontIsInitialized()
         {
@@ -58,10 +58,12 @@ namespace RiichiCalc.Tiles
         // This font is a little bit buggy and it's rendering needs to be adjusted (Font*Margin)
         internal static void PaintUsingFont(Graphics g, MahjongTile tile, Control ctr)
         {
+            using var br = new SolidBrush(ctr.ForeColor);
+
             g.DrawString(
                 tile.ToTileSymbol(),
                 ctr.Font,
-                new SolidBrush(ctr.ForeColor),
+                br,
                 new PointF(ctr.Width / 2f - ctr.Font.Size / 2f - FontXMargin, ctr.Height / 2f - ctr.Font.Size / 2f - FontYMargin)
             );
         }

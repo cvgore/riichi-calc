@@ -96,7 +96,6 @@ namespace RiichiCalc
             this.checkBtn4 = new RiichiCalc.Controls.CheckBtn();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
-            this.test = new MaterialSkin.Controls.MaterialLabel();
             this.handCont = new RiichiCalc.Controls.MahjongTileSet();
             this.summaryBox = new MaterialSkin.Controls.MaterialListBox();
             label1 = new MaterialSkin.Controls.MaterialLabel();
@@ -580,21 +579,23 @@ namespace RiichiCalc
             statusBar.Location = new System.Drawing.Point(3, 511);
             statusBar.Name = "statusBar";
             statusBar.Size = new System.Drawing.Size(849, 22);
+            statusBar.SizingGrip = false;
             statusBar.TabIndex = 3;
             statusBar.Text = "RiichiCalc v.";
             statusBar.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.statusBar_ItemClicked);
             // 
             // versionInfo
             // 
-            this.versionInfo.ActiveLinkColor = System.Drawing.Color.Black;
+            this.versionInfo.ActiveLinkColor = System.Drawing.Color.White;
+            this.versionInfo.ForeColor = System.Drawing.Color.White;
             this.versionInfo.IsLink = true;
             this.versionInfo.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
-            this.versionInfo.LinkColor = System.Drawing.Color.Black;
+            this.versionInfo.LinkColor = System.Drawing.Color.White;
             this.versionInfo.Name = "versionInfo";
             this.versionInfo.Size = new System.Drawing.Size(71, 17);
             this.versionInfo.Tag = "version_info";
             this.versionInfo.Text = "RiichiCalc v.";
-            this.versionInfo.VisitedLinkColor = System.Drawing.Color.Black;
+            this.versionInfo.VisitedLinkColor = System.Drawing.Color.White;
             // 
             // copyrightNotice
             // 
@@ -761,6 +762,7 @@ namespace RiichiCalc
             this.winMethodEnumBtn.Size = new System.Drawing.Size(105, 50);
             this.winMethodEnumBtn.TabIndex = 9;
             this.winMethodEnumBtn.Value = RiichiCalc.Tiles.WinMethod.Tsumo;
+            this.winMethodEnumBtn.ValueChanged += new System.EventHandler(this.winMethodEnumBtn_ValueChanged);
             // 
             // betYakuEnumBtn
             // 
@@ -771,6 +773,7 @@ namespace RiichiCalc
             this.betYakuEnumBtn.Size = new System.Drawing.Size(105, 50);
             this.betYakuEnumBtn.TabIndex = 10;
             this.betYakuEnumBtn.Value = RiichiCalc.Tiles.BetYaku.NoRiichi;
+            this.betYakuEnumBtn.ValueChanged += new System.EventHandler(this.betYakuEnumBtn_ValueChanged);
             // 
             // extraYakuEnumBtn
             // 
@@ -781,6 +784,7 @@ namespace RiichiCalc
             this.extraYakuEnumBtn.Size = new System.Drawing.Size(108, 50);
             this.extraYakuEnumBtn.TabIndex = 11;
             this.extraYakuEnumBtn.Value = RiichiCalc.Tiles.ExtraYaku.None;
+            this.extraYakuEnumBtn.ValueChanged += new System.EventHandler(this.extraYakuEnumBtn_ValueChanged);
             // 
             // checkBtn1
             // 
@@ -905,19 +909,6 @@ namespace RiichiCalc
             this.materialLabel2.Text = "Summary";
             this.materialLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // test
-            // 
-            this.test.AutoSize = true;
-            this.test.Depth = 0;
-            this.test.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.test.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.test.Location = new System.Drawing.Point(12, 456);
-            this.test.MouseState = MaterialSkin.MouseState.HOVER;
-            this.test.Name = "test";
-            this.test.Size = new System.Drawing.Size(44, 19);
-            this.test.TabIndex = 14;
-            this.test.Text = "label5";
-            // 
             // handCont
             // 
             this.handCont.Dock = System.Windows.Forms.DockStyle.Top;
@@ -952,7 +943,6 @@ namespace RiichiCalc
             this.Controls.Add(this.materialLabel2);
             this.Controls.Add(materialDivider4);
             this.Controls.Add(this.handCont);
-            this.Controls.Add(this.test);
             this.Controls.Add(statusBar);
             this.Controls.Add(tableLayoutPanel1);
             this.Controls.Add(materialDivider1);
@@ -962,6 +952,7 @@ namespace RiichiCalc
             this.MinimumSize = new System.Drawing.Size(720, 500);
             this.Name = "MainWnd";
             this.Padding = new System.Windows.Forms.Padding(3, 65, 3, 3);
+            this.Sizable = false;
             this.Text = "RiichiCalc";
             panel1.ResumeLayout(false);
             statusBar.ResumeLayout(false);
@@ -996,7 +987,6 @@ namespace RiichiCalc
         private MaterialDivider materialDivider1;
         private MaterialDivider materialDivider4;
         private MaterialLabel materialLabel2;
-        private MaterialLabel test;
         private MahjongTileSet handCont;
         private TableLayoutPanel tableLayoutPanel1;
         private MaterialLabel materialLabel1;

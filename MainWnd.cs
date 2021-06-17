@@ -40,10 +40,10 @@ namespace RiichiCalc
             materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
             materialSkinManager.ColorScheme = new ColorScheme(
                 Primary.Amber600,
-                Primary.BlueGrey900,
-                Primary.BlueGrey100,
+                Primary.Amber700,
+                Primary.Grey200,
                 Accent.DeepOrange400,
-                TextShade.WHITE
+                TextShade.BLACK
             );
         }
 
@@ -57,7 +57,7 @@ namespace RiichiCalc
                 summaryBox.Clear();
                 summaryBox.Items.Add(new MaterialListBoxItem
                 {
-                    Text = "Invalid hand composition - 0 han"
+                    Text = "Invalid hand composition"
                 });
                 summaryBox.EndUpdate();
                 deck.Enabled = false;
@@ -91,7 +91,7 @@ namespace RiichiCalc
 
         private void statusBar_ItemClicked(object? sender, ToolStripItemClickedEventArgs e)
         {
-            var item = (string) e.ClickedItem.Tag;
+            var item = (string)e.ClickedItem.Tag;
 
             if (item == "version_info")
             {
@@ -129,7 +129,7 @@ namespace RiichiCalc
 
         private void MahjongTileBtn_Click(object? sender, EventArgs e)
         {
-            var btn = (MahjongTileBtn) sender!;
+            var btn = (MahjongTileBtn)sender!;
 
             _tableCtx.Hand.AddTile(btn.Tile);
         }
@@ -147,6 +147,54 @@ namespace RiichiCalc
         private void clearHandBtn_Click(object sender, EventArgs e)
         {
             _tableCtx.Hand.SetState(new EmptyHandState());
+        }
+
+        private void winMethodEnumBtn_ValueChanged(object sender, EventArgs e)
+        {
+            var value = winMethodEnumBtn.Value;
+
+            if (value != WinMethod.Tsumo && extraYakuEnumBtn.Value == ExtraYaku.Haitei)
+            {
+                extraYakuEnumBtn.Value = ExtraYaku.None;
+            }
+            else if (value != WinMethod.Ron && extraYakuEnumBtn.Value == ExtraYaku.Houtei)
+            {
+                extraYakuEnumBtn.Value = ExtraYaku.None;
+            }
+
+            _tableCtx.WinMethod = value;
+        }
+
+        private void extraYakuEnumBtn_ValueChanged(object sender, EventArgs e)
+        {
+            var value = extraYakuEnumBtn.Value;
+
+            if (value == ExtraYaku.Ippatsu && betYakuEnumBtn.Value == BetYaku.NoRiichi)
+            {
+                betYakuEnumBtn.Value = BetYaku.Riichi;
+            }
+            else if (value == ExtraYaku.Haitei && winMethodEnumBtn.Value != WinMethod.Tsumo)
+            {
+                winMethodEnumBtn.Value = WinMethod.Tsumo;
+            }
+            else if (value == ExtraYaku.Houtei && winMethodEnumBtn.Value != WinMethod.Ron)
+            {
+                winMethodEnumBtn.Value = WinMethod.Ron;
+            }
+
+            _tableCtx.ExtraYaku = value;
+        }
+
+        private void betYakuEnumBtn_ValueChanged(object sender, EventArgs e)
+        {
+            var value = betYakuEnumBtn.Value;
+
+            if (value == BetYaku.NoRiichi && extraYakuEnumBtn.Value == ExtraYaku.Ippatsu)
+            {
+                extraYakuEnumBtn.Value = ExtraYaku.None;
+            }
+
+            _tableCtx.BetYaku = value;
         }
     }
 }

@@ -11,6 +11,7 @@ namespace RiichiCalc.Core.Pattern
     {
         private static readonly IPattern[] SimplePatterns =
         {
+            // Standard yakus
             new YakuhaiPattern(),
             new TanyaoPattern(),
             new IipeekoPattern(),
@@ -27,6 +28,10 @@ namespace RiichiCalc.Core.Pattern
             new RyanpeekoPattern(),
             new JunchanPattern(),
             new ChinitsuPattern(),
+
+            // Bet yakus
+            new RiichiPattern(),
+            new DoubleRiichiPattern(),
         };
 
         private static readonly IPattern[] YakumanPatterns =

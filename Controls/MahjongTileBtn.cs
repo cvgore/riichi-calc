@@ -45,6 +45,8 @@ namespace RiichiCalc.Controls
         {
             MahjongFont.Colorize(tileBtn, Tile);
             MahjongFont.Tooltipize(tileBtn, tileTip, Tile);
+
+            tileBtn.Invalidate();
         }
 
         private void tileBtn_Paint(object? sender, PaintEventArgs e)
@@ -71,6 +73,7 @@ namespace RiichiCalc.Controls
             else
             {
                 ForeColor = Color.DimGray;
+                tileBtn.Invalidate();
             }
         }
     }
