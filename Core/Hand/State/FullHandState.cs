@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using RiichiCalc.Core.Hand;
 using RiichiCalc.Tiles;
 
@@ -9,9 +10,12 @@ namespace RiichiCalc.Core.States
     {
         public FullHand FullHand { get; }
 
-        public FullHandState(IReadOnlyList<MahjongTile> tiles)
+        private readonly List<Group> _preGroups;
+
+        public FullHandState(IReadOnlyList<MahjongTile> collection, IReadOnlyList<Group>? preGroups)
         {
-            FullHand = new FullHand(tiles);
+            FullHand = new FullHand(collection);
+            _preGroups = preGroups != null ? preGroups.ToList() : new();
         }
 
         public bool AddTile(HandContext ctx, MahjongTile tile)

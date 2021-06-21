@@ -1,4 +1,5 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Windows.Forms;
 
 namespace RiichiCalc.Controls
@@ -13,6 +14,8 @@ namespace RiichiCalc.Controls
             set => btn.Text = value;
         }
 
+        public event EventHandler CheckedChanged;
+
         public CheckBtn()
         {
             InitializeComponent();
@@ -23,6 +26,7 @@ namespace RiichiCalc.Controls
         private void btn_Click(object? sender, System.EventArgs e)
         {
             Checked = btn.UseAccentColor = !Checked;
+            CheckedChanged?.Invoke(null, EventArgs.Empty);
         }
     }
 }

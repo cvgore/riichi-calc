@@ -10,7 +10,6 @@ namespace RiichiCalc.Core.Hand
         public List<MahjongTile> Tiles { get; }
         public MahjongTile LastTile { get; }
         public bool IsRegularCompleteHand { get; }
-        public bool IsOpened { get; }
 
         public ParsedHand(IReadOnlyList<MahjongTile> tiles)
         {
@@ -35,7 +34,7 @@ namespace RiichiCalc.Core.Hand
                 if (tileC == tileN)
                 {
                     // Definitely pair (out of range next index)
-                    if (i + 2 >= Tiles.Count)
+                    if (i + 2 > Tiles.Count)
                     {
                         Groups.Add(new Pair(new[] { tileC, tileN }));
                         i += 2;
@@ -43,7 +42,7 @@ namespace RiichiCalc.Core.Hand
                     // Got a triple/quadruple?
                     else if (tileC == Tiles[i + 2])
                     {
-                        if (i + 3 >= Tiles.Count && tileC == Tiles[i + 3])
+                        if (i + 3 > Tiles.Count && tileC == Tiles[i + 3])
                         {
                             Groups.Add(new Quadruple(new[] { tileC, tileN, Tiles[i + 2], Tiles[i + 3] }));
                             i += 4;

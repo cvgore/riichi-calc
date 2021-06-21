@@ -90,10 +90,10 @@ namespace RiichiCalc
             this.winMethodEnumBtn = new RiichiCalc.Controls.WinMethodEnumBtn();
             this.betYakuEnumBtn = new RiichiCalc.Controls.BetYakuEnumBtn();
             this.extraYakuEnumBtn = new RiichiCalc.Controls.ExtraYakuEnumBtn();
-            this.checkBtn1 = new RiichiCalc.Controls.CheckBtn();
-            this.checkBtn2 = new RiichiCalc.Controls.CheckBtn();
-            this.checkBtn3 = new RiichiCalc.Controls.CheckBtn();
-            this.checkBtn4 = new RiichiCalc.Controls.CheckBtn();
+            this.ponStateCheckBtn = new RiichiCalc.Controls.CheckBtn();
+            this.chiStateCheckBtn = new RiichiCalc.Controls.CheckBtn();
+            this.kanStateCheckBtn = new RiichiCalc.Controls.CheckBtn();
+            this.closedKanCheckBtn = new RiichiCalc.Controls.CheckBtn();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.handCont = new RiichiCalc.Controls.MahjongTileSet();
@@ -586,16 +586,12 @@ namespace RiichiCalc
             // 
             // versionInfo
             // 
-            this.versionInfo.ActiveLinkColor = System.Drawing.Color.White;
-            this.versionInfo.ForeColor = System.Drawing.Color.White;
             this.versionInfo.IsLink = true;
             this.versionInfo.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
-            this.versionInfo.LinkColor = System.Drawing.Color.White;
             this.versionInfo.Name = "versionInfo";
             this.versionInfo.Size = new System.Drawing.Size(71, 17);
             this.versionInfo.Tag = "version_info";
             this.versionInfo.Text = "RiichiCalc v.";
-            this.versionInfo.VisitedLinkColor = System.Drawing.Color.White;
             // 
             // copyrightNotice
             // 
@@ -712,10 +708,10 @@ namespace RiichiCalc
             this.tableLayoutPanel3.Controls.Add(label3, 2, 1);
             this.tableLayoutPanel3.Controls.Add(label4, 2, 2);
             this.tableLayoutPanel3.Controls.Add(panel1, 3, 2);
-            this.tableLayoutPanel3.Controls.Add(this.checkBtn1, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.checkBtn2, 1, 0);
-            this.tableLayoutPanel3.Controls.Add(this.checkBtn3, 2, 0);
-            this.tableLayoutPanel3.Controls.Add(this.checkBtn4, 3, 0);
+            this.tableLayoutPanel3.Controls.Add(this.ponStateCheckBtn, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.chiStateCheckBtn, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.kanStateCheckBtn, 2, 0);
+            this.tableLayoutPanel3.Controls.Add(this.closedKanCheckBtn, 3, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(399, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -786,57 +782,57 @@ namespace RiichiCalc
             this.extraYakuEnumBtn.Value = RiichiCalc.Tiles.ExtraYaku.None;
             this.extraYakuEnumBtn.ValueChanged += new System.EventHandler(this.extraYakuEnumBtn_ValueChanged);
             // 
-            // checkBtn1
+            // ponStateCheckBtn
             // 
-            this.checkBtn1.AutoSize = true;
-            this.checkBtn1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.checkBtn1.Checked = false;
-            this.checkBtn1.Content = "Pon";
-            this.checkBtn1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkBtn1.Location = new System.Drawing.Point(3, 3);
-            this.checkBtn1.MinimumSize = new System.Drawing.Size(75, 25);
-            this.checkBtn1.Name = "checkBtn1";
-            this.checkBtn1.Size = new System.Drawing.Size(105, 50);
-            this.checkBtn1.TabIndex = 15;
+            this.ponStateCheckBtn.AutoSize = true;
+            this.ponStateCheckBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ponStateCheckBtn.Checked = false;
+            this.ponStateCheckBtn.Content = "Pon";
+            this.ponStateCheckBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ponStateCheckBtn.Location = new System.Drawing.Point(3, 3);
+            this.ponStateCheckBtn.MinimumSize = new System.Drawing.Size(75, 25);
+            this.ponStateCheckBtn.Name = "ponStateCheckBtn";
+            this.ponStateCheckBtn.Size = new System.Drawing.Size(105, 50);
+            this.ponStateCheckBtn.TabIndex = 15;
             // 
-            // checkBtn2
+            // chiStateCheckBtn
             // 
-            this.checkBtn2.AutoSize = true;
-            this.checkBtn2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.checkBtn2.Checked = false;
-            this.checkBtn2.Content = "Chi";
-            this.checkBtn2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkBtn2.Location = new System.Drawing.Point(114, 3);
-            this.checkBtn2.MinimumSize = new System.Drawing.Size(75, 25);
-            this.checkBtn2.Name = "checkBtn2";
-            this.checkBtn2.Size = new System.Drawing.Size(105, 50);
-            this.checkBtn2.TabIndex = 16;
+            this.chiStateCheckBtn.AutoSize = true;
+            this.chiStateCheckBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.chiStateCheckBtn.Checked = false;
+            this.chiStateCheckBtn.Content = "Chi";
+            this.chiStateCheckBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chiStateCheckBtn.Location = new System.Drawing.Point(114, 3);
+            this.chiStateCheckBtn.MinimumSize = new System.Drawing.Size(75, 25);
+            this.chiStateCheckBtn.Name = "chiStateCheckBtn";
+            this.chiStateCheckBtn.Size = new System.Drawing.Size(105, 50);
+            this.chiStateCheckBtn.TabIndex = 16;
             // 
-            // checkBtn3
+            // kanStateCheckBtn
             // 
-            this.checkBtn3.AutoSize = true;
-            this.checkBtn3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.checkBtn3.Checked = false;
-            this.checkBtn3.Content = "Kan";
-            this.checkBtn3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkBtn3.Location = new System.Drawing.Point(225, 3);
-            this.checkBtn3.MinimumSize = new System.Drawing.Size(75, 25);
-            this.checkBtn3.Name = "checkBtn3";
-            this.checkBtn3.Size = new System.Drawing.Size(105, 50);
-            this.checkBtn3.TabIndex = 17;
+            this.kanStateCheckBtn.AutoSize = true;
+            this.kanStateCheckBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.kanStateCheckBtn.Checked = false;
+            this.kanStateCheckBtn.Content = "Kan";
+            this.kanStateCheckBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.kanStateCheckBtn.Location = new System.Drawing.Point(225, 3);
+            this.kanStateCheckBtn.MinimumSize = new System.Drawing.Size(75, 25);
+            this.kanStateCheckBtn.Name = "kanStateCheckBtn";
+            this.kanStateCheckBtn.Size = new System.Drawing.Size(105, 50);
+            this.kanStateCheckBtn.TabIndex = 17;
             // 
-            // checkBtn4
+            // closedKanCheckBtn
             // 
-            this.checkBtn4.AutoSize = true;
-            this.checkBtn4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.checkBtn4.Checked = false;
-            this.checkBtn4.Content = "Closed Kan";
-            this.checkBtn4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkBtn4.Location = new System.Drawing.Point(336, 3);
-            this.checkBtn4.MinimumSize = new System.Drawing.Size(75, 25);
-            this.checkBtn4.Name = "checkBtn4";
-            this.checkBtn4.Size = new System.Drawing.Size(108, 50);
-            this.checkBtn4.TabIndex = 18;
+            this.closedKanCheckBtn.AutoSize = true;
+            this.closedKanCheckBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.closedKanCheckBtn.Checked = false;
+            this.closedKanCheckBtn.Content = "Closed Kan";
+            this.closedKanCheckBtn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.closedKanCheckBtn.Location = new System.Drawing.Point(336, 3);
+            this.closedKanCheckBtn.MinimumSize = new System.Drawing.Size(75, 25);
+            this.closedKanCheckBtn.Name = "closedKanCheckBtn";
+            this.closedKanCheckBtn.Size = new System.Drawing.Size(108, 50);
+            this.closedKanCheckBtn.TabIndex = 18;
             // 
             // tableLayoutPanel2
             // 
@@ -978,10 +974,10 @@ namespace RiichiCalc
         private WinMethodEnumBtn winMethodEnumBtn;
         private BetYakuEnumBtn betYakuEnumBtn;
         private ExtraYakuEnumBtn extraYakuEnumBtn;
-        private CheckBtn checkBtn1;
-        private CheckBtn checkBtn2;
-        private CheckBtn checkBtn3;
-        private CheckBtn checkBtn4;
+        private CheckBtn ponStateCheckBtn;
+        private CheckBtn chiStateCheckBtn;
+        private CheckBtn kanStateCheckBtn;
+        private CheckBtn closedKanCheckBtn;
         private System.Windows.Forms.ToolStripStatusLabel versionInfo;
         private Numeric numeric1;
         private MaterialDivider materialDivider1;

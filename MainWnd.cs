@@ -50,6 +50,10 @@ namespace RiichiCalc
         private void Hand_StateChanged(object? sender, IHandState e)
         {
             deck.Enabled = true;
+            ponStateCheckBtn.Enabled = true;
+            chiStateCheckBtn.Enabled = true;
+            kanStateCheckBtn.Enabled = true;
+            closedKanCheckBtn.Enabled = true;
 
             if (e is InvalidFullHandState)
             {
@@ -87,11 +91,23 @@ namespace RiichiCalc
 
                 deck.Enabled = false;
             }
+            else if (e is PonReadyHandState)
+            {
+                chiStateCheckBtn.Enabled = false;
+                kanStateCheckBtn.Enabled = false;
+                closedKanCheckBtn.Enabled = false;
+            }
+            else if (e is ChiReadyHandState)
+            {
+                ponStateCheckBtn.Enabled = false;
+                kanStateCheckBtn.Enabled = false;
+                closedKanCheckBtn.Enabled = false;
+            }
         }
 
         private void statusBar_ItemClicked(object? sender, ToolStripItemClickedEventArgs e)
         {
-            var item = (string)e.ClickedItem.Tag;
+            var item = (string) e.ClickedItem.Tag;
 
             if (item == "version_info")
             {
@@ -129,7 +145,7 @@ namespace RiichiCalc
 
         private void MahjongTileBtn_Click(object? sender, EventArgs e)
         {
-            var btn = (MahjongTileBtn)sender!;
+            var btn = (MahjongTileBtn) sender!;
 
             _tableCtx.Hand.AddTile(btn.Tile);
         }
@@ -153,11 +169,11 @@ namespace RiichiCalc
         {
             var value = winMethodEnumBtn.Value;
 
-            if (value != WinMethod.Tsumo && extraYakuEnumBtn.Value == ExtraYaku.Haitei)
+            if (value == WinMethod.Tsumo && extraYakuEnumBtn.Value != ExtraYaku.Haitei)
             {
                 extraYakuEnumBtn.Value = ExtraYaku.None;
             }
-            else if (value != WinMethod.Ron && extraYakuEnumBtn.Value == ExtraYaku.Houtei)
+            else if (value == WinMethod.Ron && extraYakuEnumBtn.Value != ExtraYaku.Houtei)
             {
                 extraYakuEnumBtn.Value = ExtraYaku.None;
             }
@@ -169,7 +185,7 @@ namespace RiichiCalc
         {
             var value = extraYakuEnumBtn.Value;
 
-            if (value == ExtraYaku.Ippatsu && betYakuEnumBtn.Value == BetYaku.NoRiichi)
+            if (value == ExtraYaku.Ippatsu && betYakuEnumBtn.Value != BetYaku.Riichi)
             {
                 betYakuEnumBtn.Value = BetYaku.Riichi;
             }

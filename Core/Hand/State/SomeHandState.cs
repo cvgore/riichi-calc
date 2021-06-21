@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using RiichiCalc.Core.Hand;
 using RiichiCalc.Tiles;
 
 namespace RiichiCalc.Core.States
@@ -8,10 +9,13 @@ namespace RiichiCalc.Core.States
     class SomeHandState : IHandState
     {
         private readonly List<MahjongTile> _collection;
+        private readonly List<Group> _preGroups;
 
-        public SomeHandState(List<MahjongTile> collection)
+
+        public SomeHandState(IReadOnlyList<MahjongTile> collection, IReadOnlyList<Group>? preGroups)
         {
-            _collection = collection;
+            _collection = collection.ToList();
+            _preGroups = preGroups != null ? preGroups.ToList() : new();
         }
 
         public bool AddTile(HandContext ctx, MahjongTile tile)

@@ -17,7 +17,7 @@ namespace RiichiCalc.Core.Hand
         public uint SmallPoints { get; private set; }
         public List<IPattern> MatchedPatterns { get; private set; }
 
-        public FullHand(IReadOnlyList<MahjongTile> tiles)
+        public FullHand(IReadOnlyList<MahjongTile> tiles, IReadOnlyList<Group> preGroups)
         {
             _tiles = tiles.ToList();
             ParseHand();
