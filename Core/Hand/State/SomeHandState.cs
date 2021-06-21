@@ -38,6 +38,22 @@ namespace RiichiCalc.Core.States
 
         public bool RemoveTile(HandContext ctx, int index)
         {
+            if (_preGroups.Any(x => x.StartIndex == index))
+            {
+                var grp = _preGroups.First(x => x.StartIndex == index);
+
+                if (grp is not Sequence)
+                {
+                    for (int i = 0; i < grp.Tiles.Count; i++)
+                    {
+                        _collection.RemoveAt(grp.StartIndex + i);
+                    }
+                }
+                else
+                {
+
+                }
+            }
             _collection.RemoveAt(index);
 
             if (0 == _collection.Count)

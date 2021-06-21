@@ -7,17 +7,20 @@ using RiichiCalc.Tiles;
 
 namespace RiichiCalc.Core.Hand
 {
-    public class Group
+    public abstract class Group
     {
         public MahjongTile FirstTile { get; }
+
+        public int StartIndex { get; }
 
         public List<MahjongTile> Tiles { get; }
 
         public bool Open { get; }
 
-        public Group(IReadOnlyList<MahjongTile> tiles, bool open = false)
+        public Group(IReadOnlyList<MahjongTile> tiles, int startIndex, bool open = false)
         {
             Tiles = tiles.ToList();
+            StartIndex = startIndex;
             FirstTile = Tiles.First();
             Open = open;
         }

@@ -55,7 +55,11 @@ namespace RiichiCalc.Controls
 
         private void TileRemoved(object? sender, int tile)
         {
-            tilesSet.Invalidate();
+            List<MahjongTileBtn> ctrls = new(tilesSet.Controls.Count);
+            ctrls.AddRange(tilesSet.Controls.Cast<MahjongTileBtn>());
+
+            tilesSet.Controls.Clear();
+            tilesSet.Controls.AddRange(ctrls.OrderBy(x => x.Tile).ToArray());
         }
 
         private void TileBtn_Click(object? sender, EventArgs e)
@@ -64,7 +68,6 @@ namespace RiichiCalc.Controls
 
             var pos = tilesSet.Controls.IndexOf(tileBtn);
 
-            tilesSet.Controls.RemoveAt(pos);
             _handCtx.RemoveTile(pos);
         }
     }

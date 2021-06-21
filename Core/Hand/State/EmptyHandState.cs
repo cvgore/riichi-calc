@@ -6,6 +6,11 @@ namespace RiichiCalc.Core.States
 {
     class EmptyHandState : IHandState
     {
+        public EmptyHandState(IReadOnlyList<MahjongTile>? collection = null, IReadOnlyList<Group>? preGroups = null)
+        {
+            // discarding everything
+        }
+
         public bool AddTile(HandContext ctx, MahjongTile tile)
         {
             ctx.SetState(new SomeHandState(new[] {tile}));

@@ -1,8 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection;
+using System.Threading.Tasks.Dataflow;
 using RiichiCalc.Controls;
 using RiichiCalc.Core.Hand;
+using RiichiCalc.Core.Hand.State;
 using RiichiCalc.Tiles;
+using BindingFlags = System.Reflection.BindingFlags;
 
 namespace RiichiCalc.Core.States
 {
@@ -32,7 +36,17 @@ namespace RiichiCalc.Core.States
         {
             if (State.AddTile(this, tile))
             {
-                TileAdded?.Invoke(null, tile);
+                if (State is IGroupingHandState s)
+                {
+                    foreach (var t in s.LastAddedGroup().Tiles)
+                    {
+                        TileAdded?.Invoke(null, t);
+                    }
+                }
+                else
+                {
+                    TileAdded?.Invoke(null, tile);
+                }
             }
         }
 
@@ -48,8 +62,9 @@ namespace RiichiCalc.Core.States
         {
             if (PrevState != null)
             {
-                // Swap prev state with current state
-                (State, PrevState) = (PrevState, State);
+                (PrevState, State) = (State, PrevState);
+
+                SetState(State);
             }
         }
 

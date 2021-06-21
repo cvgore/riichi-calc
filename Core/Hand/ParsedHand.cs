@@ -54,7 +54,7 @@ namespace RiichiCalc.Core.Hand
                     // Definitely pair (out of range next index)
                     if (i + 2 > Tiles.Count)
                     {
-                        Groups.Add(new Pair(new[] {tileC, tileN}));
+                        Groups.Add(new Pair(new[] {tileC, tileN}, i));
                         i += 2;
                     }
                     // Got a triple/quadruple?
@@ -62,12 +62,12 @@ namespace RiichiCalc.Core.Hand
                     {
                         if (i + 3 > Tiles.Count && tileC == Tiles[i + 3])
                         {
-                            Groups.Add(new Quadruple(new[] {tileC, tileN, Tiles[i + 2], Tiles[i + 3]}));
+                            Groups.Add(new Quadruple(new[] {tileC, tileN, Tiles[i + 2], Tiles[i + 3]}, i));
                             i += 4;
                         }
                         else
                         {
-                            Groups.Add(new Triple(new[] {tileC, tileN, Tiles[i + 2]}));
+                            Groups.Add(new Triple(new[] {tileC, tileN, Tiles[i + 2]}, i));
                             i += 3;
                         }
                     }
@@ -75,7 +75,7 @@ namespace RiichiCalc.Core.Hand
                     else
                     {
                         i += 2;
-                        Groups.Add(new Pair(new[] {tileC, tileN}));
+                        Groups.Add(new Pair(new[] {tileC, tileN}, i));
                     }
                 }
                 // Definitely not pair or triple, maybe a sequence?
@@ -108,7 +108,7 @@ namespace RiichiCalc.Core.Hand
                     // Finally, check if valid
                     if (Sequence.IsValidSequence(new[] {tileC, tileN, Tiles[i + 2]}))
                     {
-                        Groups.Add(new Sequence(new[] {tileC, tileN, Tiles[i + 2]}));
+                        Groups.Add(new Sequence(new[] {tileC, tileN, Tiles[i + 2]}, i));
                         i += 3;
 
                         continue;
