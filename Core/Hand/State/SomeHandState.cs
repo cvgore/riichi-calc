@@ -49,5 +49,7 @@ namespace RiichiCalc.Core.States
         }
 
         public IReadOnlyList<MahjongTile> GetTiles() => _collection;
+
+        public IReadOnlyList<Group> GetGroups() => _preGroups;
     }
 }

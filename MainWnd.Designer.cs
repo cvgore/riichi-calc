@@ -794,7 +794,7 @@ namespace RiichiCalc
             this.ponStateCheckBtn.Name = "ponStateCheckBtn";
             this.ponStateCheckBtn.Size = new System.Drawing.Size(105, 50);
             this.ponStateCheckBtn.TabIndex = 15;
-            this.ponStateCheckBtn.Click += new System.EventHandler(this.ponStateCheckBtn_Click);
+            this.ponStateCheckBtn.CheckedChanged += new System.EventHandler(this.ponStateCheckBtn_CheckedChanged);
             // 
             // chiStateCheckBtn
             // 
@@ -808,6 +808,7 @@ namespace RiichiCalc
             this.chiStateCheckBtn.Name = "chiStateCheckBtn";
             this.chiStateCheckBtn.Size = new System.Drawing.Size(105, 50);
             this.chiStateCheckBtn.TabIndex = 16;
+            this.chiStateCheckBtn.CheckedChanged += new System.EventHandler(this.chiStateCheckBtn_CheckedChanged);
             // 
             // kanStateCheckBtn
             // 
@@ -821,6 +822,7 @@ namespace RiichiCalc
             this.kanStateCheckBtn.Name = "kanStateCheckBtn";
             this.kanStateCheckBtn.Size = new System.Drawing.Size(105, 50);
             this.kanStateCheckBtn.TabIndex = 17;
+            this.kanStateCheckBtn.CheckedChanged += new System.EventHandler(this.kanStateCheckBtn_CheckedChanged);
             // 
             // closedKanCheckBtn
             // 
@@ -834,6 +836,7 @@ namespace RiichiCalc
             this.closedKanCheckBtn.Name = "closedKanCheckBtn";
             this.closedKanCheckBtn.Size = new System.Drawing.Size(108, 50);
             this.closedKanCheckBtn.TabIndex = 18;
+            this.closedKanCheckBtn.CheckedChanged += new System.EventHandler(this.closedKanCheckBtn_CheckedChanged);
             // 
             // tableLayoutPanel2
             // 

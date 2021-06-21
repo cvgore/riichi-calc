@@ -28,5 +28,15 @@ namespace RiichiCalc.Controls
             Checked = btn.UseAccentColor = !Checked;
             CheckedChanged?.Invoke(null, EventArgs.Empty);
         }
+
+        private void CheckBtn_Load(object sender, EventArgs e)
+        {
+            btn.Click += Btn_Click;
+        }
+
+        private void Btn_Click(object? sender, EventArgs e)
+        {
+            OnClick(e);
+        }
     }
 }

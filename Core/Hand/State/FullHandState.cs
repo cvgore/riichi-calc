@@ -33,5 +33,7 @@ namespace RiichiCalc.Core.States
         }
         
         public IReadOnlyList<MahjongTile> GetTiles() => FullHand.ParsedHand.Tiles;
+
+        public IReadOnlyList<Group> GetGroups() => FullHand.ParsedHand.Groups;
     }
 }

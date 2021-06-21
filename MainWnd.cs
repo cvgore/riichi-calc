@@ -72,7 +72,7 @@ namespace RiichiCalc
 
                 if (fhs.FullHand.BigPoints == 0)
                 {
-                    _tableCtx.Hand.SetState(new InvalidFullHandState(_tableCtx.Hand.GetHandItems()));
+                    _tableCtx.Hand.SetState(new InvalidFullHandState(_tableCtx.Hand.GetHandTiles()));
 
                     return;
                 }
@@ -225,9 +225,60 @@ namespace RiichiCalc
             _tableCtx.BetYaku = value;
         }
 
-        private void ponStateCheckBtn_Click(object sender, EventArgs e)
+        private void ponStateCheckBtn_CheckedChanged(object sender, EventArgs e)
         {
-            _tableCtx.Hand.SetState(new PonReadyHandState(_tableCtx.Hand.GetHandItems()));
+            if (ponStateCheckBtn.Checked)
+            {
+                _tableCtx.Hand.SetState(
+                    new PonReadyHandState(_tableCtx.Hand.GetHandTiles(), _tableCtx.Hand.GetHandGroups())
+                );
+            }
+            else
+            {
+                _tableCtx.Hand.RestorePreviousState();
+            }
+        }
+
+        private void chiStateCheckBtn_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chiStateCheckBtn.Checked)
+            {
+                _tableCtx.Hand.SetState(
+                    new ChiReadyHandState(_tableCtx.Hand.GetHandTiles(), _tableCtx.Hand.GetHandGroups())
+                );
+            }
+            else
+            {
+                _tableCtx.Hand.RestorePreviousState();
+            }
+        }
+
+        private void kanStateCheckBtn_CheckedChanged(object sender, EventArgs e)
+        {
+            if (kanStateCheckBtn.Checked)
+            {
+                _tableCtx.Hand.SetState(
+                    new KanReadyHandState(_tableCtx.Hand.GetHandTiles(), _tableCtx.Hand.GetHandGroups())
+                );
+            }
+            else
+            {
+                _tableCtx.Hand.RestorePreviousState();
+            }
+        }
+
+        private void closedKanCheckBtn_CheckedChanged(object sender, EventArgs e)
+        {
+            if (closedKanCheckBtn.Checked)
+            {
+                _tableCtx.Hand.SetState(
+                    new ClosedKanReadyHandState(_tableCtx.Hand.GetHandTiles(), _tableCtx.Hand.GetHandGroups())
+                );
+            }
+            else
+            {
+                _tableCtx.Hand.RestorePreviousState();
+            }
         }
     }
 }

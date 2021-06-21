@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using RiichiCalc.Controls;
+using RiichiCalc.Core.Hand;
 using RiichiCalc.Tiles;
 
 namespace RiichiCalc.Core.States
@@ -12,23 +13,24 @@ namespace RiichiCalc.Core.States
         public event EventHandler<MahjongTile> TileAdded;
         public event EventHandler<int> TileRemoved;
         public event EventHandler<IHandState> StateChanged;
+        public IHandState State { get; private set; }
+        private IHandState? PrevState { get; set; }
 
-        private IHandState _currentState;
-
-        public HandContext(IHandState currentState)
+        public HandContext(IHandState state)
         {
-            _currentState = currentState;
+            State = state;
         }
 
         public void SetState(IHandState state)
         {
-            _currentState = state;
+            PrevState = State;
+            State = state;
             StateChanged?.Invoke(this, state);
         }
 
         public void AddTile(MahjongTile tile)
         {
-            if (_currentState.AddTile(this, tile))
+            if (State.AddTile(this, tile))
             {
                 TileAdded?.Invoke(null, tile);
             }
@@ -36,12 +38,22 @@ namespace RiichiCalc.Core.States
 
         public void RemoveTile(int tile)
         {
-            if (_currentState.RemoveTile(this, tile))
+            if (State.RemoveTile(this, tile))
             {
                 TileRemoved?.Invoke(null, tile);
             }
         }
 
-        public IReadOnlyList<MahjongTile> GetHandItems() => _currentState.GetTiles();
+        public void RestorePreviousState()
+        {
+            if (PrevState != null)
+            {
+                // Swap prev state with current state
+                (State, PrevState) = (PrevState, State);
+            }
+        }
+
+        public IReadOnlyList<MahjongTile> GetHandTiles() => State.GetTiles();
+        public IReadOnlyList<Group> GetHandGroups() => State.GetGroups();
     }
 }

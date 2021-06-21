@@ -26,7 +26,7 @@ namespace RiichiCalc.Core.Hand
                 Tiles = tiles.OrderBy(x => x).Where(x => skipTilesQueue.Count == 0 || x == skipTilesQueue.Dequeue())
                     .ToList();
 
-                IsOpened = Groups.Any(x => x.)
+                IsOpened = Groups.Any(x => x.Open);
             }
             else
             {

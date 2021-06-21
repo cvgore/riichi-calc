@@ -63,6 +63,7 @@ namespace RiichiCalc.Controls
             this.MinimumSize = new System.Drawing.Size(75, 25);
             this.Name = "CheckBtn";
             this.Size = new System.Drawing.Size(87, 36);
+            this.Load += new System.EventHandler(this.CheckBtn_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

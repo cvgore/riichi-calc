@@ -7,7 +7,7 @@ using RiichiCalc.Tiles;
 
 namespace RiichiCalc.Core.Hand
 {
-    class Group
+    public class Group
     {
         public MahjongTile FirstTile { get; }
 

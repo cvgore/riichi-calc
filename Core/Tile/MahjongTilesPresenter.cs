@@ -5,19 +5,19 @@ namespace RiichiCalc.Tiles
 {
     static class MahjongTilesPresenter
     {
-        private const uint PinzuMin = (uint)MahjongTile.Pinzu1;
-        private const uint PinzuMax = (uint)MahjongTile.Pinzu9;
+        public const uint PinzuMin = (uint)MahjongTile.Pinzu1;
+        public const uint PinzuMax = (uint)MahjongTile.Pinzu9;
 
-        private const uint SouzuMin = (uint)MahjongTile.Souzu1;
-        private const uint SouzuMax = (uint)MahjongTile.Souzu9;
+        public const uint SouzuMin = (uint)MahjongTile.Souzu1;
+        public const uint SouzuMax = (uint)MahjongTile.Souzu9;
 
-        private const uint ManzuMin = (uint)MahjongTile.Manzu1;
-        private const uint ManzuMax = (uint)MahjongTile.Manzu9;
+        public const uint ManzuMin = (uint)MahjongTile.Manzu1;
+        public const uint ManzuMax = (uint)MahjongTile.Manzu9;
 
-        private const uint HonorMin = (uint)MahjongTile.WindEast;
-        private const uint HonorMax = (uint)MahjongTile.DragonWhite;
+        public const uint HonorMin = (uint)MahjongTile.WindEast;
+        public const uint HonorMax = (uint)MahjongTile.DragonWhite;
 
-        private const uint SuitMaxTiles = 9;
+        public const uint SuitMaxTiles = 9;
 
         public static string GetWindName(this MahjongTile tile)
         {
