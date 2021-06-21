@@ -17,15 +17,19 @@ namespace RiichiCalc.Core.Hand
         public uint SmallPoints { get; private set; }
         public List<IPattern> MatchedPatterns { get; private set; }
 
-        public FullHand(IReadOnlyList<MahjongTile> tiles, IReadOnlyList<Group> preGroups)
+        private readonly List<Group> _preGroups;
+
+        public FullHand(IReadOnlyList<MahjongTile> tiles, IReadOnlyList<Group>? preGroups)
         {
             _tiles = tiles.ToList();
+            _preGroups = _preGroups = preGroups != null ? preGroups.ToList() : new();
+
             ParseHand();
         }
 
         private void ParseHand()
         {
-            ParsedHand = new(_tiles);
+            ParsedHand = new(_tiles, _preGroups);
         }
 
         public void Calculate(TableContext ctx)

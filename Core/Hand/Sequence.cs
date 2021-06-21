@@ -43,7 +43,7 @@ namespace RiichiCalc.Core.Hand
             new[] {MahjongTile.Pinzu7, MahjongTile.Pinzu8, MahjongTile.Pinzu9},
         };
 
-        public Sequence(IReadOnlyList<MahjongTile> tiles) : base(tiles)
+        public Sequence(IReadOnlyList<MahjongTile> tiles, bool open = false) : base(tiles, open)
         {
             if (tiles.Count != 3
                 || tiles.Any(x => x.IsHonor())

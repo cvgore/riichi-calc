@@ -12,10 +12,10 @@ namespace RiichiCalc.Core.States
 
         private readonly List<Group> _preGroups;
 
-        public FullHandState(IReadOnlyList<MahjongTile> collection, IReadOnlyList<Group>? preGroups)
+        public FullHandState(IReadOnlyList<MahjongTile> collection, IReadOnlyList<Group>? preGroups = null)
         {
-            FullHand = new FullHand(collection);
             _preGroups = preGroups != null ? preGroups.ToList() : new();
+            FullHand = new FullHand(collection, _preGroups);
         }
 
         public bool AddTile(HandContext ctx, MahjongTile tile)
@@ -27,11 +27,11 @@ namespace RiichiCalc.Core.States
         {
             FullHand.ParsedHand.Tiles.RemoveAt(index);
 
-            ctx.SetState(new SomeHandState(FullHand.ParsedHand.Tiles));
+            ctx.SetState(new SomeHandState(FullHand.ParsedHand.Tiles, _preGroups));
 
             return true;
         }
         
-        public IReadOnlyList<MahjongTile> GetItems() => FullHand.ParsedHand.Tiles;
+        public IReadOnlyList<MahjongTile> GetTiles() => FullHand.ParsedHand.Tiles;
     }
 }

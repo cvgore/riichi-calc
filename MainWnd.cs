@@ -103,6 +103,18 @@ namespace RiichiCalc
                 kanStateCheckBtn.Enabled = false;
                 closedKanCheckBtn.Enabled = false;
             }
+            else if (e is KanReadyHandState)
+            {
+                chiStateCheckBtn.Enabled = false;
+                ponStateCheckBtn.Enabled = false;
+                closedKanCheckBtn.Enabled = false;
+            }
+            else if (e is ClosedKanReadyHandState)
+            {
+                chiStateCheckBtn.Enabled = false;
+                ponStateCheckBtn.Enabled = false;
+                kanStateCheckBtn.Enabled = false;
+            }
         }
 
         private void statusBar_ItemClicked(object? sender, ToolStripItemClickedEventArgs e)
@@ -211,6 +223,11 @@ namespace RiichiCalc
             }
 
             _tableCtx.BetYaku = value;
+        }
+
+        private void ponStateCheckBtn_Click(object sender, EventArgs e)
+        {
+            _tableCtx.Hand.SetState(new PonReadyHandState(_tableCtx.Hand.GetHandItems()));
         }
     }
 }

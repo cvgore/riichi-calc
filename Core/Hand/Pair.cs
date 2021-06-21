@@ -9,7 +9,7 @@ namespace RiichiCalc.Core.Hand
 {
     class Pair : Group
     {
-        public Pair(IReadOnlyList<MahjongTile> tiles) : base(tiles)
+        public Pair(IReadOnlyList<MahjongTile> tiles) : base(tiles, false)
         {
             if (tiles.Count != 2 || tiles[0] != tiles[1])
             {

@@ -42,6 +42,6 @@ namespace RiichiCalc.Core.States
             }
         }
 
-        public IReadOnlyList<MahjongTile> GetHandItems() => _currentState.GetItems();
+        public IReadOnlyList<MahjongTile> GetHandItems() => _currentState.GetTiles();
     }
 }

@@ -11,15 +11,33 @@ namespace RiichiCalc.Core.Hand
         public MahjongTile LastTile { get; }
         public bool IsRegularCompleteHand { get; }
 
-        public ParsedHand(IReadOnlyList<MahjongTile> tiles)
+        public bool IsOpened { get; }
+
+        public ParsedHand(IReadOnlyList<MahjongTile> tiles, IReadOnlyList<Group>? preGroups)
         {
-            Groups = new List<Group>();
             LastTile = tiles.Last();
-            Tiles = tiles.OrderBy(x => x).ToList();
+
+            if (preGroups != null)
+            {
+                Queue<MahjongTile> skipTilesQueue =
+                    new(preGroups.SelectMany(x => x.Tiles).OrderBy(x => x));
+
+                Groups = preGroups.ToList();
+                Tiles = tiles.OrderBy(x => x).Where(x => skipTilesQueue.Count == 0 || x == skipTilesQueue.Dequeue())
+                    .ToList();
+
+                IsOpened = Groups.Any(x => x.)
+            }
+            else
+            {
+                Groups = new();
+                Tiles = tiles.OrderBy(x => x).ToList();
+            }
 
             ParseTiles();
 
-            IsRegularCompleteHand = Groups.Count(x => x is Sequence || x is Triple || x is Quadruple) == 4 && Groups.Any(x => x is Pair);
+            IsRegularCompleteHand = Groups.Count(x => x is Sequence || x is Triple || x is Quadruple) == 4
+                                    && Groups.Any(x => x is Pair);
         }
 
         private void ParseTiles()
@@ -36,7 +54,7 @@ namespace RiichiCalc.Core.Hand
                     // Definitely pair (out of range next index)
                     if (i + 2 > Tiles.Count)
                     {
-                        Groups.Add(new Pair(new[] { tileC, tileN }));
+                        Groups.Add(new Pair(new[] {tileC, tileN}));
                         i += 2;
                     }
                     // Got a triple/quadruple?
@@ -44,12 +62,12 @@ namespace RiichiCalc.Core.Hand
                     {
                         if (i + 3 > Tiles.Count && tileC == Tiles[i + 3])
                         {
-                            Groups.Add(new Quadruple(new[] { tileC, tileN, Tiles[i + 2], Tiles[i + 3] }));
+                            Groups.Add(new Quadruple(new[] {tileC, tileN, Tiles[i + 2], Tiles[i + 3]}));
                             i += 4;
                         }
                         else
                         {
-                            Groups.Add(new Triple(new[] { tileC, tileN, Tiles[i + 2] }));
+                            Groups.Add(new Triple(new[] {tileC, tileN, Tiles[i + 2]}));
                             i += 3;
                         }
                     }
@@ -57,7 +75,7 @@ namespace RiichiCalc.Core.Hand
                     else
                     {
                         i += 2;
-                        Groups.Add(new Pair(new[] { tileC, tileN }));
+                        Groups.Add(new Pair(new[] {tileC, tileN}));
                     }
                 }
                 // Definitely not pair or triple, maybe a sequence?
@@ -70,24 +88,27 @@ namespace RiichiCalc.Core.Hand
 
                         continue;
                     }
+
                     // Checking if both (current & next) tiles have same suit
-                    else if (tileC.GetSuit() != tileN.GetSuit())
+                    if (tileC.GetSuit() != tileN.GetSuit())
                     {
                         i += 1;
 
                         continue;
                     }
+
                     // Check if third index will be in bounds
-                    else if (i + 2 >= Tiles.Count)
+                    if (i + 2 >= Tiles.Count)
                     {
                         i += 1;
 
                         continue;
                     }
+
                     // Finally, check if valid
-                    else if (Sequence.IsValidSequence(new[] { tileC, tileN, Tiles[i + 2] }))
+                    if (Sequence.IsValidSequence(new[] {tileC, tileN, Tiles[i + 2]}))
                     {
-                        Groups.Add(new Sequence(new[] { tileC, tileN, Tiles[i + 2] }));
+                        Groups.Add(new Sequence(new[] {tileC, tileN, Tiles[i + 2]}));
                         i += 3;
 
                         continue;

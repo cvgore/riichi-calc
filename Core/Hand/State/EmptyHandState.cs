@@ -16,6 +16,6 @@ namespace RiichiCalc.Core.States
             return false;
         }
 
-        public IReadOnlyList<MahjongTile> GetItems() => new MahjongTile[]{};
+        public IReadOnlyList<MahjongTile> GetTiles() => new MahjongTile[]{};
     }
 }

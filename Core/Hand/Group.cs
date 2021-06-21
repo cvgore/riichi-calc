@@ -13,10 +13,13 @@ namespace RiichiCalc.Core.Hand
 
         public List<MahjongTile> Tiles { get; }
 
-        public Group(IReadOnlyList<MahjongTile> tiles)
+        public bool Open { get; }
+
+        public Group(IReadOnlyList<MahjongTile> tiles, bool open = false)
         {
             Tiles = tiles.ToList();
             FirstTile = Tiles.First();
+            Open = open;
         }
 
         public override bool Equals(object? obj)
@@ -29,11 +32,6 @@ namespace RiichiCalc.Core.Hand
             var grp = (Group) obj;
 
             return grp.Tiles.SequenceEqual(Tiles);
-        }
-
-        protected bool Equals(Group other)
-        {
-            return Tiles.SequenceEqual(other.Tiles);
         }
 
         public override int GetHashCode()

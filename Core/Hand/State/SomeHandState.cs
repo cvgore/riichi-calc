@@ -9,10 +9,10 @@ namespace RiichiCalc.Core.States
     class SomeHandState : IHandState
     {
         private readonly List<MahjongTile> _collection;
+
         private readonly List<Group> _preGroups;
 
-
-        public SomeHandState(IReadOnlyList<MahjongTile> collection, IReadOnlyList<Group>? preGroups)
+        public SomeHandState(IReadOnlyList<MahjongTile> collection, IReadOnlyList<Group>? preGroups = null)
         {
             _collection = collection.ToList();
             _preGroups = preGroups != null ? preGroups.ToList() : new();
@@ -48,6 +48,6 @@ namespace RiichiCalc.Core.States
             return true;
         }
 
-        public IReadOnlyList<MahjongTile> GetItems() => _collection;
+        public IReadOnlyList<MahjongTile> GetTiles() => _collection;
     }
 }

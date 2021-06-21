@@ -794,6 +794,7 @@ namespace RiichiCalc
             this.ponStateCheckBtn.Name = "ponStateCheckBtn";
             this.ponStateCheckBtn.Size = new System.Drawing.Size(105, 50);
             this.ponStateCheckBtn.TabIndex = 15;
+            this.ponStateCheckBtn.Click += new System.EventHandler(this.ponStateCheckBtn_Click);
             // 
             // chiStateCheckBtn
             // 
