@@ -12,7 +12,21 @@ namespace RiichiCalc.Core.States
 {
     public class HandContext
     {
-        public int MaxHandLen = 14;
+        private int _maxHandLen = 14;
+
+        public int MaxHandLen
+        {
+            get => _maxHandLen;
+            set
+            {
+                _maxHandLen = value switch
+                {
+                    < 14 => 14,
+                    > 18 => 18,
+                    _ => value
+                };
+            }
+        }
 
         public event EventHandler<MahjongTile> TileAdded;
         public event EventHandler<int> TileRemoved;
