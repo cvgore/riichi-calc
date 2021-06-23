@@ -36,17 +36,7 @@ namespace RiichiCalc.Core.States
         {
             if (State.AddTile(this, tile))
             {
-                if (State is IGroupingHandState s)
-                {
-                    foreach (var t in s.LastAddedGroup().Tiles)
-                    {
-                        TileAdded?.Invoke(null, t);
-                    }
-                }
-                else
-                {
-                    TileAdded?.Invoke(null, tile);
-                }
+                TileAdded?.Invoke(null, tile);
             }
         }
 

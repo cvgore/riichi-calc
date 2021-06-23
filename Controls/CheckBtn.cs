@@ -6,7 +6,8 @@ namespace RiichiCalc.Controls
 {
     public partial class CheckBtn : UserControl
     {
-        public bool Checked { get; set; }
+        private bool _checked;
+        public bool Checked { get => _checked; set => SetChecked(value); }
 
         public string Content
         {
@@ -22,10 +23,16 @@ namespace RiichiCalc.Controls
 
             btn.UseAccentColor = Checked;
         }
+        private void SetChecked(bool value)
+        {
+            _checked = value;
+            btn.UseAccentColor = value;
+        }
 
         private void btn_Click(object? sender, System.EventArgs e)
         {
-            Checked = btn.UseAccentColor = !Checked;
+            Checked = !Checked;
+
             CheckedChanged?.Invoke(null, EventArgs.Empty);
         }
 

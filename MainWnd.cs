@@ -19,6 +19,7 @@ namespace RiichiCalc
     {
         private readonly string _version;
         private TableContext _tableCtx;
+        private bool _updating = true;
 
         public MainWnd()
         {
@@ -50,6 +51,7 @@ namespace RiichiCalc
         private void Hand_StateChanged(object? sender, IHandState e)
         {
             deck.Enabled = true;
+
             ponStateCheckBtn.Enabled = true;
             chiStateCheckBtn.Enabled = true;
             kanStateCheckBtn.Enabled = true;
@@ -64,6 +66,7 @@ namespace RiichiCalc
                     Text = "Invalid hand composition"
                 });
                 summaryBox.EndUpdate();
+
                 deck.Enabled = false;
             }
             else if (e is FullHandState fhs)
@@ -114,6 +117,18 @@ namespace RiichiCalc
                 chiStateCheckBtn.Enabled = false;
                 ponStateCheckBtn.Enabled = false;
                 kanStateCheckBtn.Enabled = false;
+            }
+            else if (e is EmptyHandState || e is SomeHandState)
+            {
+                ponStateCheckBtn.Checked = false;
+                chiStateCheckBtn.Checked = false;
+                kanStateCheckBtn.Checked = false;
+                closedKanCheckBtn.Checked = false;
+
+                if (e is EmptyHandState)
+                {
+                    _tableCtx.Hand.MaxHandLen = 14; // Reset to default value
+                }
             }
         }
 
@@ -233,10 +248,6 @@ namespace RiichiCalc
                     new PonReadyHandState(_tableCtx.Hand.GetHandTiles(), _tableCtx.Hand.GetHandGroups())
                 );
             }
-            else
-            {
-                _tableCtx.Hand.RestorePreviousState();
-            }
         }
 
         private void chiStateCheckBtn_CheckedChanged(object sender, EventArgs e)
@@ -246,10 +257,6 @@ namespace RiichiCalc
                 _tableCtx.Hand.SetState(
                     new ChiReadyHandState(_tableCtx.Hand.GetHandTiles(), _tableCtx.Hand.GetHandGroups())
                 );
-            }
-            else
-            {
-                _tableCtx.Hand.RestorePreviousState();
             }
         }
 
@@ -261,10 +268,6 @@ namespace RiichiCalc
                     new KanReadyHandState(_tableCtx.Hand.GetHandTiles(), _tableCtx.Hand.GetHandGroups())
                 );
             }
-            else
-            {
-                _tableCtx.Hand.RestorePreviousState();
-            }
         }
 
         private void closedKanCheckBtn_CheckedChanged(object sender, EventArgs e)
@@ -275,7 +278,46 @@ namespace RiichiCalc
                     new ClosedKanReadyHandState(_tableCtx.Hand.GetHandTiles(), _tableCtx.Hand.GetHandGroups())
                 );
             }
-            else
+        }
+
+        public void BeginUpdate() => _updating = false;
+        public void EndUpdate() => _updating = true;
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            if (_updating)
+            {
+                base.OnPaint(e);
+            }
+        }
+
+        private void ponStateCheckBtn_Click(object sender, EventArgs e)
+        {
+            if (!ponStateCheckBtn.Checked)
+            {
+                _tableCtx.Hand.RestorePreviousState();
+            }
+        }
+
+        private void chiStateCheckBtn_Click(object sender, EventArgs e)
+        {
+            if (!chiStateCheckBtn.Checked)
+            {
+                _tableCtx.Hand.RestorePreviousState();
+            }
+        }
+
+        private void kanStateCheckBtn_Click(object sender, EventArgs e)
+        {
+            if (!kanStateCheckBtn.Checked)
+            {
+                _tableCtx.Hand.RestorePreviousState();
+            }
+        }
+
+        private void closedKanCheckBtn_Click(object sender, EventArgs e)
+        {
+            if (!closedKanCheckBtn.Checked)
             {
                 _tableCtx.Hand.RestorePreviousState();
             }

@@ -52,7 +52,7 @@ namespace RiichiCalc.Core.Hand
                 if (tileC == tileN)
                 {
                     // Definitely pair (out of range next index)
-                    if (i + 2 > Tiles.Count)
+                    if (i + 2 >= Tiles.Count)
                     {
                         Groups.Add(new Pair(new[] {tileC, tileN}, i));
                         i += 2;

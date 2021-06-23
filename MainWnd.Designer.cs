@@ -795,6 +795,7 @@ namespace RiichiCalc
             this.ponStateCheckBtn.Size = new System.Drawing.Size(105, 50);
             this.ponStateCheckBtn.TabIndex = 15;
             this.ponStateCheckBtn.CheckedChanged += new System.EventHandler(this.ponStateCheckBtn_CheckedChanged);
+            this.ponStateCheckBtn.Click += new System.EventHandler(this.ponStateCheckBtn_Click);
             // 
             // chiStateCheckBtn
             // 
@@ -809,6 +810,7 @@ namespace RiichiCalc
             this.chiStateCheckBtn.Size = new System.Drawing.Size(105, 50);
             this.chiStateCheckBtn.TabIndex = 16;
             this.chiStateCheckBtn.CheckedChanged += new System.EventHandler(this.chiStateCheckBtn_CheckedChanged);
+            this.chiStateCheckBtn.Click += new System.EventHandler(this.chiStateCheckBtn_Click);
             // 
             // kanStateCheckBtn
             // 
@@ -823,6 +825,7 @@ namespace RiichiCalc
             this.kanStateCheckBtn.Size = new System.Drawing.Size(105, 50);
             this.kanStateCheckBtn.TabIndex = 17;
             this.kanStateCheckBtn.CheckedChanged += new System.EventHandler(this.kanStateCheckBtn_CheckedChanged);
+            this.kanStateCheckBtn.Click += new System.EventHandler(this.kanStateCheckBtn_Click);
             // 
             // closedKanCheckBtn
             // 
@@ -837,6 +840,7 @@ namespace RiichiCalc
             this.closedKanCheckBtn.Size = new System.Drawing.Size(108, 50);
             this.closedKanCheckBtn.TabIndex = 18;
             this.closedKanCheckBtn.CheckedChanged += new System.EventHandler(this.closedKanCheckBtn_CheckedChanged);
+            this.closedKanCheckBtn.Click += new System.EventHandler(this.closedKanCheckBtn_Click);
             // 
             // tableLayoutPanel2
             // 
@@ -947,7 +951,6 @@ namespace RiichiCalc
             this.Controls.Add(tableLayoutPanel1);
             this.Controls.Add(materialDivider1);
             this.Controls.Add(this.deck);
-            this.DoubleBuffered = false;
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(720, 500);
             this.Name = "MainWnd";

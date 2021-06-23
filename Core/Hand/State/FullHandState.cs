@@ -25,8 +25,26 @@ namespace RiichiCalc.Core.States
 
         public bool RemoveTile(HandContext ctx, int index)
         {
-            FullHand.ParsedHand.Tiles.RemoveAt(index);
+            if (_preGroups.Any(x => x.StartIndex == index))
+            {
+                var grp = _preGroups.First(x => x.StartIndex == index);
 
+                foreach (var tile in grp.Tiles)
+                {
+                    FullHand.ParsedHand.Tiles.RemoveAt(FullHand.ParsedHand.Tiles.FindIndex(grp.StartIndex, x => x == tile));
+                    _preGroups.Remove(grp);
+                }
+
+                if (grp is Quadruple)
+                {
+                    ctx.MaxHandLen--;
+                }
+            }
+            else
+            {
+                FullHand.ParsedHand.Tiles.RemoveAt(index);
+            }
+            
             ctx.SetState(new SomeHandState(FullHand.ParsedHand.Tiles, _preGroups));
 
             return true;

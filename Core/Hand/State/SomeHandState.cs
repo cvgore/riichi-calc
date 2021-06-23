@@ -42,19 +42,22 @@ namespace RiichiCalc.Core.States
             {
                 var grp = _preGroups.First(x => x.StartIndex == index);
 
-                if (grp is not Sequence)
+                foreach (var tile in grp.Tiles)
                 {
-                    for (int i = 0; i < grp.Tiles.Count; i++)
-                    {
-                        _collection.RemoveAt(grp.StartIndex + i);
-                    }
+                    _collection.RemoveAt(_collection.FindIndex(grp.StartIndex, x => x == tile));
+                    _preGroups.Remove(grp);
                 }
-                else
-                {
 
+                if (grp is Quadruple)
+                {
+                    ctx.MaxHandLen--;
                 }
             }
-            _collection.RemoveAt(index);
+            else
+            {
+                _collection.RemoveAt(index);
+            }
+
 
             if (0 == _collection.Count)
             {

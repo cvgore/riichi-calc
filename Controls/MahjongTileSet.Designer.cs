@@ -45,6 +45,7 @@ namespace RiichiCalc.Controls
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tilesSet);
+            this.DoubleBuffered = true;
             this.Name = "MahjongTileSet";
             this.Size = new System.Drawing.Size(792, 60);
             this.ResumeLayout(false);
